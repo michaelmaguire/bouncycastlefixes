@@ -113,8 +113,6 @@ public class TlsProtocolHandler
 
     private static final byte[] emptybuf = new byte[0];
 
-    private static final String TLS_ERROR_MESSAGE = "Internal TLS error, this could be an attack";
-
     /*
     * Queues for data from some protocolls.
     */
@@ -756,7 +754,7 @@ public class TlsProtocolHandler
                 {
 
                 }
-                throw new IOException(TLS_ERROR_MESSAGE);
+                throw new IOException("TLS processAlert");
             }
             else
             {
@@ -918,7 +916,7 @@ public class TlsProtocolHandler
                 /*
                  * Something went terribly wrong, we should throw an IOException
                  */
-                throw new IOException(TLS_ERROR_MESSAGE);
+                throw new IOException("TLS readApplicationData");
             }
             if (this.closed)
             {
@@ -969,7 +967,7 @@ public class TlsProtocolHandler
     {
         if (this.failedWithError)
         {
-            throw new IOException(TLS_ERROR_MESSAGE);
+            throw new IOException("TLS writeData");
         }
         if (this.closed)
         {
@@ -1071,13 +1069,13 @@ public class TlsProtocolHandler
             rs.close();
             if (alertLevel == AL_fatal)
             {
-                throw new IOException(TLS_ERROR_MESSAGE);
+                throw new IOException("TLS failWithError");
             }
 
         }
         else
         {
-            throw new IOException(TLS_ERROR_MESSAGE);
+            throw new IOException("TLS failWithError");
         }
 
     }
