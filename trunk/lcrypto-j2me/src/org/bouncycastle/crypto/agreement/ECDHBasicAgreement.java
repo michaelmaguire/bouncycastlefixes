@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.agreement;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 import org.bouncycastle.math.ec.ECPoint;
 

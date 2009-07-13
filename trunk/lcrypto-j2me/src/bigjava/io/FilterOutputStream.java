@@ -1,4 +1,7 @@
-package java.io;
+package bigjava.io;
+
+import java.io.IOException;
+import java.io.OutputStream;
 
 public class FilterOutputStream extends OutputStream
 {

@@ -1,6 +1,6 @@
 package org.bouncycastle.asn1.oiw;
 
-import java.math.*;
+import bigjava.math.*;
 import java.util.*;
 
 import org.bouncycastle.asn1.*;

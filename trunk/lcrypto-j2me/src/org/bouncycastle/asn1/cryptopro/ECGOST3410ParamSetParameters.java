@@ -1,6 +1,6 @@
 package org.bouncycastle.asn1.cryptopro;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 import java.util.Enumeration;
 
 import org.bouncycastle.asn1.ASN1Encodable;

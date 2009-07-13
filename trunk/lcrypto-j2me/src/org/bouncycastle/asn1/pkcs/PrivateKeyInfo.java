@@ -1,7 +1,7 @@
 package org.bouncycastle.asn1.pkcs;
 
 import java.io.IOException;
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 import java.util.Enumeration;
 
 import org.bouncycastle.asn1.ASN1Encodable;

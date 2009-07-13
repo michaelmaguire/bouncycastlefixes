@@ -5,7 +5,7 @@ import org.bouncycastle.math.ec.ECCurve;
 import org.bouncycastle.util.Strings;
 import org.bouncycastle.util.encoders.Hex;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 import java.util.Enumeration;
 import java.util.Hashtable;
 

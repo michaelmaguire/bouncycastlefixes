@@ -1,11 +1,11 @@
 package org.bouncycastle.crypto.tls;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.KeyParameter;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
 /**
  * A generic TLS MAC implementation, which can be used with any kind of

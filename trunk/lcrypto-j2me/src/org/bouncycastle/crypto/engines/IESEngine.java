@@ -11,7 +11,7 @@ import org.bouncycastle.crypto.params.IESWithCipherParameters;
 import org.bouncycastle.crypto.params.KDFParameters;
 import org.bouncycastle.crypto.params.KeyParameter;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 /**
  * support class for constructing intergrated encryption ciphers

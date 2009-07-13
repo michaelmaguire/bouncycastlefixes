@@ -1,7 +1,7 @@
 package org.bouncycastle.crypto.test;
 
 import java.io.ByteArrayInputStream;
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.ASN1Sequence;

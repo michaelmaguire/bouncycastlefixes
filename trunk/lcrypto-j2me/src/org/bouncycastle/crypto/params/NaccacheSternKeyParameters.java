@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.params;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 /**
  * Public key parameters for NaccacheStern cipher. For details on this cipher,

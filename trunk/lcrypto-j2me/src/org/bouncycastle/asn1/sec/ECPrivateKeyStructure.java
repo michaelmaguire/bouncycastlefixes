@@ -13,7 +13,7 @@ import org.bouncycastle.asn1.DERObject;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERSequence;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 import java.util.Enumeration;
 
 /**

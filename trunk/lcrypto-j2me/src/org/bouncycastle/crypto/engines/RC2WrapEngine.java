@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.engines;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.Digest;

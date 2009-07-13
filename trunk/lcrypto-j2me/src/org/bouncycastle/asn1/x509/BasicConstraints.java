@@ -9,7 +9,7 @@ import org.bouncycastle.asn1.DERInteger;
 import org.bouncycastle.asn1.DERObject;
 import org.bouncycastle.asn1.DERSequence;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 public class BasicConstraints
     extends ASN1Encodable

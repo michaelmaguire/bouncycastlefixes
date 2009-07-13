@@ -1,6 +1,6 @@
 package org.bouncycastle.asn1;
 
-import java.io.FilterOutputStream;
+import bigjava.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 

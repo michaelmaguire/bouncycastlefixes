@@ -1,7 +1,7 @@
 package org.bouncycastle.asn1;
 
 import java.io.IOException;
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 public class DEREnumerated
     extends ASN1Object

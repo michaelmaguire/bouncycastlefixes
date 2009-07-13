@@ -12,7 +12,7 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 class DESParityTest
     extends SimpleTest

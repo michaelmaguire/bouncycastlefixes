@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.test;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 import org.bouncycastle.crypto.engines.DESEngine;
 import org.bouncycastle.crypto.paddings.BlockCipherPadding;

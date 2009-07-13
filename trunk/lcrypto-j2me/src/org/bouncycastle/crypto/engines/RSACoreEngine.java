@@ -1,12 +1,14 @@
 package org.bouncycastle.crypto.engines;
 
+
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.DataLengthException;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
+
 
 /**
  * this does your basic RSA algorithm.
