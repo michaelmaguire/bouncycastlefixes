@@ -1,12 +1,12 @@
 package org.bouncycastle.crypto.tls;
 
+import java.io.IOException;
+import java.io.OutputStream;
+
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.engines.AESFastEngine;
 import org.bouncycastle.crypto.engines.DESedeEngine;
 import org.bouncycastle.crypto.modes.CBCBlockCipher;
-
-import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * A manager for ciphersuite. This class does manage all ciphersuites

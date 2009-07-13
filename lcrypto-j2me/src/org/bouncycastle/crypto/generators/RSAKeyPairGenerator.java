@@ -7,7 +7,7 @@ import org.bouncycastle.crypto.params.RSAKeyGenerationParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 /**
  * an RSA key pair generator.

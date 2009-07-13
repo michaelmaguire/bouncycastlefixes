@@ -8,8 +8,8 @@ import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import bigjava.math.BigInteger;
+import bigjava.security.SecureRandom;
 
 /**
  * this does your basic ElGamal algorithm.

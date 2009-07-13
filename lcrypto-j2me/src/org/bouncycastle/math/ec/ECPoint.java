@@ -2,7 +2,7 @@ package org.bouncycastle.math.ec;
 
 import org.bouncycastle.asn1.x9.X9IntegerConverter;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 /**
  * base class for points on elliptic curves.

@@ -1,11 +1,11 @@
 package org.bouncycastle.crypto.tls;
 
+import java.io.IOException;
+
 import org.bouncycastle.crypto.BlockCipher;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.params.ParametersWithIV;
-
-import java.io.IOException;
 
 /**
  * A generic TLS 1.0 block cipher suite. This can be used for AES or 3DES for

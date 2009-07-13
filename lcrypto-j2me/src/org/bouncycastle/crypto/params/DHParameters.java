@@ -2,7 +2,7 @@ package org.bouncycastle.crypto.params;
 
 import org.bouncycastle.crypto.CipherParameters;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 public class DHParameters
     implements CipherParameters

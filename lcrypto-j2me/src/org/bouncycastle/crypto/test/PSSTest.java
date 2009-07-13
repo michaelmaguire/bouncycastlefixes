@@ -9,8 +9,8 @@ import org.bouncycastle.crypto.signers.PSSSigner;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import bigjava.math.BigInteger;
+import bigjava.security.SecureRandom;
 
 /*
  * RSA PSS test vectors for PKCS#1 V2.1

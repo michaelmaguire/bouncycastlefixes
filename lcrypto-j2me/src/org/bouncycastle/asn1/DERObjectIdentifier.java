@@ -3,7 +3,7 @@ package org.bouncycastle.asn1;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 public class DERObjectIdentifier
     extends ASN1Object

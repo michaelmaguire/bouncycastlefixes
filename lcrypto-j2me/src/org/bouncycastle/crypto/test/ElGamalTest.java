@@ -12,8 +12,8 @@ import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.util.test.SimpleTest;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import bigjava.math.BigInteger;
+import bigjava.security.SecureRandom;
 
 public class ElGamalTest
     extends SimpleTest

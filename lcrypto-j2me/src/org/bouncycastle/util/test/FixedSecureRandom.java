@@ -2,7 +2,7 @@ package org.bouncycastle.util.test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 public class FixedSecureRandom
     extends SecureRandom

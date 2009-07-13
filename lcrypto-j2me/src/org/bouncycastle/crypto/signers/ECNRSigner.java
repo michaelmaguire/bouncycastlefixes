@@ -13,8 +13,8 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.math.ec.ECConstants;
 import org.bouncycastle.math.ec.ECPoint;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import bigjava.math.BigInteger;
+import bigjava.security.SecureRandom;
 
 /**
  * EC-NR as described in IEEE 1363-2000

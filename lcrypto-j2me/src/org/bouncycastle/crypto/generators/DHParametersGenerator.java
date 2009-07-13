@@ -2,8 +2,8 @@ package org.bouncycastle.crypto.generators;
 
 import org.bouncycastle.crypto.params.DHParameters;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import bigjava.math.BigInteger;
+import bigjava.security.SecureRandom;
 
 public class DHParametersGenerator
 {

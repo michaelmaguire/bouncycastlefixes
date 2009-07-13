@@ -13,7 +13,7 @@ import org.bouncycastle.crypto.signers.ISO9796d2Signer;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 /**
  * test vectors from ISO 9796-1 and ISO 9796-2 edition 1.

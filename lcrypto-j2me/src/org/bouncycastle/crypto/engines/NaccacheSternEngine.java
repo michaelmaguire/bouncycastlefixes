@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.engines;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 import java.util.Vector;
 import org.bouncycastle.util.Arrays;
 

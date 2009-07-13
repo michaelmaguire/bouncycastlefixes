@@ -10,7 +10,7 @@ import org.bouncycastle.asn1.DERSequence;
 import org.bouncycastle.math.ec.ECCurve;
 import org.bouncycastle.math.ec.ECPoint;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 /**
  * ASN.1 def for Elliptic-Curve ECParameters structure. See

@@ -13,7 +13,7 @@ import org.bouncycastle.asn1.DERTaggedObject;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.crypto.digests.SHA1Digest;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 import java.util.Enumeration;
 
 /**

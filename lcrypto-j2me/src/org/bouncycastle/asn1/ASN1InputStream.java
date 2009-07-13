@@ -3,7 +3,7 @@ package org.bouncycastle.asn1;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.EOFException;
-import java.io.FilterInputStream;
+import bigjava.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Vector;

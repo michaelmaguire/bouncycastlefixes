@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.signers;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 import org.bouncycastle.crypto.AsymmetricBlockCipher;
 import org.bouncycastle.crypto.CipherParameters;

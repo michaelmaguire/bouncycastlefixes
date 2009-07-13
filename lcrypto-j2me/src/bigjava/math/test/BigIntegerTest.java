@@ -1,8 +1,8 @@
-package java.math.test;
+package bigjava.math.test;
 
 import java.math.BigInteger;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 import org.bouncycastle.util.test.*;
 
 

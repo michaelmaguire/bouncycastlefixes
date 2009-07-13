@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 /**
  * interface for classes implementing algorithms modeled similar to the Digital Signature Alorithm.

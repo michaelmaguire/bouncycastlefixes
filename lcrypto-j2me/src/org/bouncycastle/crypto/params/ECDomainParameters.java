@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto.params;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 import org.bouncycastle.math.ec.ECConstants;
 import org.bouncycastle.math.ec.ECCurve;

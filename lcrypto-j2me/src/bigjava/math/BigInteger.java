@@ -1,4 +1,4 @@
-package java.math;
+package bigjava.math;
 
 import java.util.Random;
 import java.util.Stack;
@@ -335,9 +335,9 @@ public class BigInteger
         int numGot = 0, 
         r = 0;
 
-        if (rnd instanceof java.security.SecureRandom)
+        if (rnd instanceof bigjava.security.SecureRandom)
         {
-            ((java.security.SecureRandom)rnd).nextBytes(bytes);
+            ((bigjava.security.SecureRandom)rnd).nextBytes(bytes);
         }
         else
         {

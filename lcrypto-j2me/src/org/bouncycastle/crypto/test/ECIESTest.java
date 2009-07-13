@@ -19,7 +19,7 @@ import org.bouncycastle.math.ec.ECCurve;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 /**
  * test for ECIES - Elliptic Curve Integrated Encryption Scheme
