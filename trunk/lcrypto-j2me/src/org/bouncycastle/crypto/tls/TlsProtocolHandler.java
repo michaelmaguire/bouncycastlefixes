@@ -954,6 +954,41 @@ public class TlsProtocolHandler
     }
 
     /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 02 Mar 2007
+     * 
+     * Added a method to return available bytes in the data stream.
+     */
+    protected int availableData() throws IOException 
+    {
+    	// the data can be either read and queued in the applicationDataQueue or
+    	// it can be available to read in the record store
+    	int appDataSize = applicationDataQueue.size();
+    	if (appDataSize > 0)
+    	{
+    		return appDataSize;
+    	}
+    	
+        if (this.failedWithError)
+        {
+            /*
+             * Something went terribly wrong, we should throw an IOException
+             */
+            throw new IOException("TLS availableData: Exception occured, no data available");
+        }
+                
+        if (this.closed)
+        {
+            /*
+             * Connection has been closed, there is no more data to read.
+             */
+            return -1;
+        }
+        
+        // return the amount of data avialable in the underlying saw socket
+    	return rs.available();
+    }
+    
+    /**
      * Send some application data to the remote system.
      * <p/>
      * The method will handle fragmentation internally.

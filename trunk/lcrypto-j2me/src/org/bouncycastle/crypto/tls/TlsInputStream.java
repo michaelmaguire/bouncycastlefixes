@@ -38,4 +38,20 @@ public class TlsInputStream
     {
         handler.close();
     }
+
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 02 Mar 2007
+     * 
+     * Added a method to return available bytes in the data stream.
+     */
+	public int available() throws IOException {
+		
+		try {
+			return this.handler.availableData();
+		} catch (Exception e) {			
+			e.printStackTrace();
+			throw new IOException();
+		}
+		
+	}
 }
