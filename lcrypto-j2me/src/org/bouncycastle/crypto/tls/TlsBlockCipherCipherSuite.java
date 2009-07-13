@@ -112,34 +112,48 @@ public class TlsBlockCipherCipherSuite extends TlsCipherSuite
 
         /*
         * Decrypt all the ciphertext using the blockcipher
-        */
+        */        
         for (int i = 0; i < len; i += blocksize)
         {
             decryptCipher.processBlock(ciphertext, i + offset, ciphertext, i
                 + offset);
         }
-
+        
         /*
-        * Check if padding is correct
+		* Check if padding is correct. 
+		*
+        * Blue Whale Systems fix -- Tatiana Rybak -- 01 Mar 2007
+        *
+        * Legal values range from zero to 255, inclusive. Since we are reading 
+        * a signed byte in, the values can be negative and we need to adjust the value to 
+        * be positive.
         */
-        int paddingsize = ciphertext[offset + len - 1];
-        if (offset + len - 1 - paddingsize < 0)
+        int sPaddingsize = ciphertext[offset + len - 1];
+      	int uPaddingSize = sPaddingsize & 0xFF;
+        
+        if (offset + len - 1 - uPaddingSize < 0)
         {
             /*
              * This would lead to an negativ array index, so this padding
              * must be incorrect!
              */
             decrypterror = true;
-            paddingsize = 0;
+            sPaddingsize = 0;
+            uPaddingSize = 0;
         }
         else
         {
             /*
              * Now, check all the padding-bytes.
+			 *
+	         * Blue Whale Systems fix -- Tatiana Rybak -- 01 Mar 2007
+    	     *
+             * Make sure that we compare against the original value for the padding
+             * Since if the value has been changed, the comparison would result in an error.
              */
-            for (int i = 0; i <= paddingsize; i++)
+            for (int i = 0; i <= uPaddingSize; i++)
             {
-                if (ciphertext[offset + len - 1 - i] != paddingsize)
+                if (ciphertext[offset + len - 1 - i] != sPaddingsize)
                 {
                     /* Wrong padding */
                     decrypterror = true;
@@ -152,8 +166,8 @@ public class TlsBlockCipherCipherSuite extends TlsCipherSuite
         * we will calculate the mac to give an attacker no kind of timing
         * profile he can use to find out if mac verification failed or
         * padding verification failed.
-        */
-        int plaintextlength = len - readMac.getSize() - paddingsize - 1;
+        */      
+        int plaintextlength = len - readMac.getSize() - uPaddingSize - 1;
         byte[] calculatedMac = readMac.calculateMac(type, ciphertext, offset,
             plaintextlength);
 
@@ -176,7 +190,8 @@ public class TlsBlockCipherCipherSuite extends TlsCipherSuite
             handler.failWithError(TlsProtocolHandler.AL_fatal,
                 TlsProtocolHandler.AP_bad_record_mac);
         }
-        byte[] plaintext = new byte[plaintextlength];
+        
+        byte[] plaintext = new byte[plaintextlength];                   
         System.arraycopy(ciphertext, offset, plaintext, 0, plaintextlength);
         return plaintext;
 
