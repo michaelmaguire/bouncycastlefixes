@@ -95,5 +95,14 @@ public class RecordStream
     {
         os.flush();
     }
+    
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 02 Mar 2007
+     * 
+     * Added a method to return available bytes in the data stream.
+     */
+    protected int available() throws IOException {
+    	return is.available();
+    }
 
 }
