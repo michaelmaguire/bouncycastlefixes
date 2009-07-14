@@ -10,8 +10,8 @@ public class TlsInputStream
     extends InputStream
 {
     private TlsProtocolHandler handler = null;
-    
-    protected TlsInputStream (TlsProtocolHandler handler)
+
+    protected TlsInputStream( TlsProtocolHandler handler )
     {
         this.handler = handler;
     }
@@ -19,20 +19,26 @@ public class TlsInputStream
     public int read(byte[] buf, int offset, int len)
         throws IOException
     {
-        return this.handler.readApplicationData(buf, offset, len);
+        return this.handler.readApplicationData( buf, offset, len );
     }
-    
+
     public int read()
         throws IOException
     {
         byte[] buf = new byte[1];
-        if (this.read(buf) < 0)
+        if( this.read( buf ) < 0 )
         {
             return -1;
         }
-        return buf[0];
+
+        /**
+         * BlueWhaleSystems fix: Michael Maguire - 23 Apr 2008
+         *
+         * Properly promote signed byte to int.
+         */
+        return 0xFF & buf[0];
     }
-    
+
     public void close()
         throws IOException
     {
@@ -57,13 +63,13 @@ public class TlsInputStream
      * Added a method to return available bytes in the data stream.
      */
 	public int available() throws IOException {
-		
+
 		try {
-			return this.handler.availableData();
+            return this.handler.availableData();
 		} catch (Exception e) {			
-			e.printStackTrace();
-			throw new IOException();
-		}
-		
-	}
+            e.printStackTrace();
+            throw new IOException();
+        }
+
+    }
 }
