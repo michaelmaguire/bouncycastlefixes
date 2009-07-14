@@ -13,71 +13,94 @@ public class TlsOuputStream extends OutputStream
      * 
      * Added buffering to TLSOutputStream
      */
-    private static final int   GROW_SIZE = 256;
-    private static final int   NEW_SIZE  = 1024;
-    private byte[]             bufferedData;
-    private int                size;
+    private static final int   DEFAULT_BUFFER_SIZE = 32768; // 32KB
+
+    private final byte[]       bufferedData;
     private int                position;
 
     private TlsProtocolHandler handler;
+
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 07 Jan 2009
+     *  
+     * For testing only.
+     *  
+     **/
+    public TlsOuputStream( TlsProtocolHandler handler, int size )
+    {
+        this.handler = handler;
+
+        position = 0;
+        bufferedData = new byte[size];
+    }
 
     protected TlsOuputStream( TlsProtocolHandler handler )
     {
         this.handler = handler;
 
         /**
-         * BlueWhaleSystems fix: Tatiana Rybak - 02 July 2007
-         * 
-         * Added buffering to TLSOutputStream
+         * BlueWhaleSystems fix: Tatiana Rybak - 07 Jan 2009
          */
-        size = GROW_SIZE;
         position = 0;
-        this.bufferedData = new byte[NEW_SIZE];
+        bufferedData = new byte[DEFAULT_BUFFER_SIZE];
     }
 
     public void write( byte buf[], int offset, int len ) throws IOException
     {
-        // DO NOT write the data immediately! TLS will encode the data and send it right away.
-        // For 1 byte of data it would send 37 bytes. Instead, accumulate until there is a flush call.
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 07 Jan 2009
+         * 
+         * 
+         * The original code simply wrote the data out without any buffering in place. In the extreme case of
+         * data length being 1 (a single byte being written out) the actual amount of data sent was 38 bytes,
+         * i.e., there were 37 bytes added as a wrapper by the TLS logic.
+         *
+         * tickets: 572 BouncyCastle does not use buffering for outgoing data.
+         * ticket:  2815 Client attachments: Attempting to send a message with an added attachment freezes 
+         * UI for a long time (and doesn't appear to have sent anything).
+         *
+         * So, instead we have a 32 kb buffer that is written out conditionally. If the amount of data passed
+         * in to this function exceeds the buffer size it is all written out immediately. If it fits in the
+         * buffer is it cached until the next flush (or possibly write) operation.
+         */
+
         // Original code:
         // this.handler.writeData(buf, offset, len);
-
-        /**
-         * BlueWhaleSystems fix: Tatiana Rybak - 02 July 2007
-         * 
-         * Added buffering to TLSOutputStream
-         */
-        // check that we have enough room to write out the data
-        int available = size - position;
+        int available = bufferedData.length - position;
         if( available < len )
         {
-            int growBy = Math.max( len, GROW_SIZE );
-            byte[] newArray = new byte[size + growBy];
-            System.arraycopy( bufferedData, 0, newArray, 0, position );
-            bufferedData = newArray;
-            size += growBy;
+            flush();
+
+            if( bufferedData.length < len )
+            {
+                handler.writeData( buf, offset, len );
+            }
+            else
+            {
+                System.arraycopy( buf, offset, bufferedData, position, len );
+                position += len;
+            }
         }
-
-        System.arraycopy( buf, 0, bufferedData, position, len );
-        position += len;
-
+        else
+        {
+            System.arraycopy( buf, offset, bufferedData, position, len );
+            position += len;
+        }
     }
 
     public void write( int arg0 ) throws IOException
     {
         /**
-         * BlueWhaleSystems fix: Tatiana Rybak - 02 July 2007
+         * BlueWhaleSystems fix: Tatiana Rybak - 07 Jan 2009
          * 
-         * Added buffering to TLSOutputStream
+         * See comments above in void write( byte buf[], int offset, int len ) throws IOException
          */
-        // if there is no more room, grow the buffer 
-        if( size == position )
+
+        if( bufferedData.length == position )
         {
-            byte[] newArray = new byte[size + GROW_SIZE];
-            System.arraycopy( bufferedData, 0, newArray, 0, position );
-            bufferedData = newArray;
-            size += GROW_SIZE;
+            flush();
         }
+
         bufferedData[position] = (byte) arg0;
         position++;
 
@@ -112,17 +135,12 @@ public class TlsOuputStream extends OutputStream
     public void flush() throws IOException
     {
         /**
-         * BlueWhaleSystems fix: Tatiana Rybak - 02 July 2007
+         * BlueWhaleSystems fix: Tatiana Rybak - 07 Jan 2009
          * 
-         * Added buffering to TLSOutputStream
+         * See comments above in void write( byte buf[], int offset, int len ) throws IOException
          */
-        // write out the data we have accumulated so far
-        this.handler.writeData( bufferedData, 0, position );
+        handler.writeData( bufferedData, 0, position );
         handler.flush();
-
-        // reset the buffer
-        size = NEW_SIZE;
         position = 0;
-        this.bufferedData = new byte[size];
     }
 }
