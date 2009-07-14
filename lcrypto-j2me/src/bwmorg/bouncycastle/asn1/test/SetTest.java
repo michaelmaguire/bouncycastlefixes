@@ -1,19 +1,19 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.BERSet;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERBoolean;
-import org.bouncycastle.asn1.DERInteger;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.util.test.SimpleTestResult;
-import org.bouncycastle.util.test.Test;
-import org.bouncycastle.util.test.TestResult;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.ASN1Set;
+import bwmorg.bouncycastle.asn1.ASN1TaggedObject;
+import bwmorg.bouncycastle.asn1.BERSet;
+import bwmorg.bouncycastle.asn1.DERBitString;
+import bwmorg.bouncycastle.asn1.DERBoolean;
+import bwmorg.bouncycastle.asn1.DERInteger;
+import bwmorg.bouncycastle.asn1.DEROctetString;
+import bwmorg.bouncycastle.asn1.DERSequence;
+import bwmorg.bouncycastle.asn1.DERSet;
+import bwmorg.bouncycastle.asn1.DERTaggedObject;
+import bwmorg.bouncycastle.util.test.SimpleTestResult;
+import bwmorg.bouncycastle.util.test.Test;
+import bwmorg.bouncycastle.util.test.TestResult;
 
 /**
  * Set sorting test example

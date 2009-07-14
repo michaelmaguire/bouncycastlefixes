@@ -1,8 +1,8 @@
-package org.bouncycastle.crypto.generators;
+package bwmorg.bouncycastle.crypto.generators;
 
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.params.DSAParameters;
-import org.bouncycastle.crypto.params.DSAValidationParameters;
+import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
+import bwmorg.bouncycastle.crypto.params.DSAParameters;
+import bwmorg.bouncycastle.crypto.params.DSAValidationParameters;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;

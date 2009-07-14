@@ -1,4 +1,4 @@
-package org.bouncycastle.asn1.cmp;
+package bwmorg.bouncycastle.asn1.cmp;
 
 public interface PKIStatus
 {

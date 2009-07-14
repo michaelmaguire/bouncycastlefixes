@@ -1,15 +1,15 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.engines.GOST28147Engine;
-import org.bouncycastle.crypto.macs.GOST28147Mac;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithSBox;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTestResult;
-import org.bouncycastle.util.test.Test;
-import org.bouncycastle.util.test.TestResult;
+import bwmorg.bouncycastle.crypto.Mac;
+import bwmorg.bouncycastle.crypto.engines.GOST28147Engine;
+import bwmorg.bouncycastle.crypto.macs.GOST28147Mac;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithSBox;
+import bwmorg.bouncycastle.util.Arrays;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTestResult;
+import bwmorg.bouncycastle.util.test.Test;
+import bwmorg.bouncycastle.util.test.TestResult;
 
 /**
  * GOST 28147 MAC tester 

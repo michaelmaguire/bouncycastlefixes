@@ -1,13 +1,13 @@
-package org.bouncycastle.asn1.cms;
+package bwmorg.bouncycastle.asn1.cms;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.DEREncodableVector;
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.ASN1Set;
+import bwmorg.bouncycastle.asn1.DEREncodableVector;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 public class AttributeTable
 {

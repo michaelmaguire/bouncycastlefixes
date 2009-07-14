@@ -1,15 +1,15 @@
 
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERBMPString;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.asn1.DERVisibleString;
-import org.bouncycastle.asn1.DERString;
+import bwmorg.bouncycastle.asn1.ASN1Choice;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.ASN1TaggedObject;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERBMPString;
+import bwmorg.bouncycastle.asn1.DERIA5String;
+import bwmorg.bouncycastle.asn1.DERUTF8String;
+import bwmorg.bouncycastle.asn1.DERVisibleString;
+import bwmorg.bouncycastle.asn1.DERString;
 
 /**
  * <code>DisplayText</code> class, used in

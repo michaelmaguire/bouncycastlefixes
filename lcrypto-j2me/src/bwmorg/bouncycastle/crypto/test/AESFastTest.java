@@ -1,11 +1,11 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.engines.AESFastEngine;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.engines.AESFastEngine;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithIV;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * Test vectors from the NIST standard tests and Brian Gladman's vector set

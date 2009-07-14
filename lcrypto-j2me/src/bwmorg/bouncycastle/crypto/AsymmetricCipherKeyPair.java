@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto;
+package bwmorg.bouncycastle.crypto;
 
 /**
  * a holding class for public/private parameter pairs.

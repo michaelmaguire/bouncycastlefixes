@@ -1,13 +1,13 @@
-package org.bouncycastle.asn1.ocsp;
+package bwmorg.bouncycastle.asn1.ocsp;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.DEREnumerated;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.ASN1TaggedObject;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.DEREnumerated;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERSequence;
+import bwmorg.bouncycastle.asn1.DERTaggedObject;
 
 public class OCSPResponse
     extends ASN1Encodable

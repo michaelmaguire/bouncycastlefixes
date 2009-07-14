@@ -1,4 +1,4 @@
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
 /**
  * class for breaking up an X500 Name into it's component tokens, ala

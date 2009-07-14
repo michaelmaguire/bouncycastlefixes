@@ -1,4 +1,4 @@
-package org.bouncycastle.asn1;
+package bwmorg.bouncycastle.asn1;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -57,7 +57,7 @@ public class DERApplicationSpecific
     }
     
     /* (non-Javadoc)
-     * @see org.bouncycastle.asn1.DERObject#encode(org.bouncycastle.asn1.DEROutputStream)
+     * @see bwmorg.bouncycastle.asn1.DERObject#encode(org.bouncycastle.asn1.DEROutputStream)
      */
     void encode(DEROutputStream out) throws IOException
     {

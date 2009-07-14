@@ -1,6 +1,6 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
-import org.bouncycastle.asn1.x509.X509CertificateStructure;
+import bwmorg.bouncycastle.asn1.x509.X509CertificateStructure;
 
 /**
  * A certificate verifyer, that will always return true.
@@ -14,7 +14,7 @@ public class AlwaysValidVerifyer implements CertificateVerifyer
     /**
      * Return true.
      *
-     * @see org.bouncycastle.crypto.tls.CertificateVerifyer#isValid(org.bouncycastle.asn1.x509.X509CertificateStructure[])
+     * @see bwmorg.bouncycastle.crypto.tls.CertificateVerifyer#isValid(org.bouncycastle.asn1.x509.X509CertificateStructure[])
      */
     public boolean isValid(X509CertificateStructure[] certs)
     {

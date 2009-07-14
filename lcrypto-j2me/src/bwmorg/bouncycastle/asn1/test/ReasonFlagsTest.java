@@ -1,9 +1,9 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
 import java.io.IOException;
 
-import org.bouncycastle.asn1.x509.ReasonFlags;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.asn1.x509.ReasonFlags;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 public class ReasonFlagsTest
     extends SimpleTest

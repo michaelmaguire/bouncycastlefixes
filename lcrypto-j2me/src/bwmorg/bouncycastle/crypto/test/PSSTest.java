@@ -1,13 +1,13 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.engines.RSAEngine;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
-import org.bouncycastle.crypto.signers.PSSSigner;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
+import bwmorg.bouncycastle.crypto.engines.RSAEngine;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.params.RSAKeyParameters;
+import bwmorg.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
+import bwmorg.bouncycastle.crypto.signers.PSSSigner;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;

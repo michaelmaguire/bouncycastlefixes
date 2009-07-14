@@ -1,16 +1,16 @@
-package org.bouncycastle.crypto.signers;
+package bwmorg.bouncycastle.crypto.signers;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DSA;
-import org.bouncycastle.crypto.params.ECKeyParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECPoint;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DSA;
+import bwmorg.bouncycastle.crypto.params.ECKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ECPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ECPublicKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.math.ec.ECConstants;
+import bwmorg.bouncycastle.math.ec.ECPoint;
 
 /**
  * EC-DSA as described in X9.62

@@ -1,8 +1,8 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.digests.MD5Digest;
-import org.bouncycastle.crypto.digests.SHA1Digest;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.digests.MD5Digest;
+import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
 
 /**
  * A combined hash, which implements md5(m) || sha1(m).
@@ -13,7 +13,7 @@ public class CombinedHash implements Digest
     private Digest sha1 = new SHA1Digest();
 
     /**
-     * @see org.bouncycastle.crypto.Digest#getAlgorithmName()
+     * @see bwmorg.bouncycastle.crypto.Digest#getAlgorithmName()
      */
     public String getAlgorithmName()
     {
@@ -21,7 +21,7 @@ public class CombinedHash implements Digest
     }
 
     /**
-     * @see org.bouncycastle.crypto.Digest#getDigestSize()
+     * @see bwmorg.bouncycastle.crypto.Digest#getDigestSize()
      */
     public int getDigestSize()
     {
@@ -29,7 +29,7 @@ public class CombinedHash implements Digest
     }
 
     /**
-     * @see org.bouncycastle.crypto.Digest#update(byte)
+     * @see bwmorg.bouncycastle.crypto.Digest#update(byte)
      */
     public void update(byte in)
     {
@@ -38,7 +38,7 @@ public class CombinedHash implements Digest
     }
 
     /**
-     * @see org.bouncycastle.crypto.Digest#update(byte[],int,int)
+     * @see bwmorg.bouncycastle.crypto.Digest#update(byte[],int,int)
      */
     public void update(byte[] in, int inOff, int len)
     {
@@ -47,7 +47,7 @@ public class CombinedHash implements Digest
     }
 
     /**
-     * @see org.bouncycastle.crypto.Digest#doFinal(byte[],int)
+     * @see bwmorg.bouncycastle.crypto.Digest#doFinal(byte[],int)
      */
     public int doFinal(byte[] out, int outOff)
     {
@@ -57,7 +57,7 @@ public class CombinedHash implements Digest
     }
 
     /**
-     * @see org.bouncycastle.crypto.Digest#reset()
+     * @see bwmorg.bouncycastle.crypto.Digest#reset()
      */
     public void reset()
     {

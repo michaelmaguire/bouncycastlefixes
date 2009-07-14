@@ -1,13 +1,13 @@
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERInteger;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERSequence;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.ASN1TaggedObject;
+import bwmorg.bouncycastle.asn1.DERBitString;
+import bwmorg.bouncycastle.asn1.DERInteger;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERSequence;
 
 public class IssuerSerial
     extends ASN1Encodable

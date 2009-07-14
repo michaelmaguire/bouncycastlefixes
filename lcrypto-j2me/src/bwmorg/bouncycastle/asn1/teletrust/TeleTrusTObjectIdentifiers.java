@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.teletrust;
+package bwmorg.bouncycastle.asn1.teletrust;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 public interface TeleTrusTObjectIdentifiers
 {

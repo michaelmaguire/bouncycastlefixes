@@ -1,8 +1,8 @@
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
 import bigjava.math.BigInteger;
 
-import org.bouncycastle.asn1.DERInteger;
+import bwmorg.bouncycastle.asn1.DERInteger;
 
 /**
  * The CRLNumber object.

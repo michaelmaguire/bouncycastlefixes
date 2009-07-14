@@ -1,19 +1,19 @@
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DEREncodable;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERSet;
-import org.bouncycastle.asn1.DERString;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.ASN1Set;
+import bwmorg.bouncycastle.asn1.ASN1TaggedObject;
+import bwmorg.bouncycastle.asn1.DEREncodable;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERSequence;
+import bwmorg.bouncycastle.asn1.DERSet;
+import bwmorg.bouncycastle.asn1.DERString;
+import bwmorg.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
+import bwmorg.bouncycastle.util.Strings;
+import bwmorg.bouncycastle.util.encoders.Hex;
 
 import java.util.Enumeration;
 import java.util.Hashtable;

@@ -1,10 +1,10 @@
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.util.Strings;
+import bwmorg.bouncycastle.asn1.ASN1InputStream;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERPrintableString;
+import bwmorg.bouncycastle.util.Strings;
 
 import java.io.IOException;
 

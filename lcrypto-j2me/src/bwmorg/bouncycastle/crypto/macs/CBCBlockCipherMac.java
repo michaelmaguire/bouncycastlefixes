@@ -1,10 +1,10 @@
-package org.bouncycastle.crypto.macs;
+package bwmorg.bouncycastle.crypto.macs;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.paddings.BlockCipherPadding;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.Mac;
+import bwmorg.bouncycastle.crypto.modes.CBCBlockCipher;
+import bwmorg.bouncycastle.crypto.paddings.BlockCipherPadding;
 
 /**
  * standard CBC Block Cipher MAC - if no padding is specified the default of

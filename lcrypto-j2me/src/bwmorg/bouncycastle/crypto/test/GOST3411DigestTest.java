@@ -1,7 +1,7 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.digests.GOST3411Digest;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.digests.GOST3411Digest;
 
 public class GOST3411DigestTest
     extends DigestTest

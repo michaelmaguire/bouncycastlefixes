@@ -1,4 +1,4 @@
-package org.bouncycastle.util.encoders;
+package bwmorg.bouncycastle.util.encoders;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

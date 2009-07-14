@@ -1,18 +1,18 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 import java.util.Vector;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.engines.NaccacheSternEngine;
-import org.bouncycastle.crypto.generators.NaccacheSternKeyPairGenerator;
-import org.bouncycastle.crypto.params.NaccacheSternKeyGenerationParameters;
-import org.bouncycastle.crypto.params.NaccacheSternKeyParameters;
-import org.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.engines.NaccacheSternEngine;
+import bwmorg.bouncycastle.crypto.generators.NaccacheSternKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.params.NaccacheSternKeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.NaccacheSternKeyParameters;
+import bwmorg.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * Test case for NaccacheStern cipher. For details on this cipher, please see

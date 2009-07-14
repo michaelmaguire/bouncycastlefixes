@@ -1,15 +1,15 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.PBEParametersGenerator;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.generators.PKCS12ParametersGenerator;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTestResult;
-import org.bouncycastle.util.test.Test;
-import org.bouncycastle.util.test.TestResult;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.PBEParametersGenerator;
+import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
+import bwmorg.bouncycastle.crypto.generators.PKCS12ParametersGenerator;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithIV;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTestResult;
+import bwmorg.bouncycastle.util.test.Test;
+import bwmorg.bouncycastle.util.test.TestResult;
 
 /**
  * test for PKCS12 key generation - vectors from 

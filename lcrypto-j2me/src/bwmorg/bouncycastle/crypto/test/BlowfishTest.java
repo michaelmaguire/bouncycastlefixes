@@ -1,9 +1,9 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.engines.BlowfishEngine;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.engines.BlowfishEngine;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * blowfish tester - vectors from http://www.counterpane.com/vectors.txt

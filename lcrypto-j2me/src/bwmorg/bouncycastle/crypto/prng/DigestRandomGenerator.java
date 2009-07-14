@@ -1,6 +1,6 @@
-package org.bouncycastle.crypto.prng;
+package bwmorg.bouncycastle.crypto.prng;
 
-import org.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.Digest;
 
 /**
  * Random generation based on the digest with counter. Calling addSeedMaterial will

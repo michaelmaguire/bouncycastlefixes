@@ -1,6 +1,6 @@
-package org.bouncycastle.crypto.params;
+package bwmorg.bouncycastle.crypto.params;
 
-import org.bouncycastle.crypto.KeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.KeyGenerationParameters;
 
 import bigjava.security.SecureRandom;
 

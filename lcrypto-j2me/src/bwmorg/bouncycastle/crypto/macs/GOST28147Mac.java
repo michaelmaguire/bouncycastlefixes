@@ -1,10 +1,10 @@
-package org.bouncycastle.crypto.macs;
+package bwmorg.bouncycastle.crypto.macs;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithSBox;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.Mac;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithSBox;
 
 /**
  * implementation of GOST 28147-89 MAC

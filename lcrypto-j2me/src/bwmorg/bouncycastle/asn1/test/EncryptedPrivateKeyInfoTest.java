@@ -1,16 +1,16 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DEROutputStream;
-import org.bouncycastle.asn1.pkcs.EncryptedPrivateKeyInfo;
-import org.bouncycastle.asn1.util.ASN1Dump;
-import org.bouncycastle.util.encoders.Base64;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.asn1.ASN1InputStream;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DEROutputStream;
+import bwmorg.bouncycastle.asn1.pkcs.EncryptedPrivateKeyInfo;
+import bwmorg.bouncycastle.asn1.util.ASN1Dump;
+import bwmorg.bouncycastle.util.encoders.Base64;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * Test the reading and writing of EncryptedPrivateKeyInfo objects using

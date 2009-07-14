@@ -1,10 +1,10 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.digests.WhirlpoolDigest;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.digests.WhirlpoolDigest;
+import bwmorg.bouncycastle.util.Arrays;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * ISO vector test for Whirlpool

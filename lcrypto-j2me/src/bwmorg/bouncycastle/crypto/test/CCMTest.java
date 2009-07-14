@@ -1,13 +1,13 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.engines.DESEngine;
-import org.bouncycastle.crypto.modes.CCMBlockCipher;
-import org.bouncycastle.crypto.params.CCMParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.engines.AESEngine;
+import bwmorg.bouncycastle.crypto.engines.DESEngine;
+import bwmorg.bouncycastle.crypto.modes.CCMBlockCipher;
+import bwmorg.bouncycastle.crypto.params.CCMParameters;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * First four test vectors from

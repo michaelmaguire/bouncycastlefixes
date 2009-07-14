@@ -1,11 +1,11 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.macs.HMac;
-import org.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.macs.HMac;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
 
 /**
  * A generic TLS MAC implementation, which can be used with any kind of
@@ -75,7 +75,7 @@ public class TlsMac
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsMac: calculateMac() - Internal error during mac calculation" );
+            bwmorg.LOG.info( "TlsMac: calculateMac() - Internal error during mac calculation" );
             
             // This should never happen
             throw new IllegalStateException("Internal error during mac calculation");

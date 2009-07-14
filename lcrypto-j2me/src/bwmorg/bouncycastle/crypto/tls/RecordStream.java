@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -114,11 +114,11 @@ public class RecordStream
             // keep on skipping until we find a valid record type
             if( !isValidRecordType( type ) )
             {
-                org.LOG.trace( "Tls RecordStream.scanForValidData() --> Invalid type: " + type );
+                bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> Invalid type: " + type );
                 continue;
             }
 
-            org.LOG.trace( "Tls RecordStream.scanForValidData() --> Found a valid type: " + type );
+            bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> Found a valid type: " + type );
 
             // found valid type, check version                               
             if( is.available() > 0 )
@@ -126,7 +126,7 @@ public class RecordStream
                 i = is.read();
                 if( i != 3 )
                 {
-                    org.LOG.trace( "Tls RecordStream.scanForValidData() --> First byte of the version doesn't match: " + i );
+                    bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> First byte of the version doesn't match: " + i );
 
                     // the first byte is not a version byte. Try to see maybe it is record type. If that's the case,
                     // restart the scan but skip reading the record type in.
@@ -137,7 +137,7 @@ public class RecordStream
             }
             else
             {
-                org.LOG.trace( "Tls RecordStream.scanForValidData() --> No more data available. Bailing... " );
+                bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> No more data available. Bailing... " );
                 return false;
             }
 
@@ -146,7 +146,7 @@ public class RecordStream
                 i = is.read();
                 if( i != 1 )
                 {
-                    org.LOG.trace( "Tls RecordStream.scanForValidData() --> Second byte of the version doesn't match: " + i );
+                    bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> Second byte of the version doesn't match: " + i );
 
                     // the second byte is not a version byte. Try to see maybe it is record type. If that's the case,
                     // restart the scan but skip reading the record type in.
@@ -157,7 +157,7 @@ public class RecordStream
             }
             else
             {
-                org.LOG.trace( "Tls RecordStream.scanForValidData() --> No more data available. Bailing... " );
+                bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> No more data available. Bailing... " );
                 return false;
             }
 
@@ -170,7 +170,7 @@ public class RecordStream
                 if (is.available() > 0) {
                     i = is.read();
                     if (i < 0) {
-                        org.LOG.trace( "Tls RecordStream.scanForValidData() --> First byte of the size is negative: " + i );
+                        bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> First byte of the size is negative: " + i );
                         continue;
                     }
                     size = i << 8;
@@ -180,20 +180,20 @@ public class RecordStream
                 if (is.available() > 0) {
                     i = is.read();
                     if (i < 0) {
-                        org.LOG.trace( "Tls RecordStream.scanForValidData() --> Second byte of the size is negative: " + i );
+                        bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> Second byte of the size is negative: " + i );
                         continue;
                     }
 
                     size = size | i;
                 }
 
-                org.LOG.trace( "Tls RecordStream.scanForValidData() --> Looks like we found data of " + size + " length." );
+                bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> Looks like we found data of " + size + " length." );
 
                 byte[] buf = decodeAndVerify( type, is, size );
-                org.LOG.trace( "Tls RecordStream.scanForValidData() --> Read, decoded and verified data OK." );
+                bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> Read, decoded and verified data OK." );
 
                 handler.processData( type, buf, 0, buf.length );
-                org.LOG.trace( "Tls RecordStream.scanForValidData() --> Processed data OK." );
+                bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> Processed data OK." );
 
                 // if we got here, we actually found valid data. Return true.
                 return true;
@@ -205,7 +205,7 @@ public class RecordStream
         }
 
         // if we got here, we couldn't find valid data in the extra bytes. Return false.
-        org.LOG.trace( "Tls RecordStream.scanForValidData() --> No data found." );
+        bwmorg.LOG.trace( "Tls RecordStream.scanForValidData() --> No data found." );
         return false;
     }
 
@@ -216,7 +216,7 @@ public class RecordStream
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.trace( "Tls RecordStream --> readData()." );
+        bwmorg.LOG.trace( "Tls RecordStream --> readData()." );
 
         short type = TlsUtils.readUint8( is );
 
@@ -235,7 +235,7 @@ public class RecordStream
          */
         if( !isValidRecordType( type ) )
         {
-            org.LOG.trace( "Tls RecordStream.readData() --> Unknown record type: " + type );
+            bwmorg.LOG.trace( "Tls RecordStream.readData() --> Unknown record type: " + type );
 
             // skip unknown bytes, while looking for valid data
             try {
@@ -256,7 +256,7 @@ public class RecordStream
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.trace( "Tls RecordStream <-- done readData()" );
+        bwmorg.LOG.trace( "Tls RecordStream <-- done readData()" );
     }
 
     protected byte[] decodeAndVerify( short type, InputStream is, int len ) throws IOException
@@ -274,7 +274,7 @@ public class RecordStream
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.trace( "Tls RecordStream --> writeMessage()." );
+        bwmorg.LOG.trace( "Tls RecordStream --> writeMessage()." );
 
         if( type == 22 )
         {
@@ -296,7 +296,7 @@ public class RecordStream
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.trace( "Tls RecordStream <-- done writeMessage()." );
+        bwmorg.LOG.trace( "Tls RecordStream <-- done writeMessage()." );
     }
 
     protected void close() throws IOException

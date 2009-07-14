@@ -1,10 +1,10 @@
-package org.bouncycastle.crypto.io;
+package bwmorg.bouncycastle.crypto.io;
 
 import bigjava.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import org.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.Digest;
 
 public class DigestOutputStream
     extends FilterOutputStream

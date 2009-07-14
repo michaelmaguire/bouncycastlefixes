@@ -1,16 +1,16 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.DEROutputStream;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.asn1.ASN1InputStream;
+import bwmorg.bouncycastle.asn1.ASN1OutputStream;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DEROutputStream;
+import bwmorg.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 
 /**

@@ -1,7 +1,7 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.digests.SHA512Digest;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.digests.SHA512Digest;
 
 /**
  * standard vector test for SHA-512 from FIPS Draft 180-2.

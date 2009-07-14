@@ -1,7 +1,7 @@
-package org.bouncycastle.asn1.sec;
+package bwmorg.bouncycastle.asn1.sec;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 
 public interface SECObjectIdentifiers
 {

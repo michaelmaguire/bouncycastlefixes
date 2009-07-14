@@ -1,7 +1,7 @@
-package org.bouncycastle.asn1.util;
+package bwmorg.bouncycastle.asn1.util;
 
-import org.bouncycastle.asn1.DEREncodable;
-import org.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DEREncodable;
+import bwmorg.bouncycastle.asn1.DERObject;
 
 /**
  * @deprecated use ASN1Dump.

@@ -1,4 +1,4 @@
-package org.bouncycastle.asn1;
+package bwmorg.bouncycastle.asn1;
 
 public interface DEREncodable
 {

@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.cryptopro;
+package bwmorg.bouncycastle.asn1.cryptopro;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 public interface CryptoProObjectIdentifiers
 {

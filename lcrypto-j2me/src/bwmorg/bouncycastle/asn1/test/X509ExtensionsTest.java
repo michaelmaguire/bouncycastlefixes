@@ -1,9 +1,9 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.x509.X509Extensions;
-import org.bouncycastle.asn1.x509.X509ExtensionsGenerator;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.x509.X509Extensions;
+import bwmorg.bouncycastle.asn1.x509.X509ExtensionsGenerator;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 public class X509ExtensionsTest
     extends SimpleTest

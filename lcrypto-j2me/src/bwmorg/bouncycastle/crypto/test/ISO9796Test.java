@@ -1,17 +1,17 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.digests.RIPEMD128Digest;
-import org.bouncycastle.crypto.digests.RIPEMD160Digest;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.encodings.ISO9796d1Encoding;
-import org.bouncycastle.crypto.engines.RSAEngine;
-import org.bouncycastle.crypto.params.ParametersWithSalt;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.signers.ISO9796d2PSSSigner;
-import org.bouncycastle.crypto.signers.ISO9796d2Signer;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.digests.RIPEMD128Digest;
+import bwmorg.bouncycastle.crypto.digests.RIPEMD160Digest;
+import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
+import bwmorg.bouncycastle.crypto.encodings.ISO9796d1Encoding;
+import bwmorg.bouncycastle.crypto.engines.RSAEngine;
+import bwmorg.bouncycastle.crypto.params.ParametersWithSalt;
+import bwmorg.bouncycastle.crypto.params.RSAKeyParameters;
+import bwmorg.bouncycastle.crypto.signers.ISO9796d2PSSSigner;
+import bwmorg.bouncycastle.crypto.signers.ISO9796d2Signer;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 import bigjava.math.BigInteger;
 

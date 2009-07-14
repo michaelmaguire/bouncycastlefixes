@@ -1,11 +1,11 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.util.Arrays;
-import org.bouncycastle.util.test.SimpleTestResult;
-import org.bouncycastle.util.test.Test;
-import org.bouncycastle.util.test.TestResult;
+import bwmorg.bouncycastle.asn1.DEROctetString;
+import bwmorg.bouncycastle.asn1.DERUTF8String;
+import bwmorg.bouncycastle.util.Arrays;
+import bwmorg.bouncycastle.util.test.SimpleTestResult;
+import bwmorg.bouncycastle.util.test.Test;
+import bwmorg.bouncycastle.util.test.TestResult;
 
 public class DERUTF8StringTest 
     implements Test

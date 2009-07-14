@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.icao;
+package bwmorg.bouncycastle.asn1.icao;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 public interface ICAOObjectIdentifiers
 {

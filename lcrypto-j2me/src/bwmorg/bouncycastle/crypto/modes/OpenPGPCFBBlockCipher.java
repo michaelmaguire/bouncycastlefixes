@@ -1,8 +1,8 @@
-package org.bouncycastle.crypto.modes;
+package bwmorg.bouncycastle.crypto.modes;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DataLengthException;
 
 /**
  * Implements OpenPGP's rather strange version of Cipher-FeedBack (CFB) mode

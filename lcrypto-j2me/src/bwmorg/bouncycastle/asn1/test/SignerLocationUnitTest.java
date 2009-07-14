@@ -1,15 +1,15 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
 import java.io.IOException;
 
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.DERTaggedObject;
-import org.bouncycastle.asn1.DERUTF8String;
-import org.bouncycastle.asn1.esf.SignerLocation;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.ASN1InputStream;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.DERSequence;
+import bwmorg.bouncycastle.asn1.DERTaggedObject;
+import bwmorg.bouncycastle.asn1.DERUTF8String;
+import bwmorg.bouncycastle.asn1.esf.SignerLocation;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 public class SignerLocationUnitTest 
     extends SimpleTest

@@ -1,12 +1,12 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
 import java.io.IOException;
 
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1TaggedObject;
-import org.bouncycastle.asn1.DERApplicationSpecific;
-import org.bouncycastle.util.encoders.Base64;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.asn1.ASN1InputStream;
+import bwmorg.bouncycastle.asn1.ASN1TaggedObject;
+import bwmorg.bouncycastle.asn1.DERApplicationSpecific;
+import bwmorg.bouncycastle.util.encoders.Base64;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 
 /**

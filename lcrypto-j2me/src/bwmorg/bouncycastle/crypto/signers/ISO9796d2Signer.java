@@ -1,14 +1,14 @@
-package org.bouncycastle.crypto.signers;
+package bwmorg.bouncycastle.crypto.signers;
 
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.CryptoException;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.SignerWithRecovery;
-import org.bouncycastle.crypto.digests.RIPEMD128Digest;
-import org.bouncycastle.crypto.digests.RIPEMD160Digest;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
+import bwmorg.bouncycastle.crypto.AsymmetricBlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.CryptoException;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.SignerWithRecovery;
+import bwmorg.bouncycastle.crypto.digests.RIPEMD128Digest;
+import bwmorg.bouncycastle.crypto.digests.RIPEMD160Digest;
+import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
+import bwmorg.bouncycastle.crypto.params.RSAKeyParameters;
 
 /**
  * ISO9796-2 - mechanism using a hash function with recovery (scheme 1)
@@ -467,7 +467,7 @@ public class ISO9796d2Signer
      * Return true if the full message was recoveredMessage.
      * 
      * @return true on full message recovery, false otherwise.
-     * @see org.bouncycastle.crypto.SignerWithRecovery#hasFullMessage()
+     * @see bwmorg.bouncycastle.crypto.SignerWithRecovery#hasFullMessage()
      */
     public boolean hasFullMessage()
     {
@@ -478,7 +478,7 @@ public class ISO9796d2Signer
      * Return a reference to the recoveredMessage message.
      * 
      * @return the full/partial recoveredMessage message.
-     * @see org.bouncycastle.crypto.SignerWithRecovery#getRecoveredMessage()
+     * @see bwmorg.bouncycastle.crypto.SignerWithRecovery#getRecoveredMessage()
      */
     public byte[] getRecoveredMessage()
     {

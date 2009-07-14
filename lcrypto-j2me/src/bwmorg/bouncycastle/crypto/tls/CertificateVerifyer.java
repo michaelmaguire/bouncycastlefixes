@@ -1,6 +1,6 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
-import org.bouncycastle.asn1.x509.X509CertificateStructure;
+import bwmorg.bouncycastle.asn1.x509.X509CertificateStructure;
 
 /**
  * This should be implemented by any class which can find out, if a given

@@ -1,11 +1,11 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
 import java.io.IOException;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithIV;
 
 /**
  * A generic TLS 1.0 block cipher suite. This can be used for AES or 3DES for
@@ -193,7 +193,7 @@ public class TlsBlockCipherCipherSuite extends TlsCipherSuite
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsBlockCipherCipherSuite: decodeCiphertext() - Error: unable to decrypt." );
+            bwmorg.LOG.info( "TlsBlockCipherCipherSuite: decodeCiphertext() - Error: unable to decrypt." );
 
             handler.failWithError(TlsProtocolHandler.AL_fatal,
                 TlsProtocolHandler.AP_bad_record_mac);

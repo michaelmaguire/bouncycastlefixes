@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto;
+package bwmorg.bouncycastle.crypto;
 
 /**
  * super class for all Password Based Encryption (PBE) parameter generator classes.

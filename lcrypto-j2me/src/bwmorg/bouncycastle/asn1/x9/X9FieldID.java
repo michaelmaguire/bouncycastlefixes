@@ -1,14 +1,14 @@
-package org.bouncycastle.asn1.x9;
+package bwmorg.bouncycastle.asn1.x9;
 
 import bigjava.math.BigInteger;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERInteger;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.DERSequence;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.DERInteger;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERSequence;
 
 /**
  * ASN.1 def for Elliptic-Curve Field ID structure. See

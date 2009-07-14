@@ -1,9 +1,9 @@
-package org.bouncycastle.crypto.params;
+package bwmorg.bouncycastle.crypto.params;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.KeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.KeyGenerationParameters;
 
 public class RSAKeyGenerationParameters
     extends KeyGenerationParameters

@@ -1,7 +1,7 @@
 
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 /**
  * PolicyQualifierId, used in the CertificatePolicies

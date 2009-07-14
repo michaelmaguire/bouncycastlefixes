@@ -1,9 +1,9 @@
-package org.bouncycastle.crypto.engines;
+package bwmorg.bouncycastle.crypto.engines;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.RC5Parameters;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.RC5Parameters;
 
 /**
  * The specification for RC5 came from the <code>RC5 Encryption Algorithm</code>

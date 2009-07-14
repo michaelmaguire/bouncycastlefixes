@@ -1,16 +1,16 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.engines.ElGamalEngine;
-import org.bouncycastle.crypto.generators.ElGamalKeyPairGenerator;
-import org.bouncycastle.crypto.generators.ElGamalParametersGenerator;
-import org.bouncycastle.crypto.params.ElGamalKeyGenerationParameters;
-import org.bouncycastle.crypto.params.ElGamalParameters;
-import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.engines.ElGamalEngine;
+import bwmorg.bouncycastle.crypto.generators.ElGamalKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.generators.ElGamalParametersGenerator;
+import bwmorg.bouncycastle.crypto.params.ElGamalKeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.ElGamalParameters;
+import bwmorg.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;

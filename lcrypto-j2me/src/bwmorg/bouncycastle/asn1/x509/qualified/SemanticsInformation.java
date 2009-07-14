@@ -1,14 +1,14 @@
-package org.bouncycastle.asn1.x509.qualified;
+package bwmorg.bouncycastle.asn1.x509.qualified;
 
 import java.util.Enumeration;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.asn1.x509.GeneralName;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERSequence;
+import bwmorg.bouncycastle.asn1.x509.GeneralName;
 
 /**
  * The SemanticsInformation object.

@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto.prng;
+package bwmorg.bouncycastle.crypto.prng;
 
 /**
  * Generic interface for objects generating random bytes.

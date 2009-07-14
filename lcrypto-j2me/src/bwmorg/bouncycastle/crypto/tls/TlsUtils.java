@@ -1,15 +1,15 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.digests.MD5Digest;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.macs.HMac;
-import org.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.digests.MD5Digest;
+import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
+import bwmorg.bouncycastle.crypto.macs.HMac;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
 
 /**
  * Some helper fuctions for MicroTLS.
@@ -104,7 +104,7 @@ public class TlsUtils
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsUtils: readUint8() - Error: no data to read." );
+            bwmorg.LOG.info( "TlsUtils: readUint8() - Error: no data to read." );
             
             throw new EOFException();
         }
@@ -122,7 +122,7 @@ public class TlsUtils
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsUtils: readUint16() - Error: invalid values read." );
+            bwmorg.LOG.info( "TlsUtils: readUint16() - Error: invalid values read." );
             
             throw new EOFException();
         }
@@ -141,7 +141,7 @@ public class TlsUtils
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsUtils: readUint24() - Error: invalid values read." );
+            bwmorg.LOG.info( "TlsUtils: readUint24() - Error: invalid values read." );
             
             throw new EOFException();
         }
@@ -161,7 +161,7 @@ public class TlsUtils
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsUtils: readUint32() - Error: invalid values read." );
+            bwmorg.LOG.info( "TlsUtils: readUint32() - Error: invalid values read." );
             
             throw new EOFException();
         }
@@ -193,7 +193,7 @@ public class TlsUtils
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsUtils: checkVersion() - Error: version check failed." );
+            bwmorg.LOG.info( "TlsUtils: checkVersion() - Error: version check failed." );
             
             handler.failWithError(TlsProtocolHandler.AL_fatal, TlsProtocolHandler.AP_protocol_version);
         }
@@ -210,7 +210,7 @@ public class TlsUtils
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsUtils: checkVersion() - Error: version check failed." );
+            bwmorg.LOG.info( "TlsUtils: checkVersion() - Error: version check failed." );
             
             handler.failWithError(TlsProtocolHandler.AL_fatal, TlsProtocolHandler.AP_protocol_version);
         }

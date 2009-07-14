@@ -1,10 +1,10 @@
-package org.bouncycastle.crypto.encodings;
+package bwmorg.bouncycastle.crypto.encodings;
 
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
+import bwmorg.bouncycastle.crypto.AsymmetricBlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.params.RSAKeyParameters;
 
 /**
  * ISO 9796-1 padding. Note in the light of recent results you should

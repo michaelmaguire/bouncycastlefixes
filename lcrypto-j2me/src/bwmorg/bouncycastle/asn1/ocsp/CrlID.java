@@ -1,8 +1,8 @@
-package org.bouncycastle.asn1.ocsp;
+package bwmorg.bouncycastle.asn1.ocsp;
 
 import java.util.Enumeration;
 
-import org.bouncycastle.asn1.*;
+import bwmorg.bouncycastle.asn1.*;
 
 public class CrlID
     extends ASN1Encodable

@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto;
+package bwmorg.bouncycastle.crypto;
 
 public interface ExtendedDigest 
     extends Digest

@@ -1,25 +1,25 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.BasicAgreement;
-import org.bouncycastle.crypto.agreement.ECDHBasicAgreement;
-import org.bouncycastle.crypto.agreement.ECDHCBasicAgreement;
-import org.bouncycastle.crypto.generators.ECKeyPairGenerator;
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.signers.ECDSASigner;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.util.BigIntegers;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.FixedSecureRandom;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.BasicAgreement;
+import bwmorg.bouncycastle.crypto.agreement.ECDHBasicAgreement;
+import bwmorg.bouncycastle.crypto.agreement.ECDHCBasicAgreement;
+import bwmorg.bouncycastle.crypto.generators.ECKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.params.ECDomainParameters;
+import bwmorg.bouncycastle.crypto.params.ECKeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.ECPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ECPublicKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.signers.ECDSASigner;
+import bwmorg.bouncycastle.math.ec.ECCurve;
+import bwmorg.bouncycastle.math.ec.ECPoint;
+import bwmorg.bouncycastle.util.BigIntegers;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.FixedSecureRandom;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * ECDSA tests are taken from X9.62.

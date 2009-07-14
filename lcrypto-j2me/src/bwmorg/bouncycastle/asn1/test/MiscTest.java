@@ -1,22 +1,22 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
-import org.bouncycastle.util.encoders.Base64;
-import org.bouncycastle.util.test.Test;
-import org.bouncycastle.util.test.TestResult;
-import org.bouncycastle.util.test.SimpleTestResult;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1OutputStream;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.misc.CAST5CBCParameters;
-import org.bouncycastle.asn1.misc.IDEACBCPar;
-import org.bouncycastle.asn1.misc.NetscapeCertType;
-import org.bouncycastle.asn1.misc.NetscapeRevocationURL;
-import org.bouncycastle.asn1.misc.VerisignCzagExtension;
+import bwmorg.bouncycastle.util.encoders.Base64;
+import bwmorg.bouncycastle.util.test.Test;
+import bwmorg.bouncycastle.util.test.TestResult;
+import bwmorg.bouncycastle.util.test.SimpleTestResult;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.ASN1InputStream;
+import bwmorg.bouncycastle.asn1.ASN1OutputStream;
+import bwmorg.bouncycastle.asn1.DERIA5String;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.misc.CAST5CBCParameters;
+import bwmorg.bouncycastle.asn1.misc.IDEACBCPar;
+import bwmorg.bouncycastle.asn1.misc.NetscapeCertType;
+import bwmorg.bouncycastle.asn1.misc.NetscapeRevocationURL;
+import bwmorg.bouncycastle.asn1.misc.VerisignCzagExtension;
 
 public class MiscTest
     implements Test

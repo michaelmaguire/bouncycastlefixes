@@ -1,9 +1,9 @@
-package org.bouncycastle.crypto.modes;
+package bwmorg.bouncycastle.crypto.modes;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.BufferedBlockCipher;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
 
 /**
  * A Cipher Text Stealing (CTS) mode cipher. CTS allows block ciphers to

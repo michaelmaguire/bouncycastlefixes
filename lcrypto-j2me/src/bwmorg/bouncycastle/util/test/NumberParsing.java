@@ -1,4 +1,4 @@
-package org.bouncycastle.util.test;
+package bwmorg.bouncycastle.util.test;
 
 /**
  * Parsing

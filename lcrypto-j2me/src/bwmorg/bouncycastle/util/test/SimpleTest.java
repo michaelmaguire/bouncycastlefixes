@@ -1,8 +1,8 @@
-package org.bouncycastle.util.test;
+package bwmorg.bouncycastle.util.test;
 
 import java.io.PrintStream;
 
-import org.bouncycastle.util.Arrays;
+import bwmorg.bouncycastle.util.Arrays;
 
 public abstract class SimpleTest
     implements Test

@@ -1,14 +1,14 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.engines.RC532Engine;
-import org.bouncycastle.crypto.engines.RC564Engine;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.params.RC5Parameters;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTestResult;
-import org.bouncycastle.util.test.Test;
-import org.bouncycastle.util.test.TestResult;
+import bwmorg.bouncycastle.crypto.engines.RC532Engine;
+import bwmorg.bouncycastle.crypto.engines.RC564Engine;
+import bwmorg.bouncycastle.crypto.modes.CBCBlockCipher;
+import bwmorg.bouncycastle.crypto.params.ParametersWithIV;
+import bwmorg.bouncycastle.crypto.params.RC5Parameters;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTestResult;
+import bwmorg.bouncycastle.util.test.Test;
+import bwmorg.bouncycastle.util.test.TestResult;
 
 /**
  * RC5 tester - vectors from ftp://ftp.nordu.net/rfc/rfc2040.txt

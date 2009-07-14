@@ -1,15 +1,15 @@
-package org.bouncycastle.crypto.generators;
+package bwmorg.bouncycastle.crypto.generators;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 import java.util.Vector;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.NaccacheSternKeyGenerationParameters;
-import org.bouncycastle.crypto.params.NaccacheSternKeyParameters;
-import org.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.KeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.NaccacheSternKeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.NaccacheSternKeyParameters;
+import bwmorg.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
 
 /**
  * Key generation parameters for NaccacheStern cipher. For details on this cipher, please see
@@ -38,7 +38,7 @@ public class NaccacheSternKeyPairGenerator
     /*
      * (non-Javadoc)
      * 
-     * @see org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator#init(org.bouncycastle.crypto.KeyGenerationParameters)
+     * @see bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator#init(org.bouncycastle.crypto.KeyGenerationParameters)
      */
     public void init(KeyGenerationParameters param)
     {
@@ -48,7 +48,7 @@ public class NaccacheSternKeyPairGenerator
     /*
      * (non-Javadoc)
      * 
-     * @see org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator#generateKeyPair()
+     * @see bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator#generateKeyPair()
      */
     public AsymmetricCipherKeyPair generateKeyPair()
     {

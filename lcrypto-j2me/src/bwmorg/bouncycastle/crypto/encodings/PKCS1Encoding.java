@@ -1,11 +1,11 @@
-package org.bouncycastle.crypto.encodings;
+package bwmorg.bouncycastle.crypto.encodings;
 
 
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.AsymmetricBlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.params.AsymmetricKeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
 
 import bigjava.security.SecureRandom;
 
@@ -19,7 +19,7 @@ public class PKCS1Encoding
 {
     /**
      * some providers fail to include the leading zero in PKCS1 encoded blocks. If you need to
-     * work with one of these set the system property org.bouncycastle.pkcs1.strict to false.
+     * work with one of these set the system property bwmorg.bouncycastle.pkcs1.strict to false.
      * <p>
      * The system property is checked during construction of the encoding object, it is set to 
      * true by default.

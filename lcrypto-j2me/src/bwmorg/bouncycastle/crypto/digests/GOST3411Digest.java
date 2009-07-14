@@ -1,10 +1,10 @@
-package org.bouncycastle.crypto.digests;
+package bwmorg.bouncycastle.crypto.digests;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.ExtendedDigest;
-import org.bouncycastle.crypto.engines.GOST28147Engine;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithSBox;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.ExtendedDigest;
+import bwmorg.bouncycastle.crypto.engines.GOST28147Engine;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithSBox;
 
 /**
  * implementation of GOST R 34.11-94

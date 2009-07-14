@@ -1,12 +1,12 @@
-package org.bouncycastle.crypto.encodings;
+package bwmorg.bouncycastle.crypto.encodings;
 
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.AsymmetricBlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
+import bwmorg.bouncycastle.crypto.params.AsymmetricKeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
 
 import bigjava.security.SecureRandom;
 

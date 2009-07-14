@@ -1,14 +1,14 @@
-package org.bouncycastle.asn1.x9;
+package bwmorg.bouncycastle.asn1.x9;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERInteger;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.ASN1OctetString;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.DERInteger;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERSequence;
+import bwmorg.bouncycastle.math.ec.ECCurve;
+import bwmorg.bouncycastle.math.ec.ECPoint;
 
 import bigjava.math.BigInteger;
 

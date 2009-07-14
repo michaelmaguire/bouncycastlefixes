@@ -1,4 +1,4 @@
-package org.bouncycastle.asn1;
+package bwmorg.bouncycastle.asn1;
 
 /**
  * class for breaking up an OID into it's component tokens, ala

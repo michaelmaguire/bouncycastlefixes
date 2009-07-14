@@ -1,4 +1,4 @@
-package org.bouncycastle.asn1;
+package bwmorg.bouncycastle.asn1;
 
 /**
  * the parent class for this will eventually disappear. Use this one!

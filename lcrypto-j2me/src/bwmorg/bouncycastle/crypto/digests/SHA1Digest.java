@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto.digests;
+package bwmorg.bouncycastle.crypto.digests;
 
 /**
  * implementation of SHA-1 as outlined in "Handbook of Applied Cryptography", pages 346 - 349.

@@ -1,9 +1,9 @@
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
-import org.bouncycastle.asn1.DEREncodable;
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DEROutputStream;
+import bwmorg.bouncycastle.asn1.DEREncodable;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DEROctetString;
+import bwmorg.bouncycastle.asn1.DEROutputStream;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package org;
+package bwmorg;
 
 public class LOG
 {

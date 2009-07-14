@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto;
+package bwmorg.bouncycastle.crypto;
 
 /**
  * a wrapper for block ciphers with a single byte block size, so that they

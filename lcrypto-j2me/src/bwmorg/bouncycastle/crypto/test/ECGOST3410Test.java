@@ -1,16 +1,16 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.FixedSecureRandom;
-import org.bouncycastle.util.test.SimpleTest;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.crypto.params.*;
-import org.bouncycastle.crypto.signers.ECGOST3410Signer;
-import org.bouncycastle.crypto.generators.ECKeyPairGenerator;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.digests.GOST3411Digest;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.FixedSecureRandom;
+import bwmorg.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.math.ec.ECCurve;
+import bwmorg.bouncycastle.math.ec.ECPoint;
+import bwmorg.bouncycastle.math.ec.ECFieldElement;
+import bwmorg.bouncycastle.crypto.params.*;
+import bwmorg.bouncycastle.crypto.signers.ECGOST3410Signer;
+import bwmorg.bouncycastle.crypto.generators.ECKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.digests.GOST3411Digest;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;

@@ -1,6 +1,6 @@
-package org.bouncycastle.crypto.generators;
+package bwmorg.bouncycastle.crypto.generators;
 
-import org.bouncycastle.crypto.params.DHParameters;
+import bwmorg.bouncycastle.crypto.params.DHParameters;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;

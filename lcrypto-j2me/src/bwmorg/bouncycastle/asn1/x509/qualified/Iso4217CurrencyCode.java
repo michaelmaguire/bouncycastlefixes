@@ -1,11 +1,11 @@
-package org.bouncycastle.asn1.x509.qualified;
+package bwmorg.bouncycastle.asn1.x509.qualified;
 
-import org.bouncycastle.asn1.ASN1Choice;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.DEREncodable;
-import org.bouncycastle.asn1.DERInteger;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERPrintableString;
+import bwmorg.bouncycastle.asn1.ASN1Choice;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.DEREncodable;
+import bwmorg.bouncycastle.asn1.DERInteger;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERPrintableString;
 
 /**
  * The Iso4217CurrencyCode object.

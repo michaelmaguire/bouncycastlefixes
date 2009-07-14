@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
 /**
  * A queue for bytes.
@@ -65,7 +65,7 @@ public class ByteQueue
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "Tls ByteQueue: read() - Error: Not enough data to read" );
+            bwmorg.LOG.info( "Tls ByteQueue: read() - Error: Not enough data to read" );
             
             throw new TlsRuntimeException("Not enough data to read");
         }
@@ -76,7 +76,7 @@ public class ByteQueue
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "Tls ByteQueue: read() - Error: Buffer size of " + buf.length + " is too small for a read of " + len + " bytes" );
+            bwmorg.LOG.info( "Tls ByteQueue: read() - Error: Buffer size of " + buf.length + " is too small for a read of " + len + " bytes" );
             
             throw new TlsRuntimeException("Buffer size of " + buf.length + " is too small for a read of " + len + " bytes");
         }
@@ -119,7 +119,7 @@ public class ByteQueue
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "Tls ByteQueue: read() - Error: Cannot remove " + i + " bytes, only got " + available );
+            bwmorg.LOG.info( "Tls ByteQueue: read() - Error: Cannot remove " + i + " bytes, only got " + available );
                  
             throw new TlsRuntimeException("Cannot remove " + i + " bytes, only got " + available);
         }

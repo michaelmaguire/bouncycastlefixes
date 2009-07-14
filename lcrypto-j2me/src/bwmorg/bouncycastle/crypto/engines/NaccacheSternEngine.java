@@ -1,15 +1,15 @@
-package org.bouncycastle.crypto.engines;
+package bwmorg.bouncycastle.crypto.engines;
 
 import bigjava.math.BigInteger;
 import java.util.Vector;
-import org.bouncycastle.util.Arrays;
+import bwmorg.bouncycastle.util.Arrays;
 
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.params.NaccacheSternKeyParameters;
-import org.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.AsymmetricBlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.params.NaccacheSternKeyParameters;
+import bwmorg.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
 
 /**
  * NaccacheStern Engine. For details on this cipher, please see
@@ -32,8 +32,8 @@ public class NaccacheSternEngine
     /**
      * Initializes this algorithm. Must be called before all other Functions.
      * 
-     * @see org.bouncycastle.crypto.AsymmetricBlockCipher#init(boolean,
-     *      org.bouncycastle.crypto.CipherParameters)
+     * @see bwmorg.bouncycastle.crypto.AsymmetricBlockCipher#init(boolean,
+     *      bwmorg.bouncycastle.crypto.CipherParameters)
      */
     public void init(boolean forEncryption, CipherParameters param)
     {
@@ -83,7 +83,7 @@ public class NaccacheSternEngine
     /**
      * Returns the input block size of this algorithm.
      * 
-     * @see org.bouncycastle.crypto.AsymmetricBlockCipher#getInputBlockSize()
+     * @see bwmorg.bouncycastle.crypto.AsymmetricBlockCipher#getInputBlockSize()
      */
     public int getInputBlockSize()
     {
@@ -102,7 +102,7 @@ public class NaccacheSternEngine
     /**
      * Returns the output block size of this algorithm.
      * 
-     * @see org.bouncycastle.crypto.AsymmetricBlockCipher#getOutputBlockSize()
+     * @see bwmorg.bouncycastle.crypto.AsymmetricBlockCipher#getOutputBlockSize()
      */
     public int getOutputBlockSize()
     {
@@ -121,7 +121,7 @@ public class NaccacheSternEngine
     /**
      * Process a single Block using the Naccache-Stern algorithm.
      * 
-     * @see org.bouncycastle.crypto.AsymmetricBlockCipher#processBlock(byte[],
+     * @see bwmorg.bouncycastle.crypto.AsymmetricBlockCipher#processBlock(byte[],
      *      int, int)
      */
     public byte[] processBlock(byte[] in, int inOff, int len) throws InvalidCipherTextException

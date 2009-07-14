@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
 /**
  * A NULL CipherSuite in java, this should only be used during handshake.

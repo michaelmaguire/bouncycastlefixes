@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -6,13 +6,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.bouncycastle.asn1.x509.RSAPublicKeyStructure;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.encodings.PKCS1Encoding;
-import org.bouncycastle.crypto.engines.RSABlindedEngine;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.prng.ThreadedSeedGenerator;
+import bwmorg.bouncycastle.asn1.x509.RSAPublicKeyStructure;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.encodings.PKCS1Encoding;
+import bwmorg.bouncycastle.crypto.engines.RSABlindedEngine;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.params.RSAKeyParameters;
+import bwmorg.bouncycastle.crypto.prng.ThreadedSeedGenerator;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
@@ -180,7 +180,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.trace( "TlsProtocolHandler: Instantiating..." );
+        bwmorg.LOG.trace( "TlsProtocolHandler: Instantiating..." );
         ThreadedSeedGenerator tsg = new ThreadedSeedGenerator();
         this.random = new SecureRandom();
         /*
@@ -195,7 +195,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.trace( "TlsProtocolHandler: Created." );
+        bwmorg.LOG.trace( "TlsProtocolHandler: Created." );
     }
 
     public TlsProtocolHandler( InputStream is, OutputStream os, SecureRandom sr )
@@ -221,7 +221,7 @@ public class TlsProtocolHandler
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                org.LOG.debug( "TlsProtocolHandler: processData() - CHANGE_CIPHER_SPEC data" );
+                bwmorg.LOG.debug( "TlsProtocolHandler: processData() - CHANGE_CIPHER_SPEC data" );
                 changeCipherSpecQueue.addData( buf, offset, len );
                 processChangeCipherSpec();
                 break;
@@ -233,7 +233,7 @@ public class TlsProtocolHandler
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                org.LOG.debug( "TlsProtocolHandler: processData() - ALERT data" );
+                bwmorg.LOG.debug( "TlsProtocolHandler: processData() - ALERT data" );
                 alertQueue.addData( buf, offset, len );
                 processAlert();
                 break;
@@ -245,7 +245,7 @@ public class TlsProtocolHandler
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                org.LOG.debug( "TlsProtocolHandler: processData() - HANDSHAKE data" );
+                bwmorg.LOG.debug( "TlsProtocolHandler: processData() - HANDSHAKE data" );
                 handshakeQueue.addData( buf, offset, len );
                 processHandshake();
                 break;
@@ -257,7 +257,7 @@ public class TlsProtocolHandler
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                org.LOG.debug( "TlsProtocolHandler: processData() - APPLICATION_DATA data" );
+                bwmorg.LOG.debug( "TlsProtocolHandler: processData() - APPLICATION_DATA data" );
                 if( !appDataReady )
                 {
                     /**
@@ -265,7 +265,7 @@ public class TlsProtocolHandler
                      *
                      * Added debug statements for BouncyCastle.
                      */
-                    org.LOG.info( "TlsProtocolHandler: processData() - Error: application data is not ready" );
+                    bwmorg.LOG.info( "TlsProtocolHandler: processData() - Error: application data is not ready" );
                     this.failWithError( AL_fatal, AP_unexpected_message );
                 }
                 applicationDataQueue.addData( buf, offset, len );
@@ -279,7 +279,7 @@ public class TlsProtocolHandler
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                org.LOG.info( "TlsProtocolHandler: processData() - ERROR: Unknown data" );
+                bwmorg.LOG.info( "TlsProtocolHandler: processData() - ERROR: Unknown data" );
                 /*
                  * Uh, we don't know this protocol.
                  *
@@ -296,7 +296,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.debug( "TlsProtocolHandler: in processHandshake()" );
+        bwmorg.LOG.debug( "TlsProtocolHandler: in processHandshake()" );
 
         boolean read;
         do
@@ -320,7 +320,7 @@ public class TlsProtocolHandler
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                org.LOG.trace( "TlsProtocolHandler: processHandshake() - type: " + type + ", len: " + len );
+                bwmorg.LOG.trace( "TlsProtocolHandler: processHandshake() - type: " + type + ", len: " + len );
 
                 /*
                  * Check if we have enough bytes in the buffer to read
@@ -357,7 +357,7 @@ public class TlsProtocolHandler
                      *
                      * Added debug statements for BouncyCastle.
                      */
-                    org.LOG.debug( "TlsProtocolHandler: processHandshake() - processing handshake message. Type: " + type );
+                    bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing handshake message. Type: " + type );
 
                     /*
                      * Check the type.
@@ -371,7 +371,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_CERTIFICATE" );
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_CERTIFICATE" );
 
                             switch( connection_state )
                             {
@@ -393,7 +393,7 @@ public class TlsProtocolHandler
                                          *
                                          * Added debug statements for BouncyCastle.
                                          */
-                                        org.LOG.info( "TlsProtocolHandler: Error: processHandshake() - invalid certificates." );
+                                        bwmorg.LOG.info( "TlsProtocolHandler: Error: processHandshake() - invalid certificates." );
                                         this.failWithError( AL_fatal, AP_user_canceled );
                                     }
 
@@ -416,7 +416,7 @@ public class TlsProtocolHandler
                                          *
                                          * Added debug statements for BouncyCastle.
                                          */
-                                        org.LOG.info( "TlsProtocolHandler: processHandshake() - Error:  unsupported certificate." );
+                                        bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error:  unsupported certificate." );
                                         this.failWithError( AL_fatal, AP_unsupported_certificate );
                                     }
 
@@ -440,7 +440,7 @@ public class TlsProtocolHandler
                                      *
                                      * Added debug statements for BouncyCastle.
                                      */
-                                    org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CERTIFICATE received during wrong connection state." );
+                                    bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CERTIFICATE received during wrong connection state." );
                                     this.failWithError( AL_fatal, AP_unexpected_message );
                             }
 
@@ -449,7 +449,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_CERTIFICATE" );
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_CERTIFICATE" );
 
                             break;
 
@@ -460,7 +460,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_FINISHED" );
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_FINISHED" );
 
                             switch( connection_state )
                             {
@@ -497,7 +497,7 @@ public class TlsProtocolHandler
                                              *
                                              * Added debug statements for BouncyCastle.
                                              */
-                                            org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: wrong checksum." );
+                                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: wrong checksum." );
                                             this.failWithError( AL_fatal, AP_handshake_failure );
                                         }
                                     }
@@ -518,7 +518,7 @@ public class TlsProtocolHandler
                                      *
                                      * Added debug statements for BouncyCastle.
                                      */
-                                    org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_FINISHED received during wrong connection state." );
+                                    bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_FINISHED received during wrong connection state." );
                                     this.failWithError( AL_fatal, AP_unexpected_message );
                             }
 
@@ -527,7 +527,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_FINISHED" );
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_FINISHED" );
 
                             break;
 
@@ -538,7 +538,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_SERVER_HELLO" );
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_SERVER_HELLO" );
 
                             switch( connection_state )
                             {
@@ -581,7 +581,7 @@ public class TlsProtocolHandler
                                          *
                                          * Added debug statements for BouncyCastle.
                                          */
-                                        org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Compression not supported." );
+                                        bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Compression not supported." );
                                         this.failWithError( TlsProtocolHandler.AL_fatal, TlsProtocolHandler.AP_illegal_parameter );
                                     }
                                     assertEmpty( is );
@@ -595,7 +595,7 @@ public class TlsProtocolHandler
                                      *
                                      * Added debug statements for BouncyCastle.
                                      */
-                                    org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unexpected message." );
+                                    bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unexpected message." );
                                     this.failWithError( AL_fatal, AP_unexpected_message );
                             }
 
@@ -604,7 +604,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_SERVER_HELLO" );
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_SERVER_HELLO" );
 
                             break;
 
@@ -615,7 +615,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_SERVER_HELLO_DONE" );
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_SERVER_HELLO_DONE" );
 
                             switch( connection_state )
                             {
@@ -632,7 +632,7 @@ public class TlsProtocolHandler
                                          *
                                          * Added debug statements for BouncyCastle.
                                          */
-                                        org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Chosen key exhange algorithm is not RSA." );
+                                        bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Chosen key exhange algorithm is not RSA." );
                                         this.failWithError( AL_fatal, AP_unexpected_message );
                                     }
 
@@ -694,7 +694,7 @@ public class TlsProtocolHandler
                                                  *
                                                  * Added debug statements for BouncyCastle.
                                                  */
-                                                org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: InvalidCipherTextException thrown." );
+                                                bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: InvalidCipherTextException thrown." );
                                                 this.failWithError( AL_fatal, AP_internal_error );
                                             }
 
@@ -736,7 +736,7 @@ public class TlsProtocolHandler
                                              *
                                              * Added debug statements for BouncyCastle.
                                              */
-                                            org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Unknown key exhange method." );
+                                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Unknown key exhange method." );
                                             this.failWithError( AL_fatal, AP_unexpected_message );
 
                                     }
@@ -793,7 +793,7 @@ public class TlsProtocolHandler
                                      *
                                      * Added debug statements for BouncyCastle.
                                      */
-                                    org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unexpected message." );
+                                    bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unexpected message." );
                                     this.failWithError( AL_fatal, AP_handshake_failure );
                             }
 
@@ -802,7 +802,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_SERVER_HELLO_DONE" );
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_SERVER_HELLO_DONE" );
 
                             break;
 
@@ -813,7 +813,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_SERVER_KEY_EXCHANGE" );
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_SERVER_KEY_EXCHANGE" );
 
                             switch( connection_state )
                             {
@@ -828,7 +828,7 @@ public class TlsProtocolHandler
                                          *
                                          * Added debug statements for BouncyCastle.
                                          */
-                                        org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Chosen key exchange is not DHE_RSA." );
+                                        bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Chosen key exchange is not DHE_RSA." );
                                         this.failWithError( AL_fatal, AP_unexpected_message );
                                     }
 
@@ -897,7 +897,7 @@ public class TlsProtocolHandler
                                          *
                                          * Added debug statements for BouncyCastle.
                                          */
-                                        org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: InvalidCipherTextException thrown." );
+                                        bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: InvalidCipherTextException thrown." );
                                         this.failWithError( AL_fatal, AP_bad_certificate );
                                     }
 
@@ -912,7 +912,7 @@ public class TlsProtocolHandler
                                          *
                                          * Added debug statements for BouncyCastle.
                                          */
-                                        org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: signed data length is not equal to expected hash value." );
+                                        bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: signed data length is not equal to expected hash value." );
                                         this.failWithError( AL_fatal, AP_bad_certificate );
                                     }
 
@@ -925,7 +925,7 @@ public class TlsProtocolHandler
                                              *
                                              * Added debug statements for BouncyCastle.
                                              */
-                                            org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: signed hash is not equal to expected hash." );
+                                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: signed hash is not equal to expected hash." );
                                             this.failWithError( AL_fatal, AP_bad_certificate );
                                         }
                                     }
@@ -961,7 +961,7 @@ public class TlsProtocolHandler
                                      *
                                      * Added debug statements for BouncyCastle.
                                      */
-                                    org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unexpected message." );
+                                    bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unexpected message." );
                                     this.failWithError( AL_fatal, AP_unexpected_message );
                             }
 
@@ -970,7 +970,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_SERVER_KEY_EXCHANGE" );
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_SERVER_KEY_EXCHANGE" );
 
                             break;
 
@@ -981,7 +981,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_HELLO_REQUEST not supported." );
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_HELLO_REQUEST not supported." );
                             this.failWithError( AL_fatal, AP_unexpected_message );
                             break;
 
@@ -992,7 +992,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CLIENT_KEY_EXCHANGE not supported." );
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CLIENT_KEY_EXCHANGE not supported." );
                             this.failWithError( AL_fatal, AP_unexpected_message );
                             break;
 
@@ -1002,7 +1002,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CERTIFICATE_REQUEST not supported." );
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CERTIFICATE_REQUEST not supported." );
                             this.failWithError( AL_fatal, AP_unexpected_message );
                             break;
 
@@ -1013,7 +1013,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CERTIFICATE_VERIFY not supported." );
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CERTIFICATE_VERIFY not supported." );
                             this.failWithError( AL_fatal, AP_unexpected_message );
                             break;
 
@@ -1024,7 +1024,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CLIENT_HELLO not supported." );
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CLIENT_HELLO not supported." );
                             this.failWithError( AL_fatal, AP_unexpected_message );
                             break;
 
@@ -1035,7 +1035,7 @@ public class TlsProtocolHandler
                              *
                              * Added debug statements for BouncyCastle.
                              */
-                            org.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unknown unsupported type." );
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unknown unsupported type." );
                             this.failWithError( AL_fatal, AP_unexpected_message );
                             break;
 
@@ -1051,7 +1051,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.debug( "TlsProtocolHandler: done processHandshake() " );
+        bwmorg.LOG.debug( "TlsProtocolHandler: done processHandshake() " );
 
     }
 
@@ -1072,7 +1072,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.debug( "TlsProtocolHandler: in processAlert() " );
+        bwmorg.LOG.debug( "TlsProtocolHandler: in processAlert() " );
 
         while( alertQueue.size() >= 2 )
         {
@@ -1105,7 +1105,7 @@ public class TlsProtocolHandler
                      *
                      * Added debug statements for BouncyCastle.
                      */
-                    org.LOG.info( "TlsProtocolHandler: Error: exception thrown in rs.close()" );
+                    bwmorg.LOG.info( "TlsProtocolHandler: Error: exception thrown in rs.close()" );
                 }
                 /**
                  * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
@@ -1134,7 +1134,7 @@ public class TlsProtocolHandler
                      *
                      * Added debug statements for BouncyCastle.
                      */
-                    org.LOG.info( "TlsProtocolHandler: processAlert() - AP_close_notify message received." );
+                    bwmorg.LOG.info( "TlsProtocolHandler: processAlert() - AP_close_notify message received." );
                     this.failWithError( AL_warning, AP_close_notify );
                 }
                 /*
@@ -1148,7 +1148,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.debug( "TlsProtocolHandler: done processAlert() " );
+        bwmorg.LOG.debug( "TlsProtocolHandler: done processAlert() " );
 
     }
 
@@ -1165,7 +1165,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.debug( "TlsProtocolHandler: in processChangeCipherSpec() " );
+        bwmorg.LOG.debug( "TlsProtocolHandler: in processChangeCipherSpec() " );
 
         while( changeCipherSpecQueue.size() > 0 )
         {
@@ -1185,7 +1185,7 @@ public class TlsProtocolHandler
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                org.LOG.info( "TlsProtocolHandler: processChangeCipherSpec() - Error: unexpected message." );
+                bwmorg.LOG.info( "TlsProtocolHandler: processChangeCipherSpec() - Error: unexpected message." );
                 this.failWithError( AL_fatal, AP_unexpected_message );
 
             }
@@ -1209,7 +1209,7 @@ public class TlsProtocolHandler
                      *
                      * Added debug statements for BouncyCastle.
                      */
-                    org.LOG.info( "TlsProtocolHandler: processChangeCipherSpec() - Error: Not in the correct connection state." );
+                    bwmorg.LOG.info( "TlsProtocolHandler: processChangeCipherSpec() - Error: Not in the correct connection state." );
                     this.failWithError( AL_fatal, AP_handshake_failure );
                 }
 
@@ -1221,7 +1221,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.debug( "TlsProtocolHandler: done processChangeCipherSpec() " );
+        bwmorg.LOG.debug( "TlsProtocolHandler: done processChangeCipherSpec() " );
 
     }
 
@@ -1255,7 +1255,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.debug( "TlsProtocolHandler: --> in connect()" );
+        bwmorg.LOG.debug( "TlsProtocolHandler: --> in connect()" );
 
         this.verifyer = verifyer;
 
@@ -1321,7 +1321,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.trace( "TlsProtocolHandler: connect() - Client HELLO sent." );
+        bwmorg.LOG.trace( "TlsProtocolHandler: connect() - Client HELLO sent." );
 
         /*
          * We will now read data, until we have completed the handshake.
@@ -1339,7 +1339,7 @@ public class TlsProtocolHandler
             }
             catch( UnknownDataException e )
             {
-                org.LOG.info( "TlsProtocolHandler: connect() - UnknownDataException is thrown during handshake!." );
+                bwmorg.LOG.info( "TlsProtocolHandler: connect() - UnknownDataException is thrown during handshake!." );
                 this.failWithError( AL_fatal, AP_internal_error );
             }
 
@@ -1353,7 +1353,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.debug( "TlsProtocolHandler: <-- done connect()" );
+        bwmorg.LOG.debug( "TlsProtocolHandler: <-- done connect()" );
     }
 
     /**
@@ -1381,7 +1381,7 @@ public class TlsProtocolHandler
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                org.LOG.info( "TlsProtocolHandler: readApplicationData() - Unable to read data due to previous error." );
+                bwmorg.LOG.info( "TlsProtocolHandler: readApplicationData() - Unable to read data due to previous error." );
 
                 /*
                  * Something went terribly wrong, we should throw an IOException
@@ -1409,7 +1409,7 @@ public class TlsProtocolHandler
                      *
                      * Added debug statements for BouncyCastle.
                      */
-                    org.LOG.info( "TlsProtocolHandler: readApplicationData() - Error: IOException thrown during writeMessage." );
+                    bwmorg.LOG.info( "TlsProtocolHandler: readApplicationData() - Error: IOException thrown during writeMessage." );
                     this.failWithError( AL_fatal, AP_internal_error );
                 }
                 throw e;
@@ -1423,7 +1423,7 @@ public class TlsProtocolHandler
                      *
                      * Added debug statements for BouncyCastle.
                      */
-                    org.LOG.info( "TlsProtocolHandler: readApplicationData() - Error: Runtime Exception thrown during writeMessage." );
+                    bwmorg.LOG.info( "TlsProtocolHandler: readApplicationData() - Error: Runtime Exception thrown during writeMessage." );
                     this.failWithError( AL_fatal, AP_internal_error );
                 }
                 throw e;
@@ -1464,7 +1464,7 @@ public class TlsProtocolHandler
              *
              * Added debug statements for BouncyCastle.
              */
-            //org.LOG.trace( "TlsProtocolHandler: <-- done availableData(): returning appDataSize: " + appDataSize );
+            //bwmorg.LOG.trace( "TlsProtocolHandler: <-- done availableData(): returning appDataSize: " + appDataSize );
             return appDataSize;
         }
 
@@ -1475,7 +1475,7 @@ public class TlsProtocolHandler
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsProtocolHandler: availableData() - Exception occured, no data available" );
+            bwmorg.LOG.info( "TlsProtocolHandler: availableData() - Exception occured, no data available" );
 
             /*
              * Something went terribly wrong, we should throw an IOException
@@ -1493,7 +1493,7 @@ public class TlsProtocolHandler
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.debug( "TlsProtocolHandler: availableData() - Connection closed, no data available" );
+            bwmorg.LOG.debug( "TlsProtocolHandler: availableData() - Connection closed, no data available" );
             return -1;
         }
 
@@ -1505,7 +1505,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        //org.LOG.trace( "TlsProtocolHandler: <-- done availableData(): underlying raw socket available(): " + available );
+        //bwmorg.LOG.trace( "TlsProtocolHandler: <-- done availableData(): underlying raw socket available(): " + available );
         return available;
     }
 
@@ -1526,7 +1526,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.debug( "TlsProtocolHandler: --> in writeData(), writing: " + ( len - offset ) + " bytes." );
+        bwmorg.LOG.debug( "TlsProtocolHandler: --> in writeData(), writing: " + ( len - offset ) + " bytes." );
 
         if( this.failedWithError )
         {
@@ -1535,7 +1535,7 @@ public class TlsProtocolHandler
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsProtocolHandler: writeData() - Error: Cannot write data due to an earlier failure." );
+            bwmorg.LOG.info( "TlsProtocolHandler: writeData() - Error: Cannot write data due to an earlier failure." );
             throw new IOException( "TLS writeData" );
         }
         if( this.closed )
@@ -1545,7 +1545,7 @@ public class TlsProtocolHandler
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsProtocolHandler: writeData() - Error: Cannot write data the connection was closed." );
+            bwmorg.LOG.info( "TlsProtocolHandler: writeData() - Error: Cannot write data the connection was closed." );
             throw new IOException( "Sorry, connection has been closed, you cannot write more data" );
         }
 
@@ -1577,7 +1577,7 @@ public class TlsProtocolHandler
                      *
                      * Added debug statements for BouncyCastle.
                      */
-                    org.LOG.info( "TlsProtocolHandler: writeData() - Error: IO Exception thrown during writeMessage." );
+                    bwmorg.LOG.info( "TlsProtocolHandler: writeData() - Error: IO Exception thrown during writeMessage." );
                     this.failWithError( AL_fatal, AP_internal_error );
                 }
                 throw e;
@@ -1591,7 +1591,7 @@ public class TlsProtocolHandler
                      *
                      * Added debug statements for BouncyCastle.
                      */
-                    org.LOG.info( "TlsProtocolHandler: writeData() - Error: Runtime Exception thrown during writeMessage." );
+                    bwmorg.LOG.info( "TlsProtocolHandler: writeData() - Error: Runtime Exception thrown during writeMessage." );
                     this.failWithError( AL_fatal, AP_internal_error );
                 }
                 throw e;
@@ -1607,7 +1607,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.debug( "TlsProtocolHandler: <-- done writeData()" );
+        bwmorg.LOG.debug( "TlsProtocolHandler: <-- done writeData()" );
     }
 
     /**
@@ -1642,7 +1642,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        org.LOG.info( "TlsProtocolHandler: --> in failWithError() -  alertLevel: " + alertLevel + ", AlertDescription: " + alertDescription );
+        bwmorg.LOG.info( "TlsProtocolHandler: --> in failWithError() -  alertLevel: " + alertLevel + ", AlertDescription: " + alertDescription );
 
         /*
          * Check if the connection is still open.
@@ -1686,7 +1686,7 @@ public class TlsProtocolHandler
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                org.LOG.info( "TlsProtocolHandler: failWithError() - fatal error, throwing exception" );
+                bwmorg.LOG.info( "TlsProtocolHandler: failWithError() - fatal error, throwing exception" );
                 throw new IOException( "TLS failWithError" );
             }
 
@@ -1698,7 +1698,7 @@ public class TlsProtocolHandler
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsProtocolHandler: failWithError() - stream closed; fatal error, throwing exception" );
+            bwmorg.LOG.info( "TlsProtocolHandler: failWithError() - stream closed; fatal error, throwing exception" );
             throw new IOException( "TLS failWithError" );
         }
 
@@ -1718,7 +1718,7 @@ public class TlsProtocolHandler
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsProtocolHandler.close() - calling failWithError(1,0) for normal termination" );
+            bwmorg.LOG.info( "TlsProtocolHandler.close() - calling failWithError(1,0) for normal termination" );
             this.failWithError( (short) 1, (short) 0 );
         }
     }
@@ -1738,7 +1738,7 @@ public class TlsProtocolHandler
              *
              * Added debug statements for BouncyCastle.
              */
-            org.LOG.info( "TlsProtocolHandler: assertEmpty() - Error: input stream is not empty." );
+            bwmorg.LOG.info( "TlsProtocolHandler: assertEmpty() - Error: input stream is not empty." );
             this.failWithError( AL_fatal, AP_decode_error );
         }
     }

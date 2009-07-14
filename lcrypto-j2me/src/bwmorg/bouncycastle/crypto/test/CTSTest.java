@@ -1,16 +1,16 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.engines.DESEngine;
-import org.bouncycastle.crypto.engines.SkipjackEngine;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.modes.CTSBlockCipher;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.BufferedBlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.engines.DESEngine;
+import bwmorg.bouncycastle.crypto.engines.SkipjackEngine;
+import bwmorg.bouncycastle.crypto.modes.CBCBlockCipher;
+import bwmorg.bouncycastle.crypto.modes.CTSBlockCipher;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithIV;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * CTS tester

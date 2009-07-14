@@ -1,6 +1,6 @@
-package org.bouncycastle.crypto.params;
+package bwmorg.bouncycastle.crypto.params;
 
-import org.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.CipherParameters;
 
 public class AsymmetricKeyParameter
     implements CipherParameters

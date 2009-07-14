@@ -1,8 +1,8 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.x509.X509CertificateStructure;
+import bwmorg.bouncycastle.asn1.ASN1InputStream;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.x509.X509CertificateStructure;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -49,7 +49,7 @@ public class Certificate
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                org.LOG.info( "Certificate: parse() - garbage data left after the certificate. Throwing exception." );
+                bwmorg.LOG.info( "Certificate: parse() - garbage data left after the certificate. Throwing exception." );
                 
                 throw new IllegalArgumentException("Sorry, there is garbage data left after the certificate");
             }

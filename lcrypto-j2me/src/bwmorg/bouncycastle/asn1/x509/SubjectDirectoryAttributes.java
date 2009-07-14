@@ -1,13 +1,13 @@
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
 import java.util.Enumeration;
 import java.util.Vector;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERSequence;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERSequence;
 
 /**
  * This extension may contain further X.500 attributes of the subject. See also
@@ -26,7 +26,7 @@ import org.bouncycastle.asn1.DERSequence;
  *     AttributeValue ::= ANY DEFINED BY AttributeType
  * </pre>
  * 
- * @see org.bouncycastle.asn1.x509.X509Name for AttributeType ObjectIdentifiers.
+ * @see bwmorg.bouncycastle.asn1.x509.X509Name for AttributeType ObjectIdentifiers.
  */
 public class SubjectDirectoryAttributes 
     extends ASN1Encodable

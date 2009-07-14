@@ -1,8 +1,8 @@
-package org.bouncycastle.crypto.params;
+package bwmorg.bouncycastle.crypto.params;
 
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.KeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.KeyGenerationParameters;
 
 /**
  * Parameters for NaccacheStern public private key generation. For details on

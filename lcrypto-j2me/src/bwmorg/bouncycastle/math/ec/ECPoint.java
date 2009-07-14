@@ -1,6 +1,6 @@
-package org.bouncycastle.math.ec;
+package bwmorg.bouncycastle.math.ec;
 
-import org.bouncycastle.asn1.x9.X9IntegerConverter;
+import bwmorg.bouncycastle.asn1.x9.X9IntegerConverter;
 
 import bigjava.math.BigInteger;
 
@@ -335,7 +335,7 @@ public abstract class ECPoint
         }
 
         /* (non-Javadoc)
-         * @see org.bouncycastle.math.ec.ECPoint#getEncoded()
+         * @see bwmorg.bouncycastle.math.ec.ECPoint#getEncoded()
          */
         public byte[] getEncoded()
         {
@@ -386,7 +386,7 @@ public abstract class ECPoint
         }
 
         /* (non-Javadoc)
-         * @see org.bouncycastle.math.ec.ECPoint#add(org.bouncycastle.math.ec.ECPoint)
+         * @see bwmorg.bouncycastle.math.ec.ECPoint#add(org.bouncycastle.math.ec.ECPoint)
          */
         public ECPoint add(ECPoint b)
         {
@@ -437,7 +437,7 @@ public abstract class ECPoint
         }
 
         /* (non-Javadoc)
-         * @see org.bouncycastle.math.ec.ECPoint#subtract(org.bouncycastle.math.ec.ECPoint)
+         * @see bwmorg.bouncycastle.math.ec.ECPoint#subtract(org.bouncycastle.math.ec.ECPoint)
          */
         public ECPoint subtract(ECPoint b)
         {
@@ -454,7 +454,7 @@ public abstract class ECPoint
         }
 
         /* (non-Javadoc)
-         * @see org.bouncycastle.math.ec.ECPoint#twice()
+         * @see bwmorg.bouncycastle.math.ec.ECPoint#twice()
          */
         public ECPoint twice()
         {

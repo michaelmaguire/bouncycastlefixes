@@ -1,11 +1,11 @@
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
-import org.bouncycastle.asn1.DERGeneralizedTime;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.DERPrintableString;
-import org.bouncycastle.asn1.DERUTF8String;
+import bwmorg.bouncycastle.asn1.DERGeneralizedTime;
+import bwmorg.bouncycastle.asn1.DERIA5String;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERPrintableString;
+import bwmorg.bouncycastle.asn1.DERUTF8String;
 
 import java.io.IOException;
 
