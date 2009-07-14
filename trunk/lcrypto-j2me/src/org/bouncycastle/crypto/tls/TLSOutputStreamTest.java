@@ -1,10 +1,9 @@
 package org.bouncycastle.crypto.tls;
 
 import java.io.*;
+import java.util.Arrays;
 
 import junit.framework.TestCase;
-
-import org.junit.Assert;
 
 /**
  * These tests are meant to test the correctness of data buffering in TlsOutputStream. 
@@ -35,8 +34,15 @@ public class TLSOutputStreamTest extends TestCase
         outputStream.write( inputData, 0, inputData.length );
         outputStream.flush();
 
-        Assert.assertArrayEquals( tlsProtocolHandler.getResultArray(), inputData );
-        System.out.println( "TLSOutputStreamTest 1 PASSED " );
+        if( Arrays.equals( tlsProtocolHandler.getResultArray(), inputData ) )
+        {
+            System.out.println( "TLSOutputStreamTest 1 PASSED " );
+        }
+        else
+        {
+            System.out.println( "TLSOutputStreamTest 1 failed " );
+            fail();
+        }
     }
 
     /**
@@ -58,9 +64,16 @@ public class TLSOutputStreamTest extends TestCase
         }
 
         outputStream.flush();
+        if( Arrays.equals( tlsProtocolHandler.getResultArray(), inputData ) )
+        {
+            System.out.println( "TLSOutputStreamTest 2 PASSED " );
+        }
+        else
+        {
+            System.out.println( "TLSOutputStreamTest 2 FAILED " );
+            fail();
+        }
 
-        Assert.assertArrayEquals( tlsProtocolHandler.getResultArray(), inputData );
-        System.out.println( "TLSOutputStreamTest 2 PASSED " );
     }
 
     /**
@@ -84,8 +97,16 @@ public class TLSOutputStreamTest extends TestCase
 
         outputStream.flush();
 
-        Assert.assertArrayEquals( tlsProtocolHandler.getResultArray(), inputData );
-        System.out.println( "TLSOutputStreamTest 3 PASSED " );
+        if( Arrays.equals( tlsProtocolHandler.getResultArray(), inputData ) )
+        {
+            System.out.println( "TLSOutputStreamTest 3 PASSED " );
+        }
+        else
+        {
+            System.out.println( "TLSOutputStreamTest 3 FAILED " );
+            fail();
+        }
+
     }
 
     /**
@@ -110,8 +131,15 @@ public class TLSOutputStreamTest extends TestCase
         outputStream.write( inputData[TEST_BUFFER_SIZE] );
         outputStream.flush();
 
-        Assert.assertArrayEquals( tlsProtocolHandler.getResultArray(), inputData );
-        System.out.println( "TLSOutputStreamTest 4 PASSED " );
+        if( Arrays.equals( tlsProtocolHandler.getResultArray(), inputData ) )
+        {
+            System.out.println( "TLSOutputStreamTest 4 PASSED " );
+        }
+        else
+        {
+            System.out.println( "TLSOutputStreamTest 4 FAILED " );
+            fail();
+        }
     }
 
     /**
@@ -136,8 +164,15 @@ public class TLSOutputStreamTest extends TestCase
         outputStream.write( inputData, TEST_BUFFER_SIZE - 1, 2 );
         outputStream.flush();
 
-        Assert.assertArrayEquals( tlsProtocolHandler.getResultArray(), inputData );
-        System.out.println( "TLSOutputStreamTest 5 PASSED " );
+        if( Arrays.equals( tlsProtocolHandler.getResultArray(), inputData ) )
+        {
+            System.out.println( "TLSOutputStreamTest 5 PASSED " );
+        }
+        else
+        {
+            System.out.println( "TLSOutputStreamTest 5 FAILED " );
+            fail();
+        }
     }
 
     /**
@@ -162,8 +197,15 @@ public class TLSOutputStreamTest extends TestCase
         outputStream.write( inputData, TEST_BUFFER_SIZE - 1, TEST_BUFFER_SIZE + 1 );
         outputStream.flush();
 
-        Assert.assertArrayEquals( tlsProtocolHandler.getResultArray(), inputData );
-        System.out.println( "TLSOutputStreamTest 6 PASSED " );
+        if( Arrays.equals( tlsProtocolHandler.getResultArray(), inputData ) )
+        {
+            System.out.println( "TLSOutputStreamTest 6 PASSED " );
+        }
+        else
+        {
+            System.out.println( "TLSOutputStreamTest 6 FAILED " );
+            fail();
+        }
     }
 
     class TlsProtocolHandlerDummy extends TlsProtocolHandler
