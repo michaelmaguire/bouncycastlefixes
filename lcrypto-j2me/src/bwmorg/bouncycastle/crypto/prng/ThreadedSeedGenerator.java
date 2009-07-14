@@ -58,7 +58,12 @@ public class ThreadedSeedGenerator
             int numbytes,
             boolean fast)
         {
-            Thread t = new Thread( this );
+            /**
+             * BlueWhaleSystems fix -- Michael Maguire -- 24 Jun 2009
+             * 
+             * See ticket:3328 Client: Debugging help -- name all threads used in the app
+             */
+            Thread t = new Thread( this, "ThreadedSeedGenerator.generateSeed" );
 
             /**
              * BlueWhaleSystems fix: Michael Maguire - 11 Mar 2008
