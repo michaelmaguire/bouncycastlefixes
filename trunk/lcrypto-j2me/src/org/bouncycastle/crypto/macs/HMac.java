@@ -26,32 +26,58 @@ public class HMac
     private byte[] inputPad;
     private byte[] outputPad;
 
-    private static Hashtable blockLengths;
+    /**
+     * BlueWhaleSystems fix: Ramesh Nair - 04 Dec 2007 
+     * 
+     * Got rid of the static initializer block as it won't get called  
+     * if the code is running within a Java applet and the browser page 
+     * containing the applet is refreshed.
+     */
+    private Hashtable blockLengths = null;
     
-    static
+    /**
+     * BlueWhaleSystems fix: Ramesh Nair - 04 Dec 2007 
+     * 
+     * Got rid of the static initializer block as it won't get called  
+     * if the code is running within a Java applet and the browser page 
+     * containing the applet is refreshed.
+     */
+    private Hashtable getBlockLengths()
     {
-        blockLengths = new Hashtable();
+        if (null == blockLengths)
+        {
+            blockLengths = new Hashtable();
+            
+            blockLengths.put("GOST3411", new Integer(32));
+            
+            blockLengths.put("MD2", new Integer(16));
+            blockLengths.put("MD4", new Integer(64));
+            blockLengths.put("MD5", new Integer(64));
+            
+            blockLengths.put("RIPEMD128", new Integer(64));
+            blockLengths.put("RIPEMD160", new Integer(64));
+            
+            blockLengths.put("SHA-1", new Integer(64));
+            blockLengths.put("SHA-224", new Integer(64));
+            blockLengths.put("SHA-256", new Integer(64));
+            blockLengths.put("SHA-384", new Integer(128));
+            blockLengths.put("SHA-512", new Integer(128));
+            
+            blockLengths.put("Tiger", new Integer(64));
+            blockLengths.put("Whirlpool", new Integer(64));
+        }
         
-        blockLengths.put("GOST3411", new Integer(32));
-        
-        blockLengths.put("MD2", new Integer(16));
-        blockLengths.put("MD4", new Integer(64));
-        blockLengths.put("MD5", new Integer(64));
-        
-        blockLengths.put("RIPEMD128", new Integer(64));
-        blockLengths.put("RIPEMD160", new Integer(64));
-        
-        blockLengths.put("SHA-1", new Integer(64));
-        blockLengths.put("SHA-224", new Integer(64));
-        blockLengths.put("SHA-256", new Integer(64));
-        blockLengths.put("SHA-384", new Integer(128));
-        blockLengths.put("SHA-512", new Integer(128));
-        
-        blockLengths.put("Tiger", new Integer(64));
-        blockLengths.put("Whirlpool", new Integer(64));
+        return blockLengths;
     }
     
-    private static int getByteLength(
+    /**
+     * BlueWhaleSystems fix: Ramesh Nair - 04 Dec 2007 
+     * 
+     * Got rid of the static initializer block as it won't get called  
+     * if the code is running within a Java applet and the browser page 
+     * containing the applet is refreshed.
+     */
+    private int getByteLength(
         Digest digest)
     {
         if (digest instanceof ExtendedDigest)
@@ -59,7 +85,14 @@ public class HMac
             return ((ExtendedDigest)digest).getByteLength();
         }
         
-        Integer  b = (Integer)blockLengths.get(digest.getAlgorithmName());
+	    /**
+	     * BlueWhaleSystems fix: Ramesh Nair - 04 Dec 2007 
+	     * 
+	     * Got rid of the static initializer block as it won't get called  
+	     * if the code is running within a Java applet and the browser page 
+    	 * containing the applet is refreshed.
+	     */
+        Integer  b = (Integer)getBlockLengths().get(digest.getAlgorithmName());
         
         if (b == null)
         {       
@@ -78,10 +111,24 @@ public class HMac
     public HMac(
         Digest digest)
     {
-        this(digest, getByteLength(digest));
+	    /**
+	     * BlueWhaleSystems fix: Ramesh Nair - 04 Dec 2007 
+	     * 
+	     * Got rid of the static initializer block as it won't get called  
+	     * if the code is running within a Java applet and the browser page 
+	     * containing the applet is refreshed.
+	     */
+        init(digest, getByteLength(digest));
     }
 
-    private HMac(
+    /**
+     * BlueWhaleSystems fix: Ramesh Nair - 04 Dec 2007 
+     * 
+     * Got rid of the static initializer block as it won't get called  
+     * if the code is running within a Java applet and the browser page 
+     * containing the applet is refreshed.
+     */
+    private void init(
         Digest digest,
         int    byteLength)
     {
