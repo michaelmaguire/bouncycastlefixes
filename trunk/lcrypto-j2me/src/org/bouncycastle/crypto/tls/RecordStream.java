@@ -11,15 +11,14 @@ public class RecordStream
 {
 
     private TlsProtocolHandler handler;
-    private InputStream is;
-    private OutputStream os;
-    protected CombinedHash hash1;
-    protected CombinedHash hash2;
-    protected TlsCipherSuite readSuite = null;
-    protected TlsCipherSuite writeSuite = null;
+    private InputStream        is;
+    private OutputStream       os;
+    protected CombinedHash     hash1;
+    protected CombinedHash     hash2;
+    protected TlsCipherSuite   readSuite  = null;
+    protected TlsCipherSuite   writeSuite = null;
 
-
-    protected RecordStream(TlsProtocolHandler handler, InputStream is, OutputStream os)
+    protected RecordStream( TlsProtocolHandler handler, InputStream is, OutputStream os )
     {
         this.handler = handler;
         this.is = is;
@@ -34,33 +33,33 @@ public class RecordStream
 	 * BlueWhaleSystems fix: Tatiana Rybak - 08 Aug 2007
 	 */
     private boolean isValidRecordType(int type) {
-        
+
        return ( type == TlsProtocolHandler.RL_CHANGE_CIPHER_SPEC || type == TlsProtocolHandler.RL_ALERT ||
                 type == TlsProtocolHandler.RL_APPLICATION_DATA || type == TlsProtocolHandler.RL_HANDSHAKE );
     }
-        
-/*    private int tryReadByte() throws IOException{
-        
-        if (is.available() > 0) {
-            return is.read();
-        
-        } else {
-            synchronized (this) {
-                try {                    
-                    wait(2000);
-                } catch (InterruptedException iException) {
-                    
-                }
-            }
-            if (is.available() > 0) {
-                return is.read();
-            } 
-        }  
-        
-        // couldn't read any data
-        throw new IOException("No data available to read");
-    }*/
-    
+
+    /*    private int tryReadByte() throws IOException{
+     
+     if (is.available() > 0) {
+     return is.read();
+     
+     } else {
+     synchronized (this) {
+     try {                    
+     wait(2000);
+     } catch (InterruptedException iException) {
+     
+     }
+     }
+     if (is.available() > 0) {
+     return is.read();
+     } 
+     }  
+     
+     // couldn't read any data
+     throw new IOException("No data available to read");
+     }*/
+
     /**
      * BlueWhaleSystems fix: Tatiana Rybak - 08 Aug 2007
      *
@@ -100,7 +99,7 @@ public class RecordStream
         // try to find valid data
         while( is.available() > 0 )
         {
-            
+
             if( !skipReadingRecordtype )
             {
                 type = TlsUtils.readUint8( is );
@@ -148,7 +147,7 @@ public class RecordStream
                 if( i != 1 )
                 {
                     org.LOG.trace( "Tls RecordStream.scanForValidData() --> Second byte of the version doesn't match: " + i );
-                    
+
                     // the second byte is not a version byte. Try to see maybe it is record type. If that's the case,
                     // restart the scan but skip reading the record type in.
                     // happens in cases like ... 22 03 23 03 01 ...
@@ -166,7 +165,7 @@ public class RecordStream
             try
             {
                 int size = 0;
-                
+
                 // read the first byte of the size
                 if (is.available() > 0) {
                     i = is.read();
@@ -176,7 +175,7 @@ public class RecordStream
                     }
                     size = i << 8;
                 }
-                
+
                 // read the second byte of the size
                 if (is.available() > 0) {
                     i = is.read();
@@ -184,18 +183,18 @@ public class RecordStream
                         org.LOG.trace( "Tls RecordStream.scanForValidData() --> Second byte of the size is negative: " + i );
                         continue;
                     }
-                    
+
                     size = size | i;
                 }
-                
-                org.LOG.trace( "Tls RecordStream.scanForValidData() --> Looks like we found data of " + size + " length.");
-                
+
+                org.LOG.trace( "Tls RecordStream.scanForValidData() --> Looks like we found data of " + size + " length." );
+
                 byte[] buf = decodeAndVerify( type, is, size );
-                org.LOG.trace( "Tls RecordStream.scanForValidData() --> Read, decoded and verified data OK.");
-                
+                org.LOG.trace( "Tls RecordStream.scanForValidData() --> Read, decoded and verified data OK." );
+
                 handler.processData( type, buf, 0, buf.length );
-                org.LOG.trace( "Tls RecordStream.scanForValidData() --> Processed data OK.");
-                
+                org.LOG.trace( "Tls RecordStream.scanForValidData() --> Processed data OK." );
+
                 // if we got here, we actually found valid data. Return true.
                 return true;
             }
@@ -204,12 +203,12 @@ public class RecordStream
                 continue;
             }
         }
-        
+
         // if we got here, we couldn't find valid data in the extra bytes. Return false.
-        org.LOG.trace( "Tls RecordStream.scanForValidData() --> No data found.");
+        org.LOG.trace( "Tls RecordStream.scanForValidData() --> No data found." );
         return false;
     }
-    
+
     public void readData() throws IOException, UnknownDataException
     {
         /**
@@ -218,10 +217,9 @@ public class RecordStream
          * Added debug statements for BouncyCastle.
          */
         org.LOG.trace( "Tls RecordStream --> readData()." );
-        
-        short type = TlsUtils.readUint8(is);
-        
-        
+
+        short type = TlsUtils.readUint8( is );
+
         /**
          * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
          *
@@ -235,24 +233,24 @@ public class RecordStream
          * and DES-CBC3-SHA cipher. If that's the case, we can add extra checks in the code below (like checking that
          * the data is available, etc)
          */
-        if( !isValidRecordType(type) )
+        if( !isValidRecordType( type ) )
         {
-            org.LOG.trace( "Tls RecordStream.readData() --> Unknown record type: " + type);
-            
+            org.LOG.trace( "Tls RecordStream.readData() --> Unknown record type: " + type );
+
             // skip unknown bytes, while looking for valid data
             try {
                 if (scanForValidData()) return;
             } catch (Exception e) {                
             }
-            
+
             throw new UnknownDataException();
         }
 
-        TlsUtils.checkVersion(is, handler );
-        int size = TlsUtils.readUint16(is);
-        byte[] buf = decodeAndVerify(type, is, size);
-        handler.processData(type, buf, 0, buf.length);
-        
+        TlsUtils.checkVersion( is, handler );
+        int size = TlsUtils.readUint16( is );
+        byte[] buf = decodeAndVerify( type, is, size );
+        handler.processData( type, buf, 0, buf.length );
+
         /**
          * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
          *
@@ -261,15 +259,15 @@ public class RecordStream
         org.LOG.trace( "Tls RecordStream <-- done readData()" );
     }
 
-    protected byte[] decodeAndVerify(short type, InputStream is, int len) throws IOException
+    protected byte[] decodeAndVerify( short type, InputStream is, int len ) throws IOException
     {
         byte[] buf = new byte[len];
-        TlsUtils.readFully(buf, is);
-        byte[] result = readSuite.decodeCiphertext(type, buf, 0, buf.length, handler);
+        TlsUtils.readFully( buf, is );
+        byte[] result = readSuite.decodeCiphertext( type, buf, 0, buf.length, handler );
         return result;
     }
 
-    protected void writeMessage(short type, byte[] message, int offset, int len) throws IOException
+    protected void writeMessage( short type, byte[] message, int offset, int len ) throws IOException
     {
         /**
          * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
@@ -277,22 +275,22 @@ public class RecordStream
          * Added debug statements for BouncyCastle.
          */
         org.LOG.trace( "Tls RecordStream --> writeMessage()." );
-        
-        if (type == 22)
+
+        if( type == 22 )
         {
-            hash1.update(message, offset, len);
-            hash2.update(message, offset, len);
+            hash1.update( message, offset, len );
+            hash2.update( message, offset, len );
         }
-        byte[] ciphertext = writeSuite.encodePlaintext(type, message, offset, len);
+        byte[] ciphertext = writeSuite.encodePlaintext( type, message, offset, len );
         byte[] writeMessage = new byte[ciphertext.length + 5];
-        TlsUtils.writeUint8(type, writeMessage, 0);
-        TlsUtils.writeUint8((short)3, writeMessage, 1);
-        TlsUtils.writeUint8((short)1, writeMessage, 2);
-        TlsUtils.writeUint16(ciphertext.length, writeMessage, 3);
-        System.arraycopy(ciphertext, 0, writeMessage, 5, ciphertext.length);
-        os.write(writeMessage);
+        TlsUtils.writeUint8( type, writeMessage, 0 );
+        TlsUtils.writeUint8( (short) 3, writeMessage, 1 );
+        TlsUtils.writeUint8( (short) 1, writeMessage, 2 );
+        TlsUtils.writeUint16( ciphertext.length, writeMessage, 3 );
+        System.arraycopy( ciphertext, 0, writeMessage, 5, ciphertext.length );
+        os.write( writeMessage );
         os.flush();
-        
+
         /**
          * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
          *
@@ -308,19 +306,39 @@ public class RecordStream
         {
             is.close();
         }
-        catch (IOException ex)
+        catch( IOException ex )
         {
             e = ex;
         }
+        /**
+         * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+         *
+         * Make sure we null out on close.
+         */
+        finally
+        {
+            is = null;
+        }
+
         try
         {
             os.close();
         }
-        catch (IOException ex)
+        catch( IOException ex )
         {
             e = ex;
         }
-        if (e != null)
+        /**
+         * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+         *
+         * Make sure we null out on close.
+         */
+        finally
+        {
+            os = null;
+        }
+
+        if( e != null )
         {
             throw e;
         }
@@ -330,14 +348,14 @@ public class RecordStream
     {
         os.flush();
     }
-    
+
     /**
      * BlueWhaleSystems fix: Tatiana Rybak - 02 Mar 2007
      * 
      * Added a method to return available bytes in the data stream.
      */
     protected int available() throws IOException {
-    	return is.available();
+        return is.available();
     }
 
 }
@@ -346,5 +364,5 @@ public class RecordStream
  * BlueWhaleSystems fix: Tatiana Rybak - 08 Aug 2007
  */
 class UnknownDataException extends Exception {
-    
+
 }
