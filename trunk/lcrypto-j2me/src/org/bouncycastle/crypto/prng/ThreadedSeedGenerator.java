@@ -11,27 +11,45 @@ public class ThreadedSeedGenerator
     private class SeedGenerator
         implements Runnable
     {
-        private int counter = 0;
+        private int              counter = 0;
 
         /**
          * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
          * 
          * Should be volatile.
          */
-        private volatile boolean stop = false;
+        private volatile boolean stop    = false;
 
         public void run()
         {
             /**
-             * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+             * BlueWhaleSystems fix: Michael Maguire - 30 Apr 2009
              * 
-             * LOG thread startup.
+             * Make sure in all run() methods we have an outermost catch(Throwable)
+             * so we catch all possible exceptions in Runnables to avoid app exits.
              */
-            org.LOG.debug( "ThreadedSeedGenerator.run NEW THREAD" );
-            
-            while (!this.stop)
+            try
             {
-                this.counter++;
+                /**
+                 * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+                 * 
+                 * LOG thread startup.
+                 */
+                org.LOG.debug( "ThreadedSeedGenerator.run NEW THREAD" );
+
+                while( !this.stop )
+                {
+                    this.counter++;
+                }
+            }
+            catch( Throwable t )
+            {
+                /**
+                 * BlueWhaleSystems fix: Michael Maguire - 30 Apr 2009
+                 * 
+                 * Make sure in all run() methods we have an outermost catch(Throwable)
+                 * so we catch all possible exceptions in Runnables to avoid app exits.
+                 */
             }
 
         }
@@ -40,15 +58,15 @@ public class ThreadedSeedGenerator
             int numbytes,
             boolean fast)
         {
-            Thread t = new Thread(this);
-            
+            Thread t = new Thread( this );
+
             /**
              * BlueWhaleSystems fix: Michael Maguire - 11 Mar 2008
              * 
              * Lower priority for all background threads.
              */
             t.setPriority( Thread.MIN_PRIORITY );
-            
+
             byte[] result = new byte[numbytes];
             this.counter = 0;
             this.stop = false;
@@ -56,7 +74,7 @@ public class ThreadedSeedGenerator
             int end;
 
             t.start();
-            if(fast)
+            if( fast )
             {
                 end = numbytes;
             }
@@ -64,28 +82,28 @@ public class ThreadedSeedGenerator
             {
                 end = numbytes * 8;
             }
-            for (int i = 0; i < end; i++)
+            for( int i = 0; i < end; i++ )
             {
-                while (this.counter == last)
+                while( this.counter == last )
                 {
                     try
                     {
-                        Thread.sleep(1);
+                        Thread.sleep( 1 );
                     }
-                    catch (InterruptedException e)
+                    catch( InterruptedException e )
                     {
                         // ignore
                     }
                 }
                 last = this.counter;
-                if (fast)
+                if( fast )
                 {
-                    result[i] = (byte) (last & 0xff);
+                    result[i] = (byte) ( last & 0xff );
                 }
                 else
                 {
-                    int bytepos = i/8;
-                    result[bytepos] = (byte) ((result[bytepos] << 1) | (last & 1));
+                    int bytepos = i / 8;
+                    result[bytepos] = (byte) ( ( result[bytepos] << 1 ) | ( last & 1 ) );
                 }
 
             }
@@ -111,6 +129,6 @@ public class ThreadedSeedGenerator
     {
         SeedGenerator gen = new SeedGenerator();
 
-        return gen.generateSeed(numBytes, fast);
+        return gen.generateSeed( numBytes, fast );
     }
 }
