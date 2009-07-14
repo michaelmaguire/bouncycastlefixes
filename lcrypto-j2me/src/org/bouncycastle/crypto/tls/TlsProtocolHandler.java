@@ -22,6 +22,14 @@ import bigjava.security.SecureRandom;
  */
 public class TlsProtocolHandler
 {
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 24 Jul 2007
+     *
+     * Fake random 20-byte array for testing.
+     */
+    public static final byte[]          CACHED_RANDOM_SEED                    = { -120, -56, 79, 27, -83, 78, -34, 114, 4, -106, 40, -68, 80, -24, 120, 12, -96, 52, -56, 92 };
+    public static final int             CACHED_RANDOM_INT                     = 1185486809;
+    
     private static final short RL_CHANGE_CIPHER_SPEC = 20;
 
     private static final short RL_ALERT = 21;
@@ -175,7 +183,7 @@ public class TlsProtocolHandler
          * Hopefully, 20 bytes in fast mode are good enough.
          */
         this.random.setSeed(tsg.generateSeed(20, true));
-
+                
         this.rs = new RecordStream(this, is, os);
         
         /**
@@ -1208,10 +1216,11 @@ public class TlsProtocolHandler
      * BlueWhaleSystems fix: Tatiana Rybak - 15 July 2007
      *
      * Added ability to set which ciphers to report during tls negotiation.
+     * Pass random int as a parameter. 
      */
     public void connect(CertificateVerifyer verifyer) throws IOException {
         // use all the ciphers available
-        connect(verifyer, 0xFFFFFF);
+        connect(verifyer, 0xFFFFFF, (int) (System.currentTimeMillis()/1000));
     }
     
     /**
@@ -1221,7 +1230,12 @@ public class TlsProtocolHandler
      *                 that this certificate is accepted by the client.
      * @throws IOException If handshake was not successfull.
      */
-    public void connect(CertificateVerifyer verifyer, int cipherMask) throws IOException
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 24 Jul 2007
+     *
+     * Pass int t as a parameter. This is used for cached data testing.
+     */
+    public void connect(CertificateVerifyer verifyer, int cipherMask, int t) throws IOException
     {
         /**
          * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
@@ -1238,7 +1252,13 @@ public class TlsProtocolHandler
         * First, generate some random data.
         */
         this.clientRandom = new byte[32];
-        int t = (int)(System.currentTimeMillis() / 1000);
+       
+       /**
+        * BlueWhaleSystems fix: Tatiana Rybak - 24 Jul 2007
+        *
+        * t parameter is now passed in as an argument.
+        */
+		// int t = (int)(System.currentTimeMillis() / 1000);
         this.clientRandom[0] = (byte)(t >> 24);
         this.clientRandom[1] = (byte)(t >> 16);
         this.clientRandom[2] = (byte)(t >> 8);
