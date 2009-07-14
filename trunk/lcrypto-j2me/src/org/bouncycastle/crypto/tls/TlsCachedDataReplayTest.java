@@ -32,6 +32,14 @@ public class TlsCachedDataReplayTest extends TestCase
         playBackTLSConversation( TlsCipherSuiteManager.TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA_MASK, TlsCachedDataTest.TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA_CACHED, "* OK EON-IMAP on pop04 Welcomes You\r\n" );
     }
 
+    public void testExchange()
+    {
+        System.out.println( "Test 3: Testing TLS_RSA_WITH_3DES_EDE_CBC_SHA cipher." );
+
+        playBackTLSConversation( /*TlsCipherSuiteManager.TLS_RSA_WITH_3DES_EDE_CBC_SHA_MASK*/0xffffff, TlsCachedDataTest.TLS_EXCHANGE_EXTRA_BYTES_CACHED,
+                "* OK Microsoft Exchange Server 2003 IMAP4rev1 server version 6.5.7226.0 (test3.BlueWhale.local) ready.\r\n" );
+    }
+
     void playBackTLSConversation( int cipherMask, byte[] cachedInputData, String expectedString )
     {
 
@@ -57,14 +65,17 @@ public class TlsCachedDataReplayTest extends TestCase
             // incorrect cipher suite etc.
             InputStream in = handler.getTlsInputStream();
             int pos = 0;
-            int length = expectedString.length();
-            char[] buffer = new char[length];
+            //int length = expectedString.length();
+            char[] buffer = new char[1000];
 
             // read while data available or we read enough bytes
-            while( in.available() > 0 && pos < length )
+            while( in.available() > 0 )// && pos < length )
             {
-                char ch = (char) in.read();
-                buffer[pos++] = ch;
+                int i = in.read();
+                if( i != -1 )
+                {
+                    buffer[pos++] = (char)i;
+                }
             }
 
             // compare decoded strings
