@@ -41,6 +41,14 @@ public class ThreadedSeedGenerator
             boolean fast)
         {
             Thread t = new Thread(this);
+            
+            /**
+             * BlueWhaleSystems fix: Michael Maguire - 11 Mar 2008
+             * 
+             * Lower priority for all background threads.
+             */
+            t.setPriority( Thread.MIN_PRIORITY );
+            
             byte[] result = new byte[numbytes];
             this.counter = 0;
             this.stop = false;
