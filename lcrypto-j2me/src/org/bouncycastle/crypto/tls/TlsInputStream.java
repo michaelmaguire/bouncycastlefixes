@@ -36,7 +36,19 @@ public class TlsInputStream
     public void close()
         throws IOException
     {
-        handler.close();
+        /**
+         * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+         *
+         * Make sure we null out on close.
+         */
+        try
+        {
+            handler.close();
+        }
+        finally
+        {
+            handler = null;
+        }
     }
 
     /**
