@@ -1,28 +1,4 @@
-/**
- * 
- * License
- *
- * Copyright (c) 2000 - 2006 The Legion Of The Bouncy Castle (http://www.bouncycastle.org)
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software 
- * and associated documentation files (the "Software"), to deal in the Software without restriction, 
- * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
- * and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do
- * so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial
- * portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
- * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
- * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- */
 package bwmorg.bouncycastle.crypto.prng;
-
-import com.bluewhalesystems.client.logger.*;
 
 /**
  * A thread based seed generator - one source of randomness.
@@ -32,7 +8,8 @@ import com.bluewhalesystems.client.logger.*;
  */
 public class ThreadedSeedGenerator
 {
-    private class SeedGenerator implements Runnable
+    private class SeedGenerator
+        implements Runnable
     {
         private int              counter = 0;
 
@@ -45,6 +22,12 @@ public class ThreadedSeedGenerator
 
         public void run()
         {
+            /**
+             * BlueWhaleSystems fix: Michael Maguire - 30 Apr 2009
+             * 
+             * Make sure in all run() methods we have an outermost catch(Throwable)
+             * so we catch all possible exceptions in Runnables to avoid app exits.
+             */
             try
             {
                 /**
@@ -52,7 +35,7 @@ public class ThreadedSeedGenerator
                  * 
                  * LOG thread startup.
                  */
-                LOG.debug( "ThreadedSeedGenerator.run NEW THREAD" );
+                bwmorg.LOG.debug( "ThreadedSeedGenerator.run NEW THREAD" );
 
                 while( !this.stop )
                 {
@@ -61,19 +44,21 @@ public class ThreadedSeedGenerator
             }
             catch( Throwable t )
             {
-                // Catch all possible exceptions in Runnables to avoid app exits.
+                /**
+                 * BlueWhaleSystems fix: Michael Maguire - 30 Apr 2009
+                 * 
+                 * Make sure in all run() methods we have an outermost catch(Throwable)
+                 * so we catch all possible exceptions in Runnables to avoid app exits.
+                 */
             }
 
         }
 
-        public byte[] generateSeed( int numbytes, boolean fast )
+        public byte[] generateSeed(
+            int numbytes,
+            boolean fast)
         {
-            /**
-             * BlueWhaleSystems fix -- Michael Maguire -- 24 Jun 2009
-             * 
-             * See ticket:3328 Client: Debugging help -- name all threads used in the app
-             */
-            Thread t = new Thread( this, "ThreadedSeedGenerator.generateSeed" );
+            Thread t = new Thread( this );
 
             /**
              * BlueWhaleSystems fix: Michael Maguire - 11 Mar 2008
@@ -138,7 +123,9 @@ public class ThreadedSeedGenerator
      * @param numBytes the number of bytes to generate
      * @param fast true if fast mode should be used
      */
-    public byte[] generateSeed( int numBytes, boolean fast )
+    public byte[] generateSeed(
+        int numBytes,
+        boolean fast)
     {
         SeedGenerator gen = new SeedGenerator();
 
