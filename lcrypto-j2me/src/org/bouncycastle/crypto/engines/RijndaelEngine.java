@@ -620,7 +620,14 @@ public class RijndaelEngine
     {
     }
 
-    private final void unpackBlock(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private void unpackBlock(
         byte[]      bytes,
         int         off)
     {
@@ -640,7 +647,14 @@ public class RijndaelEngine
         }
     }
 
-    private final void packBlock(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private void packBlock(
         byte[]      bytes,
         int         off)
     {
@@ -655,7 +669,14 @@ public class RijndaelEngine
         }
     }
 
-    private final void encryptBlock(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private void encryptBlock(
         long[][] rk)
     {
         int r;
@@ -684,7 +705,14 @@ public class RijndaelEngine
         KeyAddition(rk[ROUNDS]);
     }
 
-    private final void decryptBlock(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private void decryptBlock(
         long[][] rk)
     {
         int r;

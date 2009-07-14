@@ -128,7 +128,14 @@ public class RIPEMD160Digest
     /*
      * rotate int x left n bits.
      */
-    private final int RL(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int RL(
         int x,
         int n)
     {
@@ -142,7 +149,14 @@ public class RIPEMD160Digest
     /*
      * rounds 0-15
      */
-    private final int f1(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int f1(
         int x,
         int y,
         int z)
@@ -153,7 +167,14 @@ public class RIPEMD160Digest
     /*
      * rounds 16-31
      */
-    private final int f2(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int f2(
         int x,
         int y,
         int z)
@@ -164,7 +185,14 @@ public class RIPEMD160Digest
     /*
      * rounds 32-47
      */
-    private final int f3(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int f3(
         int x,
         int y,
         int z)
@@ -175,7 +203,14 @@ public class RIPEMD160Digest
     /*
      * rounds 48-63
      */
-    private final int f4(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int f4(
         int x,
         int y,
         int z)
@@ -186,7 +221,14 @@ public class RIPEMD160Digest
     /*
      * rounds 64-79
      */
-    private final int f5(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int f5(
         int x,
         int y,
         int z)

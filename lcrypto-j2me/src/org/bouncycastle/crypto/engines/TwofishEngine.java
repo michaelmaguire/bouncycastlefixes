@@ -517,7 +517,14 @@ public final class TwofishEngine
      * the functionality in this function and applying it appropriately
      * to the creation of the subkeys during key setup.
      */
-    private final int F32(int x, int[] k32)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int F32(int x, int[] k32)
     {
         int b0 = b0(x);
         int b1 = b1(x);
@@ -567,7 +574,14 @@ public final class TwofishEngine
      * @param    k1 second 32-bit entity
      * @return     Remainder polynomial generated using RS code
      */
-    private final int RS_MDS_Encode(int k0, int k1)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int RS_MDS_Encode(int k0, int k1)
     {
         int r = k1;
         for (int i = 0 ; i < 4 ; i++) // shift 1 byte at a time
@@ -590,7 +604,14 @@ public final class TwofishEngine
      * </pre>
      * where a = primitive root of field generator 0x14D
      */
-    private final int RS_rem(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int RS_rem(int x)
     {
         int b = (x >>> 24) & 0xff;
         int g2 = ((b << 1) ^ 
@@ -600,50 +621,113 @@ public final class TwofishEngine
         return ((x << 8) ^ (g3 << 24) ^ (g2 << 16) ^ (g3 << 8) ^ b);
     }
         
-    private final int LFSR1(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int LFSR1(int x)
     {
         return (x >> 1) ^ 
                 (((x & 0x01) != 0) ? GF256_FDBK_2 : 0);
     }
 
-    private final int LFSR2(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int LFSR2(int x)
     {
         return (x >> 2) ^
                 (((x & 0x02) != 0) ? GF256_FDBK_2 : 0) ^
                 (((x & 0x01) != 0) ? GF256_FDBK_4 : 0);
     }
 
-    private final int Mx_X(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int Mx_X(int x)
     {
         return x ^ LFSR2(x);
     } // 5B
 
-    private final int Mx_Y(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int Mx_Y(int x)
     {
         return x ^ LFSR1(x) ^ LFSR2(x);
     } // EF
 
-    private final int b0(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int b0(int x)
     {
         return x & 0xff;
     }
 
-    private final int b1(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int b1(int x)
     {
         return (x >>> 8) & 0xff;
     }
 
-    private final int b2(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int b2(int x)
     {
         return (x >>> 16) & 0xff;
     }
 
-    private final int b3(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int b3(int x)
     {
         return (x >>> 24) & 0xff;
     }
 
-    private final int Fe32_0(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int Fe32_0(int x)
     {
         return gSBox[ 0x000 + 2*(x & 0xff) ] ^
                gSBox[ 0x001 + 2*((x >>> 8) & 0xff) ] ^
@@ -651,7 +735,14 @@ public final class TwofishEngine
                gSBox[ 0x201 + 2*((x >>> 24) & 0xff) ];
     }
     
-    private final int Fe32_3(int x)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int Fe32_3(int x)
     {
         return gSBox[ 0x000 + 2*((x >>> 24) & 0xff) ] ^
                gSBox[ 0x001 + 2*(x & 0xff) ] ^
@@ -659,7 +750,14 @@ public final class TwofishEngine
                gSBox[ 0x201 + 2*((x >>> 16) & 0xff) ];
     }
     
-    private final int BytesTo32Bits(byte[] b, int p)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private int BytesTo32Bits(byte[] b, int p)
     {
         return ((b[p] & 0xff)) | 
              ((b[p+1] & 0xff) << 8) |
@@ -667,7 +765,14 @@ public final class TwofishEngine
              ((b[p+3] & 0xff) << 24);
     }
 
-    private final void Bits32ToBytes(int in,  byte[] b, int offset)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private void Bits32ToBytes(int in,  byte[] b, int offset)
     {
         b[offset] = (byte)in;
         b[offset + 1] = (byte)(in >> 8);
