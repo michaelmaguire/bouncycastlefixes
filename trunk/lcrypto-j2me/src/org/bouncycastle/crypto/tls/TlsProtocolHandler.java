@@ -22,7 +22,6 @@ import bigjava.security.SecureRandom;
  */
 public class TlsProtocolHandler
 {
-
     private static final short RL_CHANGE_CIPHER_SPEC = 20;
 
     private static final short RL_ALERT = 21;
@@ -824,13 +823,23 @@ public class TlsProtocolHandler
     }
 
     /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 15 July 2007
+     *
+     * Added ability to set which ciphers to report during tls negotiation.
+     */
+    public void connect(CertificateVerifyer verifyer) throws IOException {
+        // use all the ciphers available
+        connect(verifyer, 0xFFFFFF);
+    }
+    
+    /**
      * Connects to the remote system.
      *
      * @param verifyer Will be used when a certificate is received to verify
      *                 that this certificate is accepted by the client.
      * @throws IOException If handshake was not successfull.
      */
-    public void connect(CertificateVerifyer verifyer) throws IOException
+    public void connect(CertificateVerifyer verifyer, int cipherMask) throws IOException
     {
         this.verifyer = verifyer;
 
@@ -863,7 +872,12 @@ public class TlsProtocolHandler
         /*
         * Cipher suites
         */
-        TlsCipherSuiteManager.writeCipherSuites(os);
+       /**
+        * BlueWhaleSystems fix: Tatiana Rybak - 15 July 2007
+        *
+        * Added ability to set which ciphers to report during tls negotiation.
+        */        
+        TlsCipherSuiteManager.writeCipherSuites(os, cipherMask);
 
         /*
         * Compression methods, just the null method.
@@ -884,9 +898,10 @@ public class TlsProtocolHandler
         /*
         * We will now read data, until we have completed the handshake.
         */
-        while (connection_state != CS_DONE)
+        while( connection_state != CS_DONE )
         {
             rs.readData();
+
         }
 
         this.tlsInputStream = new TlsInputStream(this);
@@ -946,6 +961,7 @@ public class TlsProtocolHandler
                 }
                 throw e;
             }
+
         }
         len = Math.min(len, applicationDataQueue.size());
         applicationDataQueue.read(buf, offset, len, 0);
@@ -984,8 +1000,8 @@ public class TlsProtocolHandler
             return -1;
         }
         
-        // return the amount of data avialable in the underlying saw socket
-    	return rs.available();
+        // return the amount of data avialable in the underlying saw socket    
+        return rs.available();
     }
     
     /**
