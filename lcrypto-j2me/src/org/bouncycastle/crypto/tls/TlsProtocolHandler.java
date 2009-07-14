@@ -30,13 +30,18 @@ public class TlsProtocolHandler
     public static final byte[]          CACHED_RANDOM_SEED                    = { -120, -56, 79, 27, -83, 78, -34, 114, 4, -106, 40, -68, 80, -24, 120, 12, -96, 52, -56, 92 };
     public static final int             CACHED_RANDOM_INT                     = 1185486809;
     
-    private static final short RL_CHANGE_CIPHER_SPEC = 20;
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 08 Aug 2007
+     *
+     * Exchange hack: make these constants visible for RecordStream
+     */
+    static final short RL_CHANGE_CIPHER_SPEC = 20;
 
-    private static final short RL_ALERT = 21;
+    static final short RL_ALERT = 21;
+   
+    static final short RL_HANDSHAKE = 22;
 
-    private static final short RL_HANDSHAKE = 22;
-
-    private static final short RL_APPLICATION_DATA = 23;
+    static final short RL_APPLICATION_DATA = 23;
 
     /*
      hello_request(0), client_hello(1), server_hello(2),
@@ -1315,7 +1320,20 @@ public class TlsProtocolHandler
         */
         while( connection_state != CS_DONE )
         {
-            rs.readData();
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 08 Aug 2007
+             *
+             * Exchange hack: Added UnknownDataException, however the exception should not be thrown at this point. 
+             */
+            try
+            {
+                rs.readData();
+            }
+            catch( UnknownDataException e )
+            {
+                org.LOG.info( "TlsProtocolHandler: connect() - UnknownDataException is thrown during handshake!." );
+                this.failWithError(AL_fatal, AP_internal_error);
+            }
 
         }
 
@@ -1401,6 +1419,16 @@ public class TlsProtocolHandler
                     this.failWithError(AL_fatal, AP_internal_error);
                 }
                 throw e;
+            }
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 02 Mar 2007
+             * 
+             * Exchange fix: if this is thrown, that mean we were called to read data when there is no real data
+             * so just return -1 and our code will handle this.
+             */
+            catch( UnknownDataException e )
+            {
+                return -1;
             }
 
         }
