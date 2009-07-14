@@ -60,10 +60,24 @@ public class ByteQueue
     {
         if ((available - skip) < len)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "Tls ByteQueue: read() - Error: Not enough data to read" );
+            
             throw new TlsRuntimeException("Not enough data to read");
         }
         if ((buf.length - offset) < len)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "Tls ByteQueue: read() - Error: Buffer size of " + buf.length + " is too small for a read of " + len + " bytes" );
+            
             throw new TlsRuntimeException("Buffer size of " + buf.length + " is too small for a read of " + len + " bytes");
         }
         System.arraycopy(databuf, skipped + skip, buf, offset, len);
@@ -100,6 +114,13 @@ public class ByteQueue
     {
         if (i > available)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "Tls ByteQueue: read() - Error: Cannot remove " + i + " bytes, only got " + available );
+                 
             throw new TlsRuntimeException("Cannot remove " + i + " bytes, only got " + available);
         }
 

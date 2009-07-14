@@ -70,6 +70,13 @@ public class TlsMac
         }
         catch (IOException e)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "TlsMac: calculateMac() - Internal error during mac calculation" );
+            
             // This should never happen
             throw new IllegalStateException("Internal error during mac calculation");
         }

@@ -99,6 +99,13 @@ public class TlsUtils
         int i = is.read();
         if (i == -1)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 19 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "TlsUtils: readUint8() - Error: no data to read." );
+            
             throw new EOFException();
         }
         return (short)i;
@@ -110,6 +117,13 @@ public class TlsUtils
         int i2 = is.read();
         if ((i1 | i2) < 0)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 19 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "TlsUtils: readUint16() - Error: invalid values read." );
+            
             throw new EOFException();
         }
         return i1 << 8 | i2;
@@ -122,6 +136,13 @@ public class TlsUtils
         int i3 = is.read();
         if ((i1 | i2 | i3) < 0)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 19 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "TlsUtils: readUint24() - Error: invalid values read." );
+            
             throw new EOFException();
         }
         return (i1 << 16) | (i2 << 8) | i3;
@@ -135,6 +156,13 @@ public class TlsUtils
         int i4 = is.read();
         if ((i1 | i2 | i3 | i4) < 0)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 19 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "TlsUtils: readUint32() - Error: invalid values read." );
+            
             throw new EOFException();
         }
         return (((long)i1) << 24) | (((long)i2) << 16) | (((long)i3) << 8) | ((long)i4);
@@ -160,6 +188,13 @@ public class TlsUtils
     {
         if ((readVersion[0] != 3) || (readVersion[1] != 1))
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "TlsUtils: checkVersion() - Error: version check failed." );
+            
             handler.failWithError(TlsProtocolHandler.AL_fatal, TlsProtocolHandler.AP_protocol_version);
         }
     }
@@ -170,6 +205,13 @@ public class TlsUtils
         int i2 = is.read();
         if ((i1 != 3) || (i2 != 1))
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "TlsUtils: checkVersion() - Error: version check failed." );
+            
             handler.failWithError(TlsProtocolHandler.AL_fatal, TlsProtocolHandler.AP_protocol_version);
         }
     }
