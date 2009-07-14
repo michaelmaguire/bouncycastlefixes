@@ -9,39 +9,70 @@ import junit.framework.TestCase;
 
 public class TlsProtocolHandlerTest extends TestCase
 {
-    public void testTLS_RSA_WITH_AES_256_CBC_SHA()
+    public void testTLS_RSA_WITH_AES_256_CBC_SHA_electric_inbound()
     {
         //runTlsTest( "inbound.electric.net", 995, TlsCipherSuiteManager.TLS_RSA_WITH_AES_256_CBC_SHA_MASK, "+OK" );
+    }
+
+    public void testTLS_RSA_WITH_AES_256_CBC_SHA_electric()
+    {
         runTlsTest( "outbound.electric.net", 465, TlsCipherSuiteManager.TLS_RSA_WITH_AES_256_CBC_SHA_MASK, "220" );
+    }
+
+    public void BROKENtestTLS_RSA_WITH_AES_256_CBC_SHA_yahoo()
+    {
         runTlsTest( "smtp.mail.yahoo.co.uk", 465, TlsCipherSuiteManager.TLS_RSA_WITH_AES_256_CBC_SHA_MASK, "220" );
+    }
+
+    public void testTLS_RSA_WITH_AES_256_CBC_SHA_fastmail()
+    {
         runTlsTest( "fastmail.fm", 465, TlsCipherSuiteManager.TLS_RSA_WITH_AES_256_CBC_SHA_MASK, "220" );        
     }
-          
-    public void testTLS_RSA_WITH_AES_128_CBC_SHA ()
+    
+    public void testTLS_RSA_WITH_AES_128_CBC_SHA_electric ()
     {
         runTlsTest( "outbound.electric.net", 465, TlsCipherSuiteManager.TLS_RSA_WITH_AES_128_CBC_SHA_MASK, "220" );
-        runTlsTest( "fastmail.fm", 465, TlsCipherSuiteManager.TLS_RSA_WITH_AES_128_CBC_SHA_MASK, "220" );
+    }
+
+    public void BROKENtestTLS_RSA_WITH_AES_128_CBC_SHA_yahoo ()
+    {
         runTlsTest( "smtp.mail.yahoo.co.uk", 465, TlsCipherSuiteManager.TLS_RSA_WITH_AES_128_CBC_SHA_MASK, "220" );
     }
     
-    public void testTLS_RSA_WITH_3DES_EDE_CBC_SHA  ()
+    public void testTLS_RSA_WITH_AES_128_CBC_SHA_fastmail ()
+    {
+        runTlsTest( "fastmail.fm", 465, TlsCipherSuiteManager.TLS_RSA_WITH_AES_128_CBC_SHA_MASK, "220" );
+    }
+    
+    
+    public void testTLS_RSA_WITH_3DES_EDE_CBC_SHA_electric  ()
     {
         runTlsTest( "outbound.electric.net", 465, TlsCipherSuiteManager.TLS_RSA_WITH_3DES_EDE_CBC_SHA_MASK, "220" );
+    }
+
+    public void BROKENtestTLS_RSA_WITH_3DES_EDE_CBC_SHA_yahoo  ()
+    {
         runTlsTest( "smtp.mail.yahoo.co.uk", 465, TlsCipherSuiteManager.TLS_RSA_WITH_3DES_EDE_CBC_SHA_MASK, "220" );
+    }
+    
+    public void testTLS_RSA_WITH_3DES_EDE_CBC_SHA_gmail  ()
+    {
         runTlsTest( "smtp.gmail.com", 465, TlsCipherSuiteManager.TLS_RSA_WITH_3DES_EDE_CBC_SHA_MASK, "220" );
     }
     
-    public void FAILStestTLS_RSA_WITH_3DES_EDE_CBC_SHA ()
-    {
-        runTlsTest( "moorcroftsllp.plus.com", 993, TlsCipherSuiteManager.TLS_RSA_WITH_3DES_EDE_CBC_SHA_MASK, "* OK" );
-    }   
+    // TODO: We should change this to hit our own test Exchange server.
+    // Not really an appropriate thing to do with a customer's own mail server.
+    //public void FAILStestTLS_RSA_WITH_3DES_EDE_CBC_SHA_moorcrofts_exchange ()
+    //{
+    //    runTlsTest( "moorcroftsllp.plus.com", 993, TlsCipherSuiteManager.TLS_RSA_WITH_3DES_EDE_CBC_SHA_MASK, "* OK" );
+    //}   
     
-    public void testTLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA ()
+    public void testTLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA_everyone ()
     {
         runTlsTest( "smtp.everyone.net", 465, TlsCipherSuiteManager.TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA_MASK, "220" );
     }
     
-    public void testTLS_DHE_RSA_WITH_AES_128_CBC_SHA  ()
+    public void testTLS_DHE_RSA_WITH_AES_128_CBC_SHA_everyone  ()
     {
         runTlsTest( "smtp.everyone.net", 465, TlsCipherSuiteManager.TLS_DHE_RSA_WITH_AES_128_CBC_SHA_MASK, "220" );
     }
