@@ -28,8 +28,12 @@ public class TlsOuputStream extends OutputStream
         this.write(buf, 0, 1);
     }
 
-
-    public void cose() throws IOException
+    /**  
+     * BlueWhaleSystems fix: Tatiana Rybak - 25 June 2007  
+     *   
+     * Fixed typo cose to be close  
+     */  
+    public void close() throws IOException  
     {
         handler.close();
     }
