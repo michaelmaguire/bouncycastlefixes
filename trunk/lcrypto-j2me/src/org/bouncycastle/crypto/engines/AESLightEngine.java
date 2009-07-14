@@ -315,7 +315,14 @@ public class AESLightEngine
     {
     }
 
-    private final void unpackBlock(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private void unpackBlock(
         byte[]      bytes,
         int         off)
     {
@@ -342,7 +349,14 @@ public class AESLightEngine
         C3 |= bytes[index++] << 24;
     }
 
-    private final void packBlock(
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private void packBlock(
         byte[]      bytes,
         int         off)
     {
@@ -404,7 +418,14 @@ public class AESLightEngine
 
     }
 
-    private final void decryptBlock(int[][] KW)
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 04 Jun 2007
+     *
+     * Fix ticket:433 Java client: App mysteriously dies on startup on device only not emulator (sometimes showing "Unhandled Exception").
+     *
+     * Normally harmless (but redundant for methods) 'private final' would kill some SonyEricsson JP-6 and JP-7 devices. 
+     */
+    private void decryptBlock(int[][] KW)
     {
         int r, r0, r1, r2, r3;
 
