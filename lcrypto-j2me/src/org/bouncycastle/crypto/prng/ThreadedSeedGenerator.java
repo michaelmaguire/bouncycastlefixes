@@ -13,10 +13,22 @@ public class ThreadedSeedGenerator
     {
         private int counter = 0;
 
-        private boolean stop = false;
+        /**
+         * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+         * 
+         * Should be volatile.
+         */
+        private volatile boolean stop = false;
 
         public void run()
         {
+            /**
+             * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+             * 
+             * LOG thread startup.
+             */
+            org.LOG.debug( "ThreadedSeedGenerator.run NEW THREAD" );
+            
             while (!this.stop)
             {
                 this.counter++;
