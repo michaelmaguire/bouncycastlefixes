@@ -32,12 +32,25 @@ public class RecordStream
 
     public void readData() throws IOException
     {
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        org.LOG.trace( "Tls RecordStream --> readData()." );
+        
         short type = TlsUtils.readUint8(is);
         TlsUtils.checkVersion(is, handler);
         int size = TlsUtils.readUint16(is);
         byte[] buf = decodeAndVerify(type, is, size);
         handler.processData(type, buf, 0, buf.length);
-
+        
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        org.LOG.trace( "Tls RecordStream <-- done readData()" );
     }
 
     protected byte[] decodeAndVerify(short type, InputStream is, int len) throws IOException
@@ -50,6 +63,13 @@ public class RecordStream
 
     protected void writeMessage(short type, byte[] message, int offset, int len) throws IOException
     {
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        org.LOG.trace( "Tls RecordStream --> writeMessage()." );
+        
         if (type == 22)
         {
             hash1.update(message, offset, len);
@@ -64,6 +84,13 @@ public class RecordStream
         System.arraycopy(ciphertext, 0, writeMessage, 5, ciphertext.length);
         os.write(writeMessage);
         os.flush();
+        
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        org.LOG.trace( "Tls RecordStream <-- done writeMessage()." );
     }
 
     protected void close() throws IOException

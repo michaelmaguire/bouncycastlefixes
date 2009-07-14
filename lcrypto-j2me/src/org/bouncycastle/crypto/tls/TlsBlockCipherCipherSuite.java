@@ -120,7 +120,7 @@ public class TlsBlockCipherCipherSuite extends TlsCipherSuite
         }
         
         /*
-		* Check if padding is correct. 
+        * Check if padding is correct. 
 		*
         * Blue Whale Systems fix -- Tatiana Rybak -- 01 Mar 2007
         *
@@ -128,7 +128,7 @@ public class TlsBlockCipherCipherSuite extends TlsCipherSuite
         * a signed byte in, the values can be negative and we need to adjust the value to 
         * be positive.
         */
-        int sPaddingsize = ciphertext[offset + len - 1];
+        int sPaddingsize = ciphertext[offset + len - 1];              
       	int uPaddingSize = sPaddingsize & 0xFF;
         
         if (offset + len - 1 - uPaddingSize < 0)
@@ -144,7 +144,7 @@ public class TlsBlockCipherCipherSuite extends TlsCipherSuite
         else
         {
             /*
-             * Now, check all the padding-bytes.
+             * Now, check all the padding-bytes. 
 			 *
 	         * Blue Whale Systems fix -- Tatiana Rybak -- 01 Mar 2007
     	     *
@@ -187,6 +187,14 @@ public class TlsBlockCipherCipherSuite extends TlsCipherSuite
         */
         if (decrypterror)
         {
+            
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            org.LOG.info( "TlsBlockCipherCipherSuite: decodeCiphertext() - Error: unable to decrypt." );
+
             handler.failWithError(TlsProtocolHandler.AL_fatal,
                 TlsProtocolHandler.AP_bad_record_mac);
         }

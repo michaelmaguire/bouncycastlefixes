@@ -43,6 +43,14 @@ public class Certificate
             tmp.addElement(X509CertificateStructure.getInstance(o));
             if (bis.available() > 0)
             {
+                
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                org.LOG.info( "Certificate: parse() - garbage data left after the certificate. Throwing exception." );
+                
                 throw new IllegalArgumentException("Sorry, there is garbage data left after the certificate");
             }
         }
