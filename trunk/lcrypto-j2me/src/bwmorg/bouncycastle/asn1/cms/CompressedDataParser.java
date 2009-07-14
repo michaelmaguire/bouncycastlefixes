@@ -1,9 +1,9 @@
-package org.bouncycastle.asn1.cms;
+package bwmorg.bouncycastle.asn1.cms;
 
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.DERInteger;
-import org.bouncycastle.asn1.ASN1SequenceParser;
+import bwmorg.bouncycastle.asn1.x509.AlgorithmIdentifier;
+import bwmorg.bouncycastle.asn1.ASN1InputStream;
+import bwmorg.bouncycastle.asn1.DERInteger;
+import bwmorg.bouncycastle.asn1.ASN1SequenceParser;
 
 import java.io.IOException;
 

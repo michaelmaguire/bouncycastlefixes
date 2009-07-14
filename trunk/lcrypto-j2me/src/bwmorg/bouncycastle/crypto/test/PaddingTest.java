@@ -1,19 +1,19 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.engines.DESEngine;
-import org.bouncycastle.crypto.paddings.BlockCipherPadding;
-import org.bouncycastle.crypto.paddings.ISO10126d2Padding;
-import org.bouncycastle.crypto.paddings.ISO7816d4Padding;
-import org.bouncycastle.crypto.paddings.PKCS7Padding;
-import org.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
-import org.bouncycastle.crypto.paddings.TBCPadding;
-import org.bouncycastle.crypto.paddings.X923Padding;
-import org.bouncycastle.crypto.paddings.ZeroBytePadding;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.engines.DESEngine;
+import bwmorg.bouncycastle.crypto.paddings.BlockCipherPadding;
+import bwmorg.bouncycastle.crypto.paddings.ISO10126d2Padding;
+import bwmorg.bouncycastle.crypto.paddings.ISO7816d4Padding;
+import bwmorg.bouncycastle.crypto.paddings.PKCS7Padding;
+import bwmorg.bouncycastle.crypto.paddings.PaddedBufferedBlockCipher;
+import bwmorg.bouncycastle.crypto.paddings.TBCPadding;
+import bwmorg.bouncycastle.crypto.paddings.X923Padding;
+import bwmorg.bouncycastle.crypto.paddings.ZeroBytePadding;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * General Padding tests.

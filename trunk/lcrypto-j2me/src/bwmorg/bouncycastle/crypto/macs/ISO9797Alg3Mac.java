@@ -1,12 +1,12 @@
-package org.bouncycastle.crypto.macs;
+package bwmorg.bouncycastle.crypto.macs;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.engines.DESEngine;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.paddings.BlockCipherPadding;
-import org.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.Mac;
+import bwmorg.bouncycastle.crypto.engines.DESEngine;
+import bwmorg.bouncycastle.crypto.modes.CBCBlockCipher;
+import bwmorg.bouncycastle.crypto.paddings.BlockCipherPadding;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
 
 /**
  * DES based CBC Block Cipher MAC according to ISO9797, algorithm 3 (ANSI X9.19 Retail MAC)

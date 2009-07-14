@@ -1,8 +1,8 @@
-package org.bouncycastle.crypto.paddings;
+package bwmorg.bouncycastle.crypto.paddings;
 
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
 
 /**
  * A padder that adds Trailing-Bit-Compliment padding to a block.

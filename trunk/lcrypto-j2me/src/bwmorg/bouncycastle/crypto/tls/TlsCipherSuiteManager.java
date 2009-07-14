@@ -1,12 +1,12 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.engines.AESFastEngine;
-import org.bouncycastle.crypto.engines.DESedeEngine;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
+import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
+import bwmorg.bouncycastle.crypto.engines.AESFastEngine;
+import bwmorg.bouncycastle.crypto.engines.DESedeEngine;
+import bwmorg.bouncycastle.crypto.modes.CBCBlockCipher;
 
 /**
  * A manager for ciphersuite. This class does manage all ciphersuites
@@ -94,37 +94,37 @@ public class TlsCipherSuiteManager
         switch( number )
         {
             case TLS_RSA_WITH_3DES_EDE_CBC_SHA:
-                org.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (" + number + ")." );
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (" + number + ")." );
                 return new TlsBlockCipherCipherSuite( new CBCBlockCipher( new DESedeEngine() ), new CBCBlockCipher( new DESedeEngine() ), new SHA1Digest(), new SHA1Digest(), 24, TlsCipherSuite.KE_RSA );
 
             case TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA:
-                org.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA (" + number + ")." );
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA (" + number + ")." );
                 return new TlsBlockCipherCipherSuite( new CBCBlockCipher( new DESedeEngine() ), new CBCBlockCipher( new DESedeEngine() ), new SHA1Digest(), new SHA1Digest(), 24,
                         TlsCipherSuite.KE_DHE_RSA );
 
             case TLS_RSA_WITH_AES_128_CBC_SHA:
-                org.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (" + number + ")." );
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (" + number + ")." );
                 return new TlsBlockCipherCipherSuite( new CBCBlockCipher( new AESFastEngine() ), new CBCBlockCipher( new AESFastEngine() ), new SHA1Digest(), new SHA1Digest(), 16,
                         TlsCipherSuite.KE_RSA );
 
             case TLS_DHE_RSA_WITH_AES_128_CBC_SHA:
-                org.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA (" + number + ")." );
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA (" + number + ")." );
                 return new TlsBlockCipherCipherSuite( new CBCBlockCipher( new AESFastEngine() ), new CBCBlockCipher( new AESFastEngine() ), new SHA1Digest(), new SHA1Digest(), 16,
                         TlsCipherSuite.KE_DHE_RSA );
 
             case TLS_RSA_WITH_AES_256_CBC_SHA:
-                org.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (" + number + ")." );
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (" + number + ")." );
                 return new TlsBlockCipherCipherSuite( new CBCBlockCipher( new AESFastEngine() ), new CBCBlockCipher( new AESFastEngine() ), new SHA1Digest(), new SHA1Digest(), 32,
                         TlsCipherSuite.KE_RSA );
 
             case TLS_DHE_RSA_WITH_AES_256_CBC_SHA:
-                org.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA (" + number + ")." );
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA (" + number + ")." );
                 return new TlsBlockCipherCipherSuite( new CBCBlockCipher( new AESFastEngine() ), new CBCBlockCipher( new AESFastEngine() ), new SHA1Digest(), new SHA1Digest(), 32,
                         TlsCipherSuite.KE_DHE_RSA );
 
             default:
                 
-                org.LOG.info( "TlsCipherSuite: getCipherSuite() - Unsupported cipher suite." );
+                bwmorg.LOG.info( "TlsCipherSuite: getCipherSuite() - Unsupported cipher suite." );
                 handler.failWithError( TlsProtocolHandler.AL_fatal, TlsProtocolHandler.AP_handshake_failure );
 
                 /*

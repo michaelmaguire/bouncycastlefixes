@@ -1,6 +1,6 @@
-package org.bouncycastle.crypto.params;
+package bwmorg.bouncycastle.crypto.params;
 
-import org.bouncycastle.math.ec.ECPoint;
+import bwmorg.bouncycastle.math.ec.ECPoint;
 
 public class ECPublicKeyParameters
     extends ECKeyParameters

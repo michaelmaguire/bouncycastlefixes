@@ -1,4 +1,4 @@
-package org.bouncycastle.math.ec;
+package bwmorg.bouncycastle.math.ec;
 
 import bigjava.math.BigInteger;
 import java.util.Random;

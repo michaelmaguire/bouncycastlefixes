@@ -1,18 +1,18 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.params.ECDomainParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.signers.ECNRSigner;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.util.BigIntegers;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.FixedSecureRandom;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.params.ECDomainParameters;
+import bwmorg.bouncycastle.crypto.params.ECPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ECPublicKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.signers.ECNRSigner;
+import bwmorg.bouncycastle.math.ec.ECCurve;
+import bwmorg.bouncycastle.util.BigIntegers;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.FixedSecureRandom;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * ECNR tests.

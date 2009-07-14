@@ -1,7 +1,7 @@
 package bigjava.math.test;
 
-import org.bouncycastle.util.test.Test;
-import org.bouncycastle.util.test.TestResult;
+import bwmorg.bouncycastle.util.test.Test;
+import bwmorg.bouncycastle.util.test.TestResult;
 
 public class RegressionTest
 {

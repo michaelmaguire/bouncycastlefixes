@@ -1,11 +1,11 @@
-package org.bouncycastle.crypto.generators;
+package bwmorg.bouncycastle.crypto.generators;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.RSAKeyGenerationParameters;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.KeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.RSAKeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.RSAKeyParameters;
+import bwmorg.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 
 import bigjava.math.BigInteger;
 

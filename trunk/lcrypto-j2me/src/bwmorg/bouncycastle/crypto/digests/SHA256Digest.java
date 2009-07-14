@@ -1,7 +1,7 @@
-package org.bouncycastle.crypto.digests;
+package bwmorg.bouncycastle.crypto.digests;
 
 
-import org.bouncycastle.crypto.digests.GeneralDigest;
+import bwmorg.bouncycastle.crypto.digests.GeneralDigest;
 
 
 /**

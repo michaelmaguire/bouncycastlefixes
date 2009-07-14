@@ -1,4 +1,4 @@
-package org.bouncycastle.asn1;
+package bwmorg.bouncycastle.asn1;
 
 import bigjava.io.FilterOutputStream;
 import java.io.IOException;

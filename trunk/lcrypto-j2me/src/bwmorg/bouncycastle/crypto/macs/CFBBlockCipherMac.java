@@ -1,11 +1,11 @@
-package org.bouncycastle.crypto.macs;
+package bwmorg.bouncycastle.crypto.macs;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.paddings.BlockCipherPadding;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.Mac;
+import bwmorg.bouncycastle.crypto.paddings.BlockCipherPadding;
+import bwmorg.bouncycastle.crypto.params.ParametersWithIV;
 
 /**
  * implements a Cipher-FeedBack (CFB) mode on top of a simple cipher.

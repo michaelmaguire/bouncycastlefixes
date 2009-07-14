@@ -1,13 +1,13 @@
-package org.bouncycastle.crypto.agreement;
+package bwmorg.bouncycastle.crypto.agreement;
 
 import bigjava.math.BigInteger;
 
-import org.bouncycastle.math.ec.ECPoint;
+import bwmorg.bouncycastle.math.ec.ECPoint;
 
-import org.bouncycastle.crypto.BasicAgreement;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.BasicAgreement;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.params.ECPublicKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ECPrivateKeyParameters;
 
 /**
  * P1363 7.2.1 ECSVDP-DH

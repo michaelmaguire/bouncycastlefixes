@@ -1,19 +1,19 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.generators.DSAKeyPairGenerator;
-import org.bouncycastle.crypto.generators.DSAParametersGenerator;
-import org.bouncycastle.crypto.params.DSAKeyGenerationParameters;
-import org.bouncycastle.crypto.params.DSAParameters;
-import org.bouncycastle.crypto.params.DSAValidationParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.signers.DSASigner;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.FixedSecureRandom;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.generators.DSAKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.generators.DSAParametersGenerator;
+import bwmorg.bouncycastle.crypto.params.DSAKeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.DSAParameters;
+import bwmorg.bouncycastle.crypto.params.DSAValidationParameters;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.signers.DSASigner;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.FixedSecureRandom;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * Test based on FIPS 186-2, Appendix 5, an example of DSA.

@@ -1,6 +1,6 @@
-package org.bouncycastle.crypto.params;
+package bwmorg.bouncycastle.crypto.params;
 
-import org.bouncycastle.crypto.DerivationParameters;
+import bwmorg.bouncycastle.crypto.DerivationParameters;
 
 /**
  * parameters for Key derivation functions for ISO-18033

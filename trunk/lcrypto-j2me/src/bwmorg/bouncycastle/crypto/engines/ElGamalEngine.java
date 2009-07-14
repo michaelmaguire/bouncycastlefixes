@@ -1,12 +1,12 @@
-package org.bouncycastle.crypto.engines;
+package bwmorg.bouncycastle.crypto.engines;
 
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.params.ElGamalKeyParameters;
-import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.AsymmetricBlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.params.ElGamalKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;

@@ -1,8 +1,8 @@
-package org.bouncycastle.crypto.signers;
+package bwmorg.bouncycastle.crypto.signers;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DSA;
-import org.bouncycastle.crypto.params.*;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DSA;
+import bwmorg.bouncycastle.crypto.params.*;
 
 import bigjava.security.SecureRandom;
 import bigjava.math.BigInteger;

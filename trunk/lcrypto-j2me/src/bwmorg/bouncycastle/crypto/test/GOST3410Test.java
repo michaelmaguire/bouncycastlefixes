@@ -1,18 +1,18 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.generators.GOST3410KeyPairGenerator;
-import org.bouncycastle.crypto.generators.GOST3410ParametersGenerator;
-import org.bouncycastle.crypto.params.GOST3410KeyGenerationParameters;
-import org.bouncycastle.crypto.params.GOST3410Parameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.crypto.signers.GOST3410Signer;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.FixedSecureRandom;
-import org.bouncycastle.util.test.NumberParsing;
-import org.bouncycastle.util.test.SimpleTestResult;
-import org.bouncycastle.util.test.Test;
-import org.bouncycastle.util.test.TestResult;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.generators.GOST3410KeyPairGenerator;
+import bwmorg.bouncycastle.crypto.generators.GOST3410ParametersGenerator;
+import bwmorg.bouncycastle.crypto.params.GOST3410KeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.GOST3410Parameters;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.signers.GOST3410Signer;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.FixedSecureRandom;
+import bwmorg.bouncycastle.util.test.NumberParsing;
+import bwmorg.bouncycastle.util.test.SimpleTestResult;
+import bwmorg.bouncycastle.util.test.Test;
+import bwmorg.bouncycastle.util.test.TestResult;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;

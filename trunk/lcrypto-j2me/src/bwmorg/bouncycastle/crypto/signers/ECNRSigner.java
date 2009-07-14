@@ -1,17 +1,17 @@
-package org.bouncycastle.crypto.signers;
+package bwmorg.bouncycastle.crypto.signers;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DSA;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.generators.ECKeyPairGenerator;
-import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
-import org.bouncycastle.crypto.params.ECKeyParameters;
-import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ECPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECPoint;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DSA;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.generators.ECKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.params.ECKeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.ECKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ECPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ECPublicKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.math.ec.ECConstants;
+import bwmorg.bouncycastle.math.ec.ECPoint;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;

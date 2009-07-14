@@ -1,12 +1,12 @@
-package org.bouncycastle.crypto.modes;
+package bwmorg.bouncycastle.crypto.modes;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.InvalidCipherTextException;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.macs.CBCBlockCipherMac;
-import org.bouncycastle.crypto.params.CCMParameters;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.Mac;
+import bwmorg.bouncycastle.crypto.macs.CBCBlockCipherMac;
+import bwmorg.bouncycastle.crypto.params.CCMParameters;
+import bwmorg.bouncycastle.crypto.params.ParametersWithIV;
 
 /**
  * Implements the Counter with Cipher Block Chaining mode (CCM) detailed in

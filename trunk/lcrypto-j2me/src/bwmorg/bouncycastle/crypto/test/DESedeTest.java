@@ -1,15 +1,15 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.Wrapper;
-import org.bouncycastle.crypto.engines.DESedeEngine;
-import org.bouncycastle.crypto.engines.DESedeWrapEngine;
-import org.bouncycastle.crypto.generators.DESedeKeyGenerator;
-import org.bouncycastle.crypto.params.DESedeParameters;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.KeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.Wrapper;
+import bwmorg.bouncycastle.crypto.engines.DESedeEngine;
+import bwmorg.bouncycastle.crypto.engines.DESedeWrapEngine;
+import bwmorg.bouncycastle.crypto.generators.DESedeKeyGenerator;
+import bwmorg.bouncycastle.crypto.params.DESedeParameters;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithIV;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 import bigjava.security.SecureRandom;
 

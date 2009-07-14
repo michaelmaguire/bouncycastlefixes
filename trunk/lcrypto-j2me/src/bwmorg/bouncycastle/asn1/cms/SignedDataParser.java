@@ -1,12 +1,12 @@
-package org.bouncycastle.asn1.cms;
+package bwmorg.bouncycastle.asn1.cms;
 
-import org.bouncycastle.asn1.DERInteger;
-import org.bouncycastle.asn1.ASN1SequenceParser;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1SetParser;
-import org.bouncycastle.asn1.ASN1Set;
-import org.bouncycastle.asn1.ASN1TaggedObjectParser;
-import org.bouncycastle.asn1.DERTags;
+import bwmorg.bouncycastle.asn1.DERInteger;
+import bwmorg.bouncycastle.asn1.ASN1SequenceParser;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.ASN1SetParser;
+import bwmorg.bouncycastle.asn1.ASN1Set;
+import bwmorg.bouncycastle.asn1.ASN1TaggedObjectParser;
+import bwmorg.bouncycastle.asn1.DERTags;
 
 import java.io.IOException;
 

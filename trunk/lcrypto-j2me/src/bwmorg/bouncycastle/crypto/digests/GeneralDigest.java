@@ -1,6 +1,6 @@
-package org.bouncycastle.crypto.digests;
+package bwmorg.bouncycastle.crypto.digests;
 
-import org.bouncycastle.crypto.ExtendedDigest;
+import bwmorg.bouncycastle.crypto.ExtendedDigest;
 
 /**
  * base implementation of MD4 family style digest as outlined in

@@ -1,18 +1,18 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.util.test.SimpleTest;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.crypto.digests.GOST3411Digest;
-import org.bouncycastle.crypto.engines.GOST28147Engine;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
-import org.bouncycastle.crypto.params.ParametersWithSBox;
-import org.bouncycastle.crypto.modes.CFBBlockCipher;
-import org.bouncycastle.crypto.modes.GOFBBlockCipher;
-import org.bouncycastle.crypto.modes.CBCBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.BufferedBlockCipher;
-import org.bouncycastle.crypto.CryptoException;
+import bwmorg.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.crypto.digests.GOST3411Digest;
+import bwmorg.bouncycastle.crypto.engines.GOST28147Engine;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithIV;
+import bwmorg.bouncycastle.crypto.params.ParametersWithSBox;
+import bwmorg.bouncycastle.crypto.modes.CFBBlockCipher;
+import bwmorg.bouncycastle.crypto.modes.GOFBBlockCipher;
+import bwmorg.bouncycastle.crypto.modes.CBCBlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.BufferedBlockCipher;
+import bwmorg.bouncycastle.crypto.CryptoException;
 
 public class GOST28147Test
      extends CipherTest

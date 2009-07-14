@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.x509.qualified;
+package bwmorg.bouncycastle.asn1.x509.qualified;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 public interface RFC3739QCObjectIdentifiers
 {

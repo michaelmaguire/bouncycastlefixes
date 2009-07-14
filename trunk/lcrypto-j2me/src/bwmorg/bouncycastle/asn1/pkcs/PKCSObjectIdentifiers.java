@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.pkcs;
+package bwmorg.bouncycastle.asn1.pkcs;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 public interface PKCSObjectIdentifiers
 {

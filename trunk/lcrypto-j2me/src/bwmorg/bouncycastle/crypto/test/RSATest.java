@@ -1,21 +1,21 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.util.test.*;
+import bwmorg.bouncycastle.util.test.*;
 
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
-import org.bouncycastle.crypto.params.RSAKeyGenerationParameters;
-import org.bouncycastle.crypto.engines.RSAEngine;
-import org.bouncycastle.crypto.encodings.PKCS1Encoding;
-import org.bouncycastle.crypto.encodings.OAEPEncoding;
-import org.bouncycastle.crypto.generators.RSAKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.AsymmetricBlockCipher;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.params.RSAKeyParameters;
+import bwmorg.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
+import bwmorg.bouncycastle.crypto.params.RSAKeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.engines.RSAEngine;
+import bwmorg.bouncycastle.crypto.encodings.PKCS1Encoding;
+import bwmorg.bouncycastle.crypto.encodings.OAEPEncoding;
+import bwmorg.bouncycastle.crypto.generators.RSAKeyPairGenerator;
 
-import org.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.encoders.Hex;
 
 public class RSATest
     implements Test

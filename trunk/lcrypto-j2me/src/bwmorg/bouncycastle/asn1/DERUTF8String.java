@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1;
+package bwmorg.bouncycastle.asn1;
 
-import org.bouncycastle.util.Strings;
+import bwmorg.bouncycastle.util.Strings;
 
 import java.io.IOException;
 

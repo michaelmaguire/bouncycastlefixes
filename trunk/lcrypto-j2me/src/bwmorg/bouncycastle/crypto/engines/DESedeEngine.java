@@ -1,8 +1,8 @@
-package org.bouncycastle.crypto.engines;
+package bwmorg.bouncycastle.crypto.engines;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
 
 /**
  * a class that provides a basic DESede (or Triple DES) engine.

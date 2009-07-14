@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto.tls;
+package bwmorg.bouncycastle.crypto.tls;
 
 import java.io.IOException;
 import java.io.OutputStream;

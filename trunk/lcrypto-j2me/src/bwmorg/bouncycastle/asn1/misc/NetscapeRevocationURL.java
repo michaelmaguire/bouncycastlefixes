@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.misc;
+package bwmorg.bouncycastle.asn1.misc;
 
-import org.bouncycastle.asn1.*;
+import bwmorg.bouncycastle.asn1.*;
 
 public class NetscapeRevocationURL
     extends DERIA5String

@@ -1,20 +1,20 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.agreement.DHAgreement;
-import org.bouncycastle.crypto.agreement.DHBasicAgreement;
-import org.bouncycastle.crypto.generators.DHBasicKeyPairGenerator;
-import org.bouncycastle.crypto.generators.DHKeyPairGenerator;
-import org.bouncycastle.crypto.generators.DHParametersGenerator;
-import org.bouncycastle.crypto.params.DHKeyGenerationParameters;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import bwmorg.bouncycastle.crypto.agreement.DHAgreement;
+import bwmorg.bouncycastle.crypto.agreement.DHBasicAgreement;
+import bwmorg.bouncycastle.crypto.generators.DHBasicKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.generators.DHKeyPairGenerator;
+import bwmorg.bouncycastle.crypto.generators.DHParametersGenerator;
+import bwmorg.bouncycastle.crypto.params.DHKeyGenerationParameters;
+import bwmorg.bouncycastle.crypto.params.DHParameters;
+import bwmorg.bouncycastle.crypto.params.DHPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.params.DHPublicKeyParameters;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 public class DHTest
     extends SimpleTest

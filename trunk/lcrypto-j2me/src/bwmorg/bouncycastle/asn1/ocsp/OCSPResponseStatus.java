@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.ocsp;
+package bwmorg.bouncycastle.asn1.ocsp;
 
-import org.bouncycastle.asn1.DEREnumerated;
+import bwmorg.bouncycastle.asn1.DEREnumerated;
 
 public class OCSPResponseStatus
     extends DEREnumerated

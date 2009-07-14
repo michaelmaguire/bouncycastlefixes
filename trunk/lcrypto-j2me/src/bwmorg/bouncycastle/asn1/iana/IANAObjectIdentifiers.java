@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.iana;
+package bwmorg.bouncycastle.asn1.iana;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 public interface IANAObjectIdentifiers
 {

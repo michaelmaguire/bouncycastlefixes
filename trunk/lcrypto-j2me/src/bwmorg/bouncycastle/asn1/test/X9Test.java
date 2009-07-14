@@ -1,26 +1,26 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import bigjava.math.BigInteger;
 
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.util.encoders.Base64;
-import org.bouncycastle.util.test.SimpleTest;
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DEROutputStream;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.asn1.sec.ECPrivateKeyStructure;
-import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
-import org.bouncycastle.asn1.x9.X962NamedCurves;
-import org.bouncycastle.asn1.x9.X962Parameters;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.asn1.x9.X9ECPoint;
-import org.bouncycastle.asn1.x9.X9ObjectIdentifiers;
+import bwmorg.bouncycastle.math.ec.ECFieldElement;
+import bwmorg.bouncycastle.math.ec.ECPoint;
+import bwmorg.bouncycastle.util.encoders.Base64;
+import bwmorg.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.asn1.ASN1InputStream;
+import bwmorg.bouncycastle.asn1.ASN1OctetString;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DEROutputStream;
+import bwmorg.bouncycastle.asn1.pkcs.PrivateKeyInfo;
+import bwmorg.bouncycastle.asn1.sec.ECPrivateKeyStructure;
+import bwmorg.bouncycastle.asn1.x509.AlgorithmIdentifier;
+import bwmorg.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
+import bwmorg.bouncycastle.asn1.x9.X962NamedCurves;
+import bwmorg.bouncycastle.asn1.x9.X962Parameters;
+import bwmorg.bouncycastle.asn1.x9.X9ECParameters;
+import bwmorg.bouncycastle.asn1.x9.X9ECPoint;
+import bwmorg.bouncycastle.asn1.x9.X9ObjectIdentifiers;
 
 public class X9Test
     extends SimpleTest

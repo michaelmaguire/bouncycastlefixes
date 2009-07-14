@@ -1,13 +1,13 @@
-package org.bouncycastle.crypto.engines;
+package bwmorg.bouncycastle.crypto.engines;
 
 import java.util.Hashtable;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithSBox;
-import org.bouncycastle.util.Strings;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithSBox;
+import bwmorg.bouncycastle.util.Strings;
 
 /**
  * implementation of GOST 28147-89

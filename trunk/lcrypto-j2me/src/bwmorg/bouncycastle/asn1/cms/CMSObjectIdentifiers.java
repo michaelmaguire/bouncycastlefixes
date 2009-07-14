@@ -1,7 +1,7 @@
-package org.bouncycastle.asn1.cms;
+package bwmorg.bouncycastle.asn1.cms;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
 
 public interface CMSObjectIdentifiers
 {

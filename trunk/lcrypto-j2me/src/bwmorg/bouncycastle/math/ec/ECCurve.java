@@ -1,4 +1,4 @@
-package org.bouncycastle.math.ec;
+package bwmorg.bouncycastle.math.ec;
 
 import bigjava.math.BigInteger;
 import java.util.Random;
@@ -276,7 +276,7 @@ public abstract class ECCurve
         }
 
         /* (non-Javadoc)
-         * @see org.bouncycastle.math.ec.ECCurve#decodePoint(byte[])
+         * @see bwmorg.bouncycastle.math.ec.ECCurve#decodePoint(byte[])
          */
         public ECPoint decodePoint(byte[] encoded)
         {

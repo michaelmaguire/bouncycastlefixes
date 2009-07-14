@@ -1,9 +1,9 @@
-package org.bouncycastle.crypto.modes;
+package bwmorg.bouncycastle.crypto.modes;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import bwmorg.bouncycastle.crypto.BlockCipher;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.params.ParametersWithIV;
 
 /**
  * Implements the Segmented Integer Counter (SIC) mode on top of a simple

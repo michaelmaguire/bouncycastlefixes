@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.oiw;
+package bwmorg.bouncycastle.asn1.oiw;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 public interface OIWObjectIdentifiers
 {

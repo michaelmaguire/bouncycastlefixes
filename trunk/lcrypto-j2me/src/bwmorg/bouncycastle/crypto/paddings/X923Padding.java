@@ -1,8 +1,8 @@
-package org.bouncycastle.crypto.paddings;
+package bwmorg.bouncycastle.crypto.paddings;
 
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.InvalidCipherTextException;
+import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
 
 /**
  * A padder that adds X9.23 padding to a block - if a SecureRandom is

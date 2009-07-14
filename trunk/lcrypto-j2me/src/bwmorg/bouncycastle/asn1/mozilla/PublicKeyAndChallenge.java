@@ -1,10 +1,10 @@
-package org.bouncycastle.asn1.mozilla;
+package bwmorg.bouncycastle.asn1.mozilla;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.DERObject;
-import org.bouncycastle.asn1.DERIA5String;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.DERIA5String;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 
 /**
  * This is designed to parse

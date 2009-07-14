@@ -1,15 +1,15 @@
-package org.bouncycastle.crypto.agreement;
+package bwmorg.bouncycastle.crypto.agreement;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 
-import org.bouncycastle.crypto.BasicAgreement;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.params.DHParameters;
-import org.bouncycastle.crypto.params.DHPublicKeyParameters;
-import org.bouncycastle.crypto.params.DHPrivateKeyParameters;
-import org.bouncycastle.crypto.params.AsymmetricKeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import bwmorg.bouncycastle.crypto.BasicAgreement;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.params.DHParameters;
+import bwmorg.bouncycastle.crypto.params.DHPublicKeyParameters;
+import bwmorg.bouncycastle.crypto.params.DHPrivateKeyParameters;
+import bwmorg.bouncycastle.crypto.params.AsymmetricKeyParameter;
+import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
 
 /**
  * a Diffie-Hellman key agreement class.

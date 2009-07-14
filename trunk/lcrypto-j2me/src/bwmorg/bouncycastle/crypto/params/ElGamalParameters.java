@@ -1,8 +1,8 @@
-package org.bouncycastle.crypto.params;
+package bwmorg.bouncycastle.crypto.params;
 
 import bigjava.math.BigInteger;
 
-import org.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.CipherParameters;
 
 public class ElGamalParameters
     implements CipherParameters

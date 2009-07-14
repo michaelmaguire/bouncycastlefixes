@@ -3,7 +3,7 @@ package bigjava.math.test;
 import java.math.BigInteger;
 
 import bigjava.security.SecureRandom;
-import org.bouncycastle.util.test.*;
+import bwmorg.bouncycastle.util.test.*;
 
 
 public class BigIntegerTest

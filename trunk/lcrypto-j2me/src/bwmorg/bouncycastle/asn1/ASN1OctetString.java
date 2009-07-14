@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1;
+package bwmorg.bouncycastle.asn1;
 
-import org.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.encoders.Hex;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

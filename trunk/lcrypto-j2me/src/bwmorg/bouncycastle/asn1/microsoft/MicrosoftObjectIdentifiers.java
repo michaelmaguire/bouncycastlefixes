@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.microsoft;
+package bwmorg.bouncycastle.asn1.microsoft;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 public interface MicrosoftObjectIdentifiers
 {

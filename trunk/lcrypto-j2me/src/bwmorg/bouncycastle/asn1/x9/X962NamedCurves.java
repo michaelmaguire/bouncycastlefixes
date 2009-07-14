@@ -1,9 +1,9 @@
-package org.bouncycastle.asn1.x9;
+package bwmorg.bouncycastle.asn1.x9;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.util.Strings;
-import org.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.math.ec.ECCurve;
+import bwmorg.bouncycastle.util.Strings;
+import bwmorg.bouncycastle.util.encoders.Hex;
 
 import bigjava.math.BigInteger;
 import java.util.Enumeration;

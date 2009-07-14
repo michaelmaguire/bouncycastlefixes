@@ -1,4 +1,4 @@
-package org.bouncycastle.crypto.generators;
+package bwmorg.bouncycastle.crypto.generators;
 
 import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;

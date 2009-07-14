@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.cmp;
+package bwmorg.bouncycastle.asn1.cmp;
 
-import org.bouncycastle.asn1.DERBitString;
+import bwmorg.bouncycastle.asn1.DERBitString;
 
 /**
  * <pre>

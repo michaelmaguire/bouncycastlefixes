@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.x509.sigi;
+package bwmorg.bouncycastle.asn1.x509.sigi;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 
 /**
  * Object Identifiers of SigI specifciation (German Signature Law

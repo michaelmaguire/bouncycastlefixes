@@ -1,10 +1,10 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
 import java.io.IOException;
 
-import org.bouncycastle.asn1.DERBitString;
-import org.bouncycastle.asn1.DERUniversalString;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.asn1.DERBitString;
+import bwmorg.bouncycastle.asn1.DERUniversalString;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * X.690 test example

@@ -1,10 +1,10 @@
-package org.bouncycastle.asn1.test;
+package bwmorg.bouncycastle.asn1.test;
 
-import org.bouncycastle.asn1.ASN1InputStream;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.x509.qualified.Iso4217CurrencyCode;
-import org.bouncycastle.asn1.x509.qualified.MonetaryValue;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.asn1.ASN1InputStream;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.x509.qualified.Iso4217CurrencyCode;
+import bwmorg.bouncycastle.asn1.x509.qualified.MonetaryValue;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 public class MonetaryValueUnitTest 
     extends SimpleTest

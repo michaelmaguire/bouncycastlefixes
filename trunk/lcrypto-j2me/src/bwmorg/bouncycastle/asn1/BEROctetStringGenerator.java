@@ -1,9 +1,9 @@
-package org.bouncycastle.asn1;
+package bwmorg.bouncycastle.asn1;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
-import org.bouncycastle.asn1.DEROctetString;
+import bwmorg.bouncycastle.asn1.DEROctetString;
 
 public class BEROctetStringGenerator
     extends BERGenerator

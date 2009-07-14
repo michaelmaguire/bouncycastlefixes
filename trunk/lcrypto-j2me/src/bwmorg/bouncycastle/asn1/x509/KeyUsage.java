@@ -1,6 +1,6 @@
-package org.bouncycastle.asn1.x509;
+package bwmorg.bouncycastle.asn1.x509;
 
-import org.bouncycastle.asn1.DERBitString;
+import bwmorg.bouncycastle.asn1.DERBitString;
 
 /**
  * The KeyUsage object.

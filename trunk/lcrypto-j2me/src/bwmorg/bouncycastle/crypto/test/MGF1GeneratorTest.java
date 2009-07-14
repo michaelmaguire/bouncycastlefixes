@@ -1,14 +1,14 @@
-package org.bouncycastle.crypto.test;
+package bwmorg.bouncycastle.crypto.test;
 
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.DerivationFunction;
-import org.bouncycastle.crypto.digests.SHA1Digest;
-import org.bouncycastle.crypto.digests.SHA256Digest;
-import org.bouncycastle.crypto.digests.ShortenedDigest;
-import org.bouncycastle.crypto.generators.MGF1BytesGenerator;
-import org.bouncycastle.crypto.params.MGFParameters;
-import org.bouncycastle.util.encoders.Hex;
-import org.bouncycastle.util.test.SimpleTest;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.DerivationFunction;
+import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
+import bwmorg.bouncycastle.crypto.digests.SHA256Digest;
+import bwmorg.bouncycastle.crypto.digests.ShortenedDigest;
+import bwmorg.bouncycastle.crypto.generators.MGF1BytesGenerator;
+import bwmorg.bouncycastle.crypto.params.MGFParameters;
+import bwmorg.bouncycastle.util.encoders.Hex;
+import bwmorg.bouncycastle.util.test.SimpleTest;
 
 /**
  * MGF1 tests - vectors from ISO 18033 for KDF1 (equivalent).

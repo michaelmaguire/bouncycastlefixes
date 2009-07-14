@@ -1,11 +1,11 @@
-package org.bouncycastle.crypto.generators;
+package bwmorg.bouncycastle.crypto.generators;
 
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.DerivationFunction;
-import org.bouncycastle.crypto.DerivationParameters;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.params.ISO18033KDFParameters;
-import org.bouncycastle.crypto.params.KDFParameters;
+import bwmorg.bouncycastle.crypto.DataLengthException;
+import bwmorg.bouncycastle.crypto.DerivationFunction;
+import bwmorg.bouncycastle.crypto.DerivationParameters;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.params.ISO18033KDFParameters;
+import bwmorg.bouncycastle.crypto.params.KDFParameters;
 
 /**
  * Basic KDF generator for derived keys and ivs as defined by IEEE P1363a/ISO 18033

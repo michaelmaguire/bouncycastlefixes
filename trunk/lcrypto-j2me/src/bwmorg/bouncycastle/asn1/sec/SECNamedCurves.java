@@ -1,16 +1,16 @@
-package org.bouncycastle.asn1.sec;
+package bwmorg.bouncycastle.asn1.sec;
 
 import bigjava.math.BigInteger;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
-import org.bouncycastle.asn1.DERObjectIdentifier;
-import org.bouncycastle.asn1.x9.X9ECParameters;
-import org.bouncycastle.math.ec.ECConstants;
-import org.bouncycastle.math.ec.ECCurve;
-import org.bouncycastle.math.ec.ECFieldElement;
-import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.util.Strings;
+import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
+import bwmorg.bouncycastle.asn1.x9.X9ECParameters;
+import bwmorg.bouncycastle.math.ec.ECConstants;
+import bwmorg.bouncycastle.math.ec.ECCurve;
+import bwmorg.bouncycastle.math.ec.ECFieldElement;
+import bwmorg.bouncycastle.math.ec.ECPoint;
+import bwmorg.bouncycastle.util.Strings;
 
 public class SECNamedCurves
 {

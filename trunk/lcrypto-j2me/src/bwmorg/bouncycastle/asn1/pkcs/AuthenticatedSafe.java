@@ -1,10 +1,10 @@
-package org.bouncycastle.asn1.pkcs;
+package bwmorg.bouncycastle.asn1.pkcs;
 
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1EncodableVector;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.BERSequence;
-import org.bouncycastle.asn1.DERObject;
+import bwmorg.bouncycastle.asn1.ASN1Encodable;
+import bwmorg.bouncycastle.asn1.ASN1EncodableVector;
+import bwmorg.bouncycastle.asn1.ASN1Sequence;
+import bwmorg.bouncycastle.asn1.BERSequence;
+import bwmorg.bouncycastle.asn1.DERObject;
 
 public class AuthenticatedSafe
     extends ASN1Encodable

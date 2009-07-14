@@ -1,6 +1,6 @@
-package org.bouncycastle.crypto.params;
+package bwmorg.bouncycastle.crypto.params;
 
-import org.bouncycastle.util.Arrays;
+import bwmorg.bouncycastle.util.Arrays;
 
 public class DSAValidationParameters
 {

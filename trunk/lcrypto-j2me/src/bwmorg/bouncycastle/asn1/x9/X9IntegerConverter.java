@@ -1,8 +1,8 @@
-package org.bouncycastle.asn1.x9;
+package bwmorg.bouncycastle.asn1.x9;
 
 import bigjava.math.BigInteger;
 
-import org.bouncycastle.math.ec.ECFieldElement;
+import bwmorg.bouncycastle.math.ec.ECFieldElement;
 
 public class X9IntegerConverter
 {

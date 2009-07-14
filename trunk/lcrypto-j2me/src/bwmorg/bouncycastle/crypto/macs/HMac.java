@@ -1,12 +1,12 @@
-package org.bouncycastle.crypto.macs;
+package bwmorg.bouncycastle.crypto.macs;
 
 import java.util.Hashtable;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.ExtendedDigest;
-import org.bouncycastle.crypto.Mac;
-import org.bouncycastle.crypto.params.KeyParameter;
+import bwmorg.bouncycastle.crypto.CipherParameters;
+import bwmorg.bouncycastle.crypto.Digest;
+import bwmorg.bouncycastle.crypto.ExtendedDigest;
+import bwmorg.bouncycastle.crypto.Mac;
+import bwmorg.bouncycastle.crypto.params.KeyParameter;
 
 /**
  * HMAC implementation based on RFC2104
