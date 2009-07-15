@@ -5,7 +5,14 @@ import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 public interface GNUObjectIdentifiers
 {
     public static final DERObjectIdentifier GNU = new DERObjectIdentifier("1.3.6.1.4.1.11591.1"); // GNU Radius
-    public static final DERObjectIdentifier GnuPG = new DERObjectIdentifier("1.3.6.1.4.1.11591.2"); // GnuPG (Ägypten)
+    
+    /**
+     * Blue Whale Systems fix -- Michael Maguire -- 15 Jul 2009
+     * 
+     * Fix warning: unmappable character for encoding ascii
+     */
+    public static final DERObjectIdentifier GnuPG = new DERObjectIdentifier("1.3.6.1.4.1.11591.2"); // GnuPG (A:gypten)
+    
     public static final DERObjectIdentifier notation = new DERObjectIdentifier("1.3.6.1.4.1.11591.2.1"); // notation
     public static final DERObjectIdentifier pkaAddress = new DERObjectIdentifier("1.3.6.1.4.1.11591.2.1.1"); // pkaAddress
     public static final DERObjectIdentifier GnuRadar = new DERObjectIdentifier("1.3.6.1.4.1.11591.3"); // GNU Radar
