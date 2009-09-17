@@ -180,7 +180,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        bwmorg.LOG.trace( "TlsProtocolHandler: Instantiating..." );
+        //bwmorg.LOG.trace( "TlsProtocolHandler: Instantiating..." );
         ThreadedSeedGenerator tsg = new ThreadedSeedGenerator();
         this.random = new SecureRandom();
         /*
@@ -195,7 +195,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        bwmorg.LOG.trace( "TlsProtocolHandler: Created." );
+        //bwmorg.LOG.trace( "TlsProtocolHandler: Created." );
     }
 
     public TlsProtocolHandler( InputStream is, OutputStream os, SecureRandom sr )
@@ -320,7 +320,7 @@ public class TlsProtocolHandler
                  *
                  * Added debug statements for BouncyCastle.
                  */
-                bwmorg.LOG.trace( "TlsProtocolHandler: processHandshake() - type: " + type + ", len: " + len );
+                //bwmorg.LOG.trace( "TlsProtocolHandler: processHandshake() - type: " + type + ", len: " + len );
 
                 /*
                  * Check if we have enough bytes in the buffer to read
@@ -1321,7 +1321,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        bwmorg.LOG.trace( "TlsProtocolHandler: connect() - Client HELLO sent." );
+        //bwmorg.LOG.trace( "TlsProtocolHandler: connect() - Client HELLO sent." );
 
         /*
          * We will now read data, until we have completed the handshake.
@@ -1464,7 +1464,7 @@ public class TlsProtocolHandler
              *
              * Added debug statements for BouncyCastle.
              */
-            //bwmorg.LOG.trace( "TlsProtocolHandler: <-- done availableData(): returning appDataSize: " + appDataSize );
+            ////bwmorg.LOG.trace( "TlsProtocolHandler: <-- done availableData(): returning appDataSize: " + appDataSize );
             return appDataSize;
         }
 
@@ -1505,7 +1505,7 @@ public class TlsProtocolHandler
          *
          * Added debug statements for BouncyCastle.
          */
-        //bwmorg.LOG.trace( "TlsProtocolHandler: <-- done availableData(): underlying raw socket available(): " + available );
+        ////bwmorg.LOG.trace( "TlsProtocolHandler: <-- done availableData(): underlying raw socket available(): " + available );
         return available;
     }
 
