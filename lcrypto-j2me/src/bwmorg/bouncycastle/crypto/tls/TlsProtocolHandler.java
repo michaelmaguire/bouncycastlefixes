@@ -1,21 +1,15 @@
 package bwmorg.bouncycastle.crypto.tls;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 
+import bigjava.math.BigInteger;
+import bigjava.security.SecureRandom;
 import bwmorg.bouncycastle.asn1.x509.RSAPublicKeyStructure;
 import bwmorg.bouncycastle.crypto.InvalidCipherTextException;
 import bwmorg.bouncycastle.crypto.encodings.PKCS1Encoding;
 import bwmorg.bouncycastle.crypto.engines.RSABlindedEngine;
-import bwmorg.bouncycastle.crypto.params.ParametersWithRandom;
-import bwmorg.bouncycastle.crypto.params.RSAKeyParameters;
+import bwmorg.bouncycastle.crypto.params.*;
 import bwmorg.bouncycastle.crypto.prng.ThreadedSeedGenerator;
-
-import bigjava.math.BigInteger;
-import bigjava.security.SecureRandom;
 
 /**
  * An implementation of all high level protocols in TLS 1.0.
@@ -83,17 +77,21 @@ public class TlsProtocolHandler
 
     private static final short   CS_SERVER_KEY_EXCHANGE_RECEIVED       = 4;
 
-    private static final short   CS_SERVER_HELLO_DONE_RECEIVED         = 5;
+    private static final short   CS_CERTIFICATE_REQUEST_RECEIVED       = 5;
 
-    private static final short   CS_CLIENT_KEY_EXCHANGE_SEND           = 6;
+    private static final short   CS_SERVER_HELLO_DONE_RECEIVED         = 6;
 
-    private static final short   CS_CLIENT_CHANGE_CIPHER_SPEC_SEND     = 7;
+    private static final short   CS_CLIENT_KEY_EXCHANGE_SEND           = 7;
 
-    private static final short   CS_CLIENT_FINISHED_SEND               = 8;
+    private static final short   CS_CLIENT_VERIFICATION_SEND           = 8;
 
-    private static final short   CS_SERVER_CHANGE_CIPHER_SPEC_RECEIVED = 9;
+    private static final short   CS_CLIENT_CHANGE_CIPHER_SPEC_SEND     = 9;
 
-    private static final short   CS_DONE                               = 10;
+    private static final short   CS_CLIENT_FINISHED_SEND               = 10;
+
+    private static final short   CS_SERVER_CHANGE_CIPHER_SPEC_RECEIVED = 11;
+
+    private static final short   CS_DONE                               = 12;
 
     protected static final short AP_close_notify                       = 0;
     protected static final short AP_unexpected_message                 = 10;
@@ -206,8 +204,7 @@ public class TlsProtocolHandler
 
     private short connection_state;
 
-    protected void processData(short protocol, byte[] buf, int offset, int len)
-        throws IOException
+    protected void processData( short protocol, byte[] buf, int offset, int len ) throws IOException
     {
         /*
          * Have a look at the protocol type, and add it to the correct queue.
@@ -321,7 +318,6 @@ public class TlsProtocolHandler
                  * Added debug statements for BouncyCastle.
                  */
                 //bwmorg.LOG.trace( "TlsProtocolHandler: processHandshake() - type: " + type + ", len: " + len );
-
                 /*
                  * Check if we have enough bytes in the buffer to read
                  * the full message.
@@ -423,10 +419,7 @@ public class TlsProtocolHandler
                                     /*
                                      * Parse the servers public RSA key.
                                      */
-                                    this.serverRsaKey = new RSAKeyParameters(
-                                        false,
-                                        rsaKey.getModulus(),
-                                        rsaKey.getPublicExponent());
+                                    this.serverRsaKey = new RSAKeyParameters( false, rsaKey.getModulus(), rsaKey.getPublicExponent() );
 
                                     connection_state = CS_SERVER_CERTIFICATE_RECEIVED;
                                     read = true;
@@ -621,29 +614,38 @@ public class TlsProtocolHandler
                             {
 
                                 case CS_SERVER_CERTIFICATE_RECEIVED:
-                                    /*
-                                     * There was no server key exchange message, check
-                                     * that we are doing RSA key exchange.
-                                     */
-                                    if( this.choosenCipherSuite.getKeyExchangeAlgorithm() != TlsCipherSuite.KE_RSA )
+                                case CS_SERVER_KEY_EXCHANGE_RECEIVED:
+                                case CS_CERTIFICATE_REQUEST_RECEIVED:
+
+                                    // NB: Original code used case label fall-through
+                                    if( connection_state == CS_SERVER_CERTIFICATE_RECEIVED )
                                     {
+                                        /*
+                                        * There was no server key exchange message, check
+                                        * that we are doing RSA key exchange.
+                                        */
+
+                                        if( this.choosenCipherSuite.getKeyExchangeAlgorithm() != TlsCipherSuite.KE_RSA )
+                                        {
                                         /**
                                          * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
                                          *
                                          * Added debug statements for BouncyCastle.
                                          */
                                         bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Chosen key exhange algorithm is not RSA." );
-                                        this.failWithError( AL_fatal, AP_unexpected_message );
+                                        
+                                            this.failWithError( AL_fatal, AP_unexpected_message );
+                                        }
                                     }
 
-                                    /*
-                                     * NB: Fall through to next case label to continue RSA key exchange
-                                     */
-
-                                case CS_SERVER_KEY_EXCHANGE_RECEIVED:
-
                                     assertEmpty( is );
+                                    boolean isCertReq = ( connection_state == CS_CERTIFICATE_REQUEST_RECEIVED );
                                     connection_state = CS_SERVER_HELLO_DONE_RECEIVED;
+
+                                    if( isCertReq )
+                                    {
+                                        sendClientCertificate();
+                                    }
 
                                     /*
                                      * Send the client key exchange message, depending
@@ -708,7 +710,7 @@ public class TlsProtocolHandler
                                             bos.write( encrypted );
                                             byte[] message = bos.toByteArray();
 
-                                            rs.writeMessage( (short) RL_HANDSHAKE, message, 0, message.length );
+                                            rs.writeMessage( RL_HANDSHAKE, message, 0, message.length );
                                             break;
                                         case TlsCipherSuite.KE_DHE_RSA:
                                             /*
@@ -723,7 +725,7 @@ public class TlsProtocolHandler
                                             DHbos.write( YcByte );
                                             byte[] DHmessage = DHbos.toByteArray();
 
-                                            rs.writeMessage( (short) RL_HANDSHAKE, DHmessage, 0, DHmessage.length );
+                                            rs.writeMessage( RL_HANDSHAKE, DHmessage, 0, DHmessage.length );
 
                                             break;
                                         default:
@@ -748,7 +750,7 @@ public class TlsProtocolHandler
                                      */
                                     byte[] cmessage = new byte[1];
                                     cmessage[0] = 1;
-                                    rs.writeMessage( (short) RL_CHANGE_CIPHER_SPEC, cmessage, 0, cmessage.length );
+                                    rs.writeMessage( RL_CHANGE_CIPHER_SPEC, cmessage, 0, cmessage.length );
 
                                     connection_state = CS_CLIENT_CHANGE_CIPHER_SPEC_SEND;
 
@@ -781,7 +783,7 @@ public class TlsProtocolHandler
                                     bos.write( checksum );
                                     byte[] message = bos.toByteArray();
 
-                                    rs.writeMessage( (short) RL_HANDSHAKE, message, 0, message.length );
+                                    rs.writeMessage( RL_HANDSHAKE, message, 0, message.length );
 
                                     this.connection_state = CS_CLIENT_FINISHED_SEND;
                                     read = true;
@@ -973,7 +975,43 @@ public class TlsProtocolHandler
                             bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_SERVER_KEY_EXCHANGE" );
 
                             break;
+                        case HP_CERTIFICATE_REQUEST:
+                        {
+                            switch( connection_state )
+                            {
+                                case CS_SERVER_CERTIFICATE_RECEIVED:
+                                    /*
+                                    * There was no server key exchange message, check
+                                    * that we are doing RSA key exchange.
+                                    */
+                                    if( this.choosenCipherSuite.getKeyExchangeAlgorithm() != TlsCipherSuite.KE_RSA )
+                                    {
+                                        this.failWithError( AL_fatal, AP_unexpected_message );
+                                    }
 
+                                    /*
+                                    * NB: Fall through to next case label to continue RSA key exchange
+                                    */
+
+                                case CS_SERVER_KEY_EXCHANGE_RECEIVED:
+                                {
+                                    byte[] types = TlsUtils.readOpaque8( is );
+                                    byte[] auths = TlsUtils.readOpaque16( is );
+
+                                    // TODO Validate/process
+
+                                    assertEmpty( is );
+
+                                    break;
+                                }
+                                default:
+                                    this.failWithError( AL_fatal, AP_unexpected_message );
+                            }
+
+                            this.connection_state = CS_CERTIFICATE_REQUEST_RECEIVED;
+                            read = true;
+                            break;
+                        }
                         case HP_HELLO_REQUEST:
 
                             /**
@@ -993,16 +1031,6 @@ public class TlsProtocolHandler
                              * Added debug statements for BouncyCastle.
                              */
                             bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CLIENT_KEY_EXCHANGE not supported." );
-                            this.failWithError( AL_fatal, AP_unexpected_message );
-                            break;
-
-                        case HP_CERTIFICATE_REQUEST:
-                            /**
-                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
-                             *
-                             * Added debug statements for BouncyCastle.
-                             */
-                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CERTIFICATE_REQUEST not supported." );
                             this.failWithError( AL_fatal, AP_unexpected_message );
                             break;
 
@@ -1053,6 +1081,20 @@ public class TlsProtocolHandler
          */
         bwmorg.LOG.debug( "TlsProtocolHandler: done processHandshake() " );
 
+    }
+
+    private void sendClientCertificate() throws IOException
+    {
+        /*
+         * just write back the "no client certificate" message
+         * see also gnutls, auth_cert.c:643 (0B 00 00 03 00 00 00)
+         */
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        TlsUtils.writeUint8( HP_CERTIFICATE, bos );
+        TlsUtils.writeUint24( 3, bos );
+        TlsUtils.writeUint24( 0, bos );
+        byte[] message = bos.toByteArray();
+        rs.writeMessage( RL_HANDSHAKE, message, 0, message.length );
     }
 
     private void processApplicationData()
@@ -1231,7 +1273,8 @@ public class TlsProtocolHandler
      * Added ability to set which ciphers to report during tls negotiation.
      * Pass random int as a parameter. 
      */
-    public void connect(CertificateVerifyer verifyer) throws IOException {
+    public void connect( CertificateVerifyer verifyer ) throws IOException
+    {
         // use all the ciphers available
         connect( verifyer, 0xFFFFFF, (int) ( System.currentTimeMillis() / 1000 ) );
     }
@@ -1322,7 +1365,6 @@ public class TlsProtocolHandler
          * Added debug statements for BouncyCastle.
          */
         //bwmorg.LOG.trace( "TlsProtocolHandler: connect() - Client HELLO sent." );
-
         /*
          * We will now read data, until we have completed the handshake.
          */
