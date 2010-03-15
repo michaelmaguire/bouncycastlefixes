@@ -1,8 +1,9 @@
 package org.bouncycastle.asn1;
 
-import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+
+import bigjava.io.FilterOutputStream;
 
 public class DEROutputStream
     extends FilterOutputStream implements DERTags

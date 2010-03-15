@@ -1,9 +1,10 @@
-package java.math.test;
+package bigjava.math.test;
 
 import java.math.BigInteger;
 
-import java.security.SecureRandom;
 import org.bouncycastle.util.test.*;
+
+import bigjava.security.SecureRandom;
 
 
 public class BigIntegerTest

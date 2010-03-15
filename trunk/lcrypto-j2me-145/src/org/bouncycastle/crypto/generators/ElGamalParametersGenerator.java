@@ -1,9 +1,10 @@
 package org.bouncycastle.crypto.generators;
 
+import java.math.BigInteger;
+
 import org.bouncycastle.crypto.params.ElGamalParameters;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 public class ElGamalParametersGenerator
 {

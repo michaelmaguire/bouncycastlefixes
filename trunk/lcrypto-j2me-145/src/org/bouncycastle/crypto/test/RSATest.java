@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.test;
 
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 import org.bouncycastle.util.test.*;
 
@@ -16,6 +15,8 @@ import org.bouncycastle.crypto.encodings.OAEPEncoding;
 import org.bouncycastle.crypto.generators.RSAKeyPairGenerator;
 
 import org.bouncycastle.util.encoders.Hex;
+
+import bigjava.security.SecureRandom;
 
 public class RSATest
     implements Test

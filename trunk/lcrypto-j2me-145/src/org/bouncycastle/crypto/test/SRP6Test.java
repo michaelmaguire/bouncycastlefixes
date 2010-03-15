@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.test;
 
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.agreement.srp.SRP6Client;
@@ -14,6 +13,8 @@ import org.bouncycastle.crypto.generators.DHParametersGenerator;
 import org.bouncycastle.crypto.params.DHParameters;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
+
+import bigjava.security.SecureRandom;
 
 public class SRP6Test extends SimpleTest
 {

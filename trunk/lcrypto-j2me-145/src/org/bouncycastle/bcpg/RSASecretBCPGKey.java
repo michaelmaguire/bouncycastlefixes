@@ -3,6 +3,8 @@ package org.bouncycastle.bcpg;
 import java.io.*;
 import java.math.BigInteger;
 
+import bigjava.io.*;
+
 /**
  * base class for an RSA Secret (or Private) Key.
  */

@@ -4,6 +4,8 @@ import java.io.*;
 
 import org.bouncycastle.bcpg.attr.ImageAttribute;
 
+import bigjava.io.*;
+
 /**
  * reader for user attribute sub-packets
  */

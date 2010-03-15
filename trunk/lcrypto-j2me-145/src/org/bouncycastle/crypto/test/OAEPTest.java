@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.test;
 
 import java.io.ByteArrayInputStream;
-import java.security.SecureRandom;
 import java.math.BigInteger;
 
 import org.bouncycastle.asn1.ASN1InputStream;
@@ -19,6 +18,8 @@ import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.params.RSAPrivateCrtKeyParameters;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
+
+import bigjava.security.SecureRandom;
 
 public class OAEPTest
     extends SimpleTest

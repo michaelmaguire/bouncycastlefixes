@@ -1,10 +1,7 @@
 package org.bouncycastle.crypto.engines;
 
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.StreamCipher;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.ParametersWithIV;
+import org.bouncycastle.crypto.*;
+import org.bouncycastle.crypto.params.*;
 
 /**
  * Implementation of Martin Hell's, Thomas Johansson's and Willi Meier's stream

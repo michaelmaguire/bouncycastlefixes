@@ -22,8 +22,9 @@ import org.bouncycastle.math.ec.ECCurve;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
 
+import bigjava.security.SecureRandom;
+
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 /**
  * test for ECIES - Elliptic Curve Integrated Encryption Scheme

@@ -1,6 +1,6 @@
 package org.bouncycastle.crypto;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 /**
  * The base class for parameters to key generators.

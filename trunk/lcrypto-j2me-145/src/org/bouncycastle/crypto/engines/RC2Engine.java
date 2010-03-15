@@ -1,10 +1,7 @@
 package org.bouncycastle.crypto.engines;
 
-import org.bouncycastle.crypto.BlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.params.KeyParameter;
-import org.bouncycastle.crypto.params.RC2Parameters;
+import org.bouncycastle.crypto.*;
+import org.bouncycastle.crypto.params.*;
 
 /**
  * an implementation of RC2 as described in RFC 2268

@@ -1,10 +1,11 @@
 package org.bouncycastle.crypto.agreement.srp;
 
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.Digest;
+
+import bigjava.security.SecureRandom;
 
 /**
  * Implements the client side SRP-6a protocol. Note that this class is stateful, and therefore NOT threadsafe.

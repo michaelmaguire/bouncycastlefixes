@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.test;
 
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 import org.bouncycastle.asn1.nist.NISTNamedCurves;
 import org.bouncycastle.asn1.sec.SECNamedCurves;
@@ -26,6 +25,8 @@ import org.bouncycastle.util.BigIntegers;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.FixedSecureRandom;
 import org.bouncycastle.util.test.SimpleTest;
+
+import bigjava.security.SecureRandom;
 
 /**
  * ECDSA tests are taken from X9.62.

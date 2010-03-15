@@ -1,8 +1,9 @@
 package org.bouncycastle.util.test;
 
-import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+
+import bigjava.io.FilterOutputStream;
 
 public class UncloseableOutputStream extends FilterOutputStream
 {

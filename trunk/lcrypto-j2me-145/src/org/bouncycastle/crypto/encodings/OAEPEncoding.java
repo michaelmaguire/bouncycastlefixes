@@ -1,13 +1,11 @@
 package org.bouncycastle.crypto.encodings;
 
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.Digest;
-import org.bouncycastle.crypto.InvalidCipherTextException;
+
+import org.bouncycastle.crypto.*;
 import org.bouncycastle.crypto.digests.SHA1Digest;
 import org.bouncycastle.crypto.params.ParametersWithRandom;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 /**
  * Optimal Asymmetric Encryption Padding (OAEP) - see PKCS 1 V 2.

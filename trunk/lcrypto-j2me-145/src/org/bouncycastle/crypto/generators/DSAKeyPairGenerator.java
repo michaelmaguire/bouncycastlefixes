@@ -1,16 +1,12 @@
 package org.bouncycastle.crypto.generators;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.DSAKeyGenerationParameters;
-import org.bouncycastle.crypto.params.DSAParameters;
-import org.bouncycastle.crypto.params.DSAPrivateKeyParameters;
-import org.bouncycastle.crypto.params.DSAPublicKeyParameters;
+import java.math.BigInteger;
+
+import org.bouncycastle.crypto.*;
+import org.bouncycastle.crypto.params.*;
 import org.bouncycastle.util.BigIntegers;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 /**
  * a DSA key pair generator.

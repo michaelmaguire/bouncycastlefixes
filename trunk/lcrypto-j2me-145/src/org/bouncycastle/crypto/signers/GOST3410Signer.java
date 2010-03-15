@@ -4,7 +4,8 @@ import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.DSA;
 import org.bouncycastle.crypto.params.*;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
+
 import java.math.BigInteger;
 
 /**
