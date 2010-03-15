@@ -1,16 +1,12 @@
 package org.bouncycastle.crypto.engines;
 
-import org.bouncycastle.crypto.AsymmetricBlockCipher;
-import org.bouncycastle.crypto.CipherParameters;
-import org.bouncycastle.crypto.DataLengthException;
-import org.bouncycastle.crypto.params.ElGamalKeyParameters;
-import org.bouncycastle.crypto.params.ElGamalPrivateKeyParameters;
-import org.bouncycastle.crypto.params.ElGamalPublicKeyParameters;
-import org.bouncycastle.crypto.params.ParametersWithRandom;
+import java.math.BigInteger;
+
+import org.bouncycastle.crypto.*;
+import org.bouncycastle.crypto.params.*;
 import org.bouncycastle.util.BigIntegers;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
 
 /**
  * this does your basic ElGamal algorithm.

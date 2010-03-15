@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.test;
 
-import java.security.SecureRandom;
 
 import org.bouncycastle.crypto.engines.DESEngine;
 import org.bouncycastle.crypto.paddings.BlockCipherPadding;
@@ -15,6 +14,8 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
+
+import bigjava.security.SecureRandom;
 
 /**
  * General Padding tests.

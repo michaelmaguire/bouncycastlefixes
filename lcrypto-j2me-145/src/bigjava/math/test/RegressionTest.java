@@ -1,4 +1,4 @@
-package java.math.test;
+package bigjava.math.test;
 
 import org.bouncycastle.util.test.Test;
 import org.bouncycastle.util.test.TestResult;

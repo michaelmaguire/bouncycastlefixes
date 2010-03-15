@@ -1,7 +1,6 @@
 package org.bouncycastle.crypto.test;
 
 import java.math.BigInteger;
-import java.security.SecureRandom;
 import java.util.Vector;
 
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
@@ -13,6 +12,8 @@ import org.bouncycastle.crypto.params.NaccacheSternKeyParameters;
 import org.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
+
+import bigjava.security.SecureRandom;
 
 /**
  * Test case for NaccacheStern cipher. For details on this cipher, please see

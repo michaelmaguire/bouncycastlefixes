@@ -12,7 +12,8 @@ import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
+
 
 /**
  * Test vectors from "The Galois/Counter Mode of Operation (GCM)", McGrew/Viega, Appendix B

@@ -2,6 +2,8 @@ package org.bouncycastle.bcpg;
 
 import java.io.*;
 
+import bigjava.io.*;
+
 /**
  * The string to key specifier class
  */

@@ -1,10 +1,11 @@
 package org.bouncycastle.crypto.io;
 
-import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
 import org.bouncycastle.crypto.Signer;
+
+import bigjava.io.FilterOutputStream;
 
 public class SignerOutputStream
     extends FilterOutputStream

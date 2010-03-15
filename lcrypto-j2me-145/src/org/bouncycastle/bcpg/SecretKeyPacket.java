@@ -2,6 +2,8 @@ package org.bouncycastle.bcpg;
 
 import java.io.*;
 
+import bigjava.io.*;
+
 /**
  * basic packet for a PGP secret key
  */

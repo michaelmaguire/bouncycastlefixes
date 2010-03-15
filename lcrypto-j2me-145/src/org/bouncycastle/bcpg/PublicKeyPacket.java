@@ -3,6 +3,8 @@ package org.bouncycastle.bcpg;
 import java.io.*;
 import java.util.Date;
 
+import bigjava.io.*;
+
 /**
  * basic packet for a PGP public key
  */

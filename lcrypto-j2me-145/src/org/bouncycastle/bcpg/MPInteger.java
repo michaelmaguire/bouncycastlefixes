@@ -1,7 +1,9 @@
 package org.bouncycastle.bcpg;
 
-import java.io.*;
+import java.io.IOException;
 import java.math.BigInteger;
+
+import bigjava.io.*;
 
 /**
  * a multiple precision integer

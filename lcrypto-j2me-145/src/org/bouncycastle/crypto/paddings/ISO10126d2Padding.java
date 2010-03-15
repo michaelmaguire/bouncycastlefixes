@@ -1,8 +1,9 @@
 package org.bouncycastle.crypto.paddings;
 
-import java.security.SecureRandom;
 
 import org.bouncycastle.crypto.InvalidCipherTextException;
+
+import bigjava.security.SecureRandom;
 
 /**
  * A padder that adds ISO10126-2 padding to a block.

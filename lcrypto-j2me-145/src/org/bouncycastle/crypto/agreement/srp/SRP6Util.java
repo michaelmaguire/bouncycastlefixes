@@ -1,11 +1,12 @@
 package org.bouncycastle.crypto.agreement.srp;
 
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 import org.bouncycastle.crypto.CryptoException;
 import org.bouncycastle.crypto.Digest;
 import org.bouncycastle.util.BigIntegers;
+
+import bigjava.security.SecureRandom;
 
 public class SRP6Util
 {

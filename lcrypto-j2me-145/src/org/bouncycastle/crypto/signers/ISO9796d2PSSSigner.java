@@ -12,7 +12,8 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.params.ParametersWithSalt;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
+
 
 /**
  * ISO9796-2 - mechanism using a hash function with recovery (scheme 2 and 3).

@@ -14,8 +14,9 @@ import org.bouncycastle.util.test.SimpleTestResult;
 import org.bouncycastle.util.test.Test;
 import org.bouncycastle.util.test.TestResult;
 
+import bigjava.security.SecureRandom;
+
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 public class GOST3410Test
         implements Test

@@ -10,7 +10,8 @@ import org.bouncycastle.crypto.params.ParametersWithRandom;
 import org.bouncycastle.crypto.params.RSABlindingParameters;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
+
 
 /**
  * RSA-PSS as described in PKCS# 1 v 2.1.

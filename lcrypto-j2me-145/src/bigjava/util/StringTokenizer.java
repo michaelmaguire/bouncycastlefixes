@@ -1,4 +1,4 @@
-package java.util;
+package bigjava.util;
 
 import java.util.Enumeration;
 import java.util.NoSuchElementException;

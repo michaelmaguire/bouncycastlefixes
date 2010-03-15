@@ -1,15 +1,12 @@
 package org.bouncycastle.crypto.generators;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.NaccacheSternKeyGenerationParameters;
-import org.bouncycastle.crypto.params.NaccacheSternKeyParameters;
-import org.bouncycastle.crypto.params.NaccacheSternPrivateKeyParameters;
-
 import java.math.BigInteger;
-import java.security.SecureRandom;
 import java.util.Vector;
+
+import org.bouncycastle.crypto.*;
+import org.bouncycastle.crypto.params.*;
+
+import bigjava.security.SecureRandom;
 
 /**
  * Key generation parameters for NaccacheStern cipher. For details on this cipher, please see

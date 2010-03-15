@@ -1,10 +1,10 @@
 package org.bouncycastle.crypto.generators;
 
-import org.bouncycastle.crypto.params.GOST3410Parameters;
-import org.bouncycastle.crypto.params.GOST3410ValidationParameters;
-
 import java.math.BigInteger;
-import java.security.SecureRandom;
+
+import org.bouncycastle.crypto.params.*;
+
+import bigjava.security.SecureRandom;
 
 /**
  * generate suitable parameters for GOST3410.

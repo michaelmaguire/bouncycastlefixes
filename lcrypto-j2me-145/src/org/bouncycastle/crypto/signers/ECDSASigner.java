@@ -10,8 +10,9 @@ import org.bouncycastle.math.ec.ECAlgorithms;
 import org.bouncycastle.math.ec.ECConstants;
 import org.bouncycastle.math.ec.ECPoint;
 
+import bigjava.security.SecureRandom;
+
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 /**
  * EC-DSA as described in X9.62

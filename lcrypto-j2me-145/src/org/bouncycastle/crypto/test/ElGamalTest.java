@@ -14,8 +14,9 @@ import org.bouncycastle.util.test.SimpleTest;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.Arrays;
 
+import bigjava.security.SecureRandom;
+
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 public class ElGamalTest
     extends SimpleTest

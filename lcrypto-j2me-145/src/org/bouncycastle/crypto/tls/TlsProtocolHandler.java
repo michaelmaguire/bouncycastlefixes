@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.math.BigInteger;
-import java.security.SecureRandom;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
@@ -37,6 +36,8 @@ import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.prng.ThreadedSeedGenerator;
 import org.bouncycastle.crypto.util.PublicKeyFactory;
 import org.bouncycastle.util.BigIntegers;
+
+import bigjava.security.SecureRandom;
 
 /**
  * An implementation of all high level protocols in TLS 1.0.

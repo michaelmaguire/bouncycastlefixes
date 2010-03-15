@@ -20,8 +20,9 @@ import org.bouncycastle.crypto.params.GOST3410Parameters;
 import org.bouncycastle.crypto.params.GOST3410ValidationParameters;
 import org.bouncycastle.util.test.SimpleTest;
 
+import bigjava.security.SecureRandom;
+
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 class DHTestKeyParameters
     extends DHKeyParameters

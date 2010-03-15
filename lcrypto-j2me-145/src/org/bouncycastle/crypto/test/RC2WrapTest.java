@@ -1,6 +1,5 @@
 package org.bouncycastle.crypto.test;
 
-import java.security.SecureRandom;
 
 import org.bouncycastle.crypto.CipherParameters;
 import org.bouncycastle.crypto.Wrapper;
@@ -13,6 +12,8 @@ import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTestResult;
 import org.bouncycastle.util.test.Test;
 import org.bouncycastle.util.test.TestResult;
+
+import bigjava.security.SecureRandom;
 
 /**
  * RC2 wrap tester

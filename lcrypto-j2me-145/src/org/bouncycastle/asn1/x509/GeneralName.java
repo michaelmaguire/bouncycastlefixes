@@ -1,6 +1,5 @@
 package org.bouncycastle.asn1.x509;
 
-import java.util.StringTokenizer;
 
 import org.bouncycastle.asn1.ASN1Choice;
 import org.bouncycastle.asn1.ASN1Encodable;
@@ -14,6 +13,8 @@ import org.bouncycastle.asn1.DERObjectIdentifier;
 import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.DERTaggedObject;
 import org.bouncycastle.util.IPAddress;
+
+import bigjava.util.StringTokenizer;
 
 /**
  * The GeneralName object.

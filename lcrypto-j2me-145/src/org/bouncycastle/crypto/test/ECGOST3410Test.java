@@ -12,8 +12,9 @@ import org.bouncycastle.crypto.generators.ECKeyPairGenerator;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.digests.GOST3411Digest;
 
+import bigjava.security.SecureRandom;
+
 import java.math.BigInteger;
-import java.security.SecureRandom;
 
 /**
  *  ECGOST3410 tests are taken from GOST R 34.10-2001.

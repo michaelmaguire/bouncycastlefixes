@@ -1,15 +1,11 @@
 package org.bouncycastle.crypto.generators;
 
-import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
-import org.bouncycastle.crypto.AsymmetricCipherKeyPairGenerator;
-import org.bouncycastle.crypto.KeyGenerationParameters;
-import org.bouncycastle.crypto.params.GOST3410KeyGenerationParameters;
-import org.bouncycastle.crypto.params.GOST3410Parameters;
-import org.bouncycastle.crypto.params.GOST3410PrivateKeyParameters;
-import org.bouncycastle.crypto.params.GOST3410PublicKeyParameters;
-
 import java.math.BigInteger;
-import java.security.SecureRandom;
+
+import org.bouncycastle.crypto.*;
+import org.bouncycastle.crypto.params.*;
+
+import bigjava.security.SecureRandom;
 
 /**
  * a GOST3410 key pair generator.

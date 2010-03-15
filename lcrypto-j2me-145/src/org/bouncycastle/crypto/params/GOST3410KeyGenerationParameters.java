@@ -2,7 +2,8 @@ package org.bouncycastle.crypto.params;
 
 import org.bouncycastle.crypto.KeyGenerationParameters;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
+
 
 public class GOST3410KeyGenerationParameters
         extends KeyGenerationParameters

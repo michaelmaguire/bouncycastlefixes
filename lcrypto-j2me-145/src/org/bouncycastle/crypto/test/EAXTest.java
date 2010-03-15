@@ -12,7 +12,8 @@ import org.bouncycastle.util.Strings;
 import org.bouncycastle.util.encoders.Hex;
 import org.bouncycastle.util.test.SimpleTest;
 
-import java.security.SecureRandom;
+import bigjava.security.SecureRandom;
+
 
 public class EAXTest
     extends SimpleTest

@@ -1,6 +1,8 @@
 package org.bouncycastle.bcpg;
 
-import java.io.*;
+import java.io.IOException;
+
+import bigjava.io.*;
 
 /**
  * basic packet for a modification detection code packet.
