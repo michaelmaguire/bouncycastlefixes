@@ -185,6 +185,13 @@ public class TlsBlockCipherCipherSuite extends TlsCipherSuite
         */
         if (decrypterror)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            bwmorg.LOG.info( "TlsBlockCipherCipherSuite: decodeCiphertext() - Error: unable to decrypt." );
+            
             handler.failWithError(TlsProtocolHandler.AL_fatal,
                 TlsProtocolHandler.AP_bad_record_mac);
         }

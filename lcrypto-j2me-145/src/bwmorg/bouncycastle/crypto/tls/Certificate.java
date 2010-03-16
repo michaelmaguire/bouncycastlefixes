@@ -1,13 +1,10 @@
 package bwmorg.bouncycastle.crypto.tls;
 
+import java.io.*;
+import java.util.Vector;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x509.X509CertificateStructure;
-
-
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Vector;
 
 /**
  * A representation for a certificate chain as used by an tls server.
@@ -43,6 +40,12 @@ public class Certificate
             tmp.addElement(X509CertificateStructure.getInstance(o));
             if (bis.available() > 0)
             {
+                /**
+                * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                *
+                * Added debug statements for BouncyCastle.
+                */
+                bwmorg.LOG.info( "Certificate: parse() - garbage data left after the certificate. Throwing exception." );
                 throw new IllegalArgumentException("Sorry, there is garbage data left after the certificate");
             }
         }
