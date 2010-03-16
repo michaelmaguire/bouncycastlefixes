@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.crypto.agreement.srp;
 
-import java.math.BigInteger;
-
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.crypto.Digest;
 
 /**

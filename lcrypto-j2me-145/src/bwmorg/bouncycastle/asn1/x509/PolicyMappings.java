@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.asn1.x509;
 
-import java.util.Hashtable;
-import java.util.Enumeration;
+import java.util.*;
 
 import bwmorg.bouncycastle.asn1.*;
 

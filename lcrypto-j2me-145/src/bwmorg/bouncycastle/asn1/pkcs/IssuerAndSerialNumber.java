@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.asn1.pkcs;
 
-import java.math.BigInteger;
-
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x509.X509Name;
 

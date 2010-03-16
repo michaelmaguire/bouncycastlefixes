@@ -1,8 +1,6 @@
 package bwmorg.bouncycastle.asn1.x9;
 
-import java.math.BigInteger;
-
-
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.math.ec.ECFieldElement;
 

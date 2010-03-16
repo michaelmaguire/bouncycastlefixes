@@ -1,13 +1,11 @@
 package bwmorg.bouncycastle.bcpg;
 
 
+import java.io.*;
+import java.util.Vector;
+
 import bwmorg.bouncycastle.bcpg.sig.*;
 import bwmorg.bouncycastle.util.Arrays;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.Vector;
 
 /**
  * generic signature packet

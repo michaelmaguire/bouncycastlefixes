@@ -1,6 +1,8 @@
 package bwmorg.bouncycastle.crypto.signers;
 
 
+import java.util.Hashtable;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.nist.NISTObjectIdentifiers;
 import bwmorg.bouncycastle.asn1.pkcs.PKCSObjectIdentifiers;
@@ -10,8 +12,6 @@ import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.encodings.PKCS1Encoding;
 import bwmorg.bouncycastle.crypto.engines.RSABlindedEngine;
 import bwmorg.bouncycastle.crypto.params.*;
-
-import java.util.Hashtable;
 
 public class RSADigestSigner
     implements Signer

@@ -1,7 +1,8 @@
 package bwmorg.bouncycastle.math.ec;
 
-import java.math.BigInteger;
 import java.util.Random;
+
+import bigjava.math.BigInteger;
 
 /**
  * base class for an elliptic curve

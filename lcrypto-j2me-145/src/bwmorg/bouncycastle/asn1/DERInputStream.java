@@ -1,9 +1,6 @@
 package bwmorg.bouncycastle.asn1;
 
-import java.io.ByteArrayInputStream;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 import bigjava.io.FilterInputStream;
 

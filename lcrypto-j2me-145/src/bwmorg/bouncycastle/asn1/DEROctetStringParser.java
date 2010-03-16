@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.asn1;
 
-import java.io.InputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class DEROctetStringParser
     implements ASN1OctetStringParser

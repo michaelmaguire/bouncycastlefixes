@@ -1,10 +1,9 @@
 package bwmorg.bouncycastle.asn1.cms;
 
+import java.util.Enumeration;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
-
-import java.util.Enumeration;
 
 public class SignerInfo
     extends ASN1Encodable

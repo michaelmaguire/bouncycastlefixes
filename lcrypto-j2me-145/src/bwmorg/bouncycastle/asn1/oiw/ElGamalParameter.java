@@ -1,12 +1,8 @@
 package bwmorg.bouncycastle.asn1.oiw;
 
-import java.math.BigInteger;
 import java.util.Enumeration;
 
-
-
-import bigjava.math.*;
-import bigjava.util.*;
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 
 public class ElGamalParameter

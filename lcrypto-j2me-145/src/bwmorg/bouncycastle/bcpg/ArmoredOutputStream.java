@@ -1,10 +1,7 @@
 package bwmorg.bouncycastle.bcpg;
 
 import java.io.*;
-import java.util.Enumeration;
-import java.util.Hashtable;
-
-import bigjava.io.*;
+import java.util.*;
 
 /**
  * Basic output stream.

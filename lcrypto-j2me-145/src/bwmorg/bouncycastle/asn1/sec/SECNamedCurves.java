@@ -1,16 +1,14 @@
 package bwmorg.bouncycastle.asn1.sec;
 
 
+import java.util.*;
+
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 import bwmorg.bouncycastle.asn1.x9.*;
 import bwmorg.bouncycastle.math.ec.*;
 import bwmorg.bouncycastle.util.Strings;
 import bwmorg.bouncycastle.util.encoders.Hex;
-
-
-import java.math.BigInteger;
-import java.util.Enumeration;
-import java.util.Hashtable;
 
 public class SECNamedCurves
 {

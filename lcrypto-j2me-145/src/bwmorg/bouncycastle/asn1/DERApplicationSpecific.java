@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.asn1;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 import bwmorg.bouncycastle.util.Arrays;
 

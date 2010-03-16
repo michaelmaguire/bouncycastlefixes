@@ -1,12 +1,11 @@
 package bwmorg.bouncycastle.crypto.signers;
 
 
+import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.params.*;
 import bwmorg.bouncycastle.math.ec.*;
-
-import java.math.BigInteger;
 
 /**
  * GOST R 34.10-2001 Signature Algorithm

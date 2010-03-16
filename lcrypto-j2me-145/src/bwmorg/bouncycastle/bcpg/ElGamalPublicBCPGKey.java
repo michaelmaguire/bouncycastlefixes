@@ -1,9 +1,8 @@
 package bwmorg.bouncycastle.bcpg;
 
 import java.io.*;
-import java.math.BigInteger;
 
-import bigjava.io.*;
+import bigjava.math.BigInteger;
 
 /**
  * base class for an ElGamal Public Key.

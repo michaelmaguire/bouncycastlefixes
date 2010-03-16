@@ -1,9 +1,7 @@
 package bwmorg.bouncycastle.asn1;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Vector;
+import java.io.*;
+import java.util.*;
 
 abstract public class ASN1Set
     extends ASN1Object

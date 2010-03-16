@@ -1,14 +1,12 @@
 package bwmorg.bouncycastle.asn1.nist;
 
 
+import java.util.*;
+
 import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 import bwmorg.bouncycastle.asn1.sec.*;
 import bwmorg.bouncycastle.asn1.x9.X9ECParameters;
 import bwmorg.bouncycastle.util.Strings;
-
-
-import java.util.Enumeration;
-import java.util.Hashtable;
 
 /**
  * Utility class for fetching curves using their NIST names as published in FIPS-PUB 186-2

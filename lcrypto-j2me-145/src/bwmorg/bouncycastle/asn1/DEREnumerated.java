@@ -1,9 +1,9 @@
 package bwmorg.bouncycastle.asn1;
 
-import bwmorg.bouncycastle.util.Arrays;
-
 import java.io.IOException;
-import java.math.BigInteger;
+
+import bigjava.math.BigInteger;
+import bwmorg.bouncycastle.util.Arrays;
 
 public class DEREnumerated
     extends ASN1Object

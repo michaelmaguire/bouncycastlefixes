@@ -1,9 +1,8 @@
 package bwmorg.bouncycastle.bcpg;
 
-import java.math.BigInteger;
 import java.io.*;
 
-import bigjava.io.*;
+import bigjava.math.BigInteger;
 
 /**
  * base class for an RSA Public Key.

@@ -1,6 +1,6 @@
 package bwmorg.bouncycastle.math.ec;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 /**
  * Class implementing the NAF (Non-Adjacent Form) multiplication algorithm.

@@ -1,11 +1,10 @@
 package bwmorg.bouncycastle.asn1.x509.sigi;
 
+import java.util.Enumeration;
+
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x500.DirectoryString;
-
-
-import java.math.BigInteger;
-import java.util.Enumeration;
 
 /**
  * Contains personal data for the otherName field in the subjectAltNames

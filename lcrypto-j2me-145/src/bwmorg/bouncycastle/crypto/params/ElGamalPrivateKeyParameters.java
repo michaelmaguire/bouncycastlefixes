@@ -1,6 +1,6 @@
 package bwmorg.bouncycastle.crypto.params;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 public class ElGamalPrivateKeyParameters
     extends ElGamalKeyParameters

@@ -2,8 +2,6 @@ package bigjava.math;
 
 import java.util.*;
 
-import bigjava.util.*;
-
 public class BigInteger
 {
     // The primes b/w 2 and ~2^10

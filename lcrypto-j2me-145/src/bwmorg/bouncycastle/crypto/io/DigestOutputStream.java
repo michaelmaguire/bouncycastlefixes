@@ -1,8 +1,6 @@
 package bwmorg.bouncycastle.crypto.io;
 
-import java.io.IOException;
-import java.io.OutputStream;
-
+import java.io.*;
 
 import bigjava.io.FilterOutputStream;
 import bwmorg.bouncycastle.crypto.Digest;

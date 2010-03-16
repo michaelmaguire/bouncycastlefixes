@@ -1,6 +1,9 @@
 package bwmorg.bouncycastle.crypto.util;
 
 
+import java.io.*;
+
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.nist.NISTNamedCurves;
 import bwmorg.bouncycastle.asn1.oiw.*;
@@ -10,10 +13,6 @@ import bwmorg.bouncycastle.asn1.teletrust.TeleTrusTNamedCurves;
 import bwmorg.bouncycastle.asn1.x509.*;
 import bwmorg.bouncycastle.asn1.x9.*;
 import bwmorg.bouncycastle.crypto.params.*;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigInteger;
 
 /**
  * Factory to create asymmetric public key parameters for asymmetric ciphers

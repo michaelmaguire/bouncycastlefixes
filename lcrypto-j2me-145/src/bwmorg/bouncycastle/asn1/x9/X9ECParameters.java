@@ -1,11 +1,9 @@
 package bwmorg.bouncycastle.asn1.x9;
 
 
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.math.ec.*;
-
-
-import java.math.BigInteger;
 
 /**
  * ASN.1 def for Elliptic-Curve ECParameters structure. See

@@ -1,11 +1,10 @@
 package bwmorg.bouncycastle.asn1.tsp;
 
-import bwmorg.bouncycastle.asn1.*;
-import bwmorg.bouncycastle.asn1.x509.*;
-
-
 import java.io.IOException;
 import java.util.Enumeration;
+
+import bwmorg.bouncycastle.asn1.*;
+import bwmorg.bouncycastle.asn1.x509.*;
 
 public class TSTInfo
     extends ASN1Encodable

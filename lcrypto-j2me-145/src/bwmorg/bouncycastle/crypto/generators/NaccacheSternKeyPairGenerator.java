@@ -1,9 +1,8 @@
 package bwmorg.bouncycastle.crypto.generators;
 
-import java.math.BigInteger;
 import java.util.Vector;
 
-
+import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.params.*;

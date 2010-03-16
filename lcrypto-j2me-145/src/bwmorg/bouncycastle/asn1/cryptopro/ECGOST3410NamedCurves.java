@@ -1,10 +1,8 @@
 package bwmorg.bouncycastle.asn1.cryptopro;
 
-import java.math.BigInteger;
-import java.util.Enumeration;
-import java.util.Hashtable;
+import java.util.*;
 
-
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.DERObjectIdentifier;
 import bwmorg.bouncycastle.crypto.params.ECDomainParameters;
 import bwmorg.bouncycastle.math.ec.*;

@@ -1,6 +1,6 @@
 package bwmorg.bouncycastle.math.ec;
 
-import java.math.BigInteger;
+import bigjava.math.BigInteger;
 
 /**
  * Class representing an element of <code><b>Z</b>[&tau;]</code>. Let

@@ -1,8 +1,6 @@
 package bwmorg.bouncycastle.crypto.agreement;
 
-import java.math.BigInteger;
-
-
+import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.generators.DHKeyPairGenerator;

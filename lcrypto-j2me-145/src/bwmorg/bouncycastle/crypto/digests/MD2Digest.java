@@ -1,6 +1,6 @@
 package bwmorg.bouncycastle.crypto.digests;
 
-import bwmorg.bouncycastle.crypto.*;
+import bwmorg.bouncycastle.crypto.ExtendedDigest;
 /**
  * implementation of MD2
  * as outlined in RFC1319 by B.Kaliski from RSA Laboratories April 1992

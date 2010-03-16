@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.asn1;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 public class BEROctetStringGenerator
     extends BERGenerator

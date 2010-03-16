@@ -1,10 +1,9 @@
 package bwmorg.bouncycastle.asn1.x509.sigi;
 
+import java.util.Enumeration;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x500.DirectoryString;
-
-
-import java.util.Enumeration;
 
 /**
  * Structure for a name or pseudonym.

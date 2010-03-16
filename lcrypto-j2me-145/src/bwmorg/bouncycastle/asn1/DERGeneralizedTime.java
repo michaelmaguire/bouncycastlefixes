@@ -2,9 +2,6 @@ package bwmorg.bouncycastle.asn1;
 
 import java.io.IOException;
 
-import bigjava.io.*;
-import bigjava.util.*;
-
 /**
  * Generalized time object.
  */

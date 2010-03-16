@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.util.encoders;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 public class Base64Encoder
     implements Encoder

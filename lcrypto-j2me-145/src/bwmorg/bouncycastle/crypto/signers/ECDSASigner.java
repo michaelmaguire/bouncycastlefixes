@@ -1,12 +1,11 @@
 package bwmorg.bouncycastle.crypto.signers;
 
 
+import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.params.*;
 import bwmorg.bouncycastle.math.ec.*;
-
-import java.math.BigInteger;
 
 /**
  * EC-DSA as described in X9.62

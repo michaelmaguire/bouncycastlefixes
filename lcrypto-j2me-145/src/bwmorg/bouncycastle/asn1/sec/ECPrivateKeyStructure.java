@@ -1,9 +1,8 @@
 package bwmorg.bouncycastle.asn1.sec;
 
-import java.math.BigInteger;
 import java.util.Enumeration;
 
-
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.util.BigIntegers;
 
