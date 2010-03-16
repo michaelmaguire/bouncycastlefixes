@@ -1,7 +1,7 @@
 package bigjava.security;
 
-import org.bouncycastle.crypto.digests.*;
-import org.bouncycastle.crypto.prng.*;
+import bwmorg.bouncycastle.crypto.digests.*;
+import bwmorg.bouncycastle.crypto.prng.*;
 
 /**
  * An implementation of SecureRandom specifically for the light-weight API, JDK

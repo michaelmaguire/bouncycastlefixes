@@ -2,9 +2,9 @@ package bigjava.math.test;
 
 import java.math.BigInteger;
 
-import org.bouncycastle.util.test.*;
 
 import bigjava.security.SecureRandom;
+import bwmorg.bouncycastle.util.test.*;
 
 
 public class BigIntegerTest
