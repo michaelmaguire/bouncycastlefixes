@@ -1202,8 +1202,17 @@ public class TlsProtocolHandler
                      */
                     bwmorg.LOG.info( "TlsProtocolHandler: Error: exception thrown in rs.close()" );
                 }
-                //throw new IOException(TLS_ERROR_MESSAGE);
-                throw new IOException("TLS processAlert");
+                /**
+                * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+                *
+                * Make sure we null out on close.
+                */
+                finally
+                {
+                    rs = null;
+                }
+                  
+                throw new IOException( "TLS processAlert" );
             }
             else
             {
@@ -1989,23 +1998,36 @@ public class TlsProtocolHandler
          */
         if (!closed)
         {
-            /*
-             * Prepare the message
+            /**
+             * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+             *
+             * Make sure we null out on close.
              */
-            byte[] error = new byte[2];
-            error[0] = (byte)alertLevel;
-            error[1] = (byte)alertDescription;
-            this.closed = true;
-
-            if (alertLevel == AL_fatal)
+            try
             {
                 /*
-                 * This is a fatal message.
+                 * Prepare the message
                  */
-                this.failedWithError = true;
+                byte[] error = new byte[2];
+                error[0] = (byte)alertLevel;
+                error[1] = (byte)alertDescription;
+                this.closed = true;
+    
+                if (alertLevel == AL_fatal)
+                {
+                    /*
+                     * This is a fatal message.
+                     */
+                    this.failedWithError = true;
+                }
+                rs.writeMessage(RL_ALERT, error, 0, 2);
+                rs.close();
             }
-            rs.writeMessage(RL_ALERT, error, 0, 2);
-            rs.close();
+            finally
+            {
+                rs = null;
+            }
+            
             if (alertLevel == AL_fatal)
             {
                 /**
