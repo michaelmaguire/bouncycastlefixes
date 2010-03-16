@@ -1,11 +1,10 @@
 package bwmorg.bouncycastle.crypto.tls;
 
+import java.io.*;
+
 import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
 import bwmorg.bouncycastle.crypto.engines.*;
 import bwmorg.bouncycastle.crypto.modes.CBCBlockCipher;
-
-import java.io.IOException;
-import java.io.OutputStream;
 
 /**
  * A manager for ciphersuite. This class does manage all ciphersuites
@@ -13,6 +12,21 @@ import java.io.OutputStream;
  */
 public class TlsCipherSuiteManager
 {
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 15 July 2007
+     *
+     * Added ability to set which ciphers to report during tls negotiation.
+     */
+    public static final int  TLS_RSA_WITH_3DES_EDE_CBC_SHA_MASK     = 1 << 0;
+    public static final int  TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA_MASK = 1 << 1;
+    public static final int  TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA_MASK = 1 << 2;
+    public static final int  TLS_RSA_WITH_AES_128_CBC_SHA_MASK      = 1 << 3;    
+    public static final int  TLS_DHE_DSS_WITH_AES_128_CBC_SHA_MASK  = 1 << 4;
+    public static final int  TLS_DHE_RSA_WITH_AES_128_CBC_SHA_MASK  = 1 << 5;
+    public static final int  TLS_RSA_WITH_AES_256_CBC_SHA_MASK      = 1 << 6;
+    public static final int  TLS_DHE_DSS_WITH_AES_256_CBC_SHA_MASK  = 1 << 7;
+    public static final int  TLS_DHE_RSA_WITH_AES_256_CBC_SHA_MASK  = 1 << 8;
+    
     private static final int TLS_RSA_WITH_3DES_EDE_CBC_SHA = 0x000a;
     private static final int TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA = 0x0013;
     private static final int TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA = 0x0016;
@@ -33,36 +47,73 @@ public class TlsCipherSuiteManager
 //    private static final int TLS_SRP_SHA_RSA_WITH_AES_256_CBC_SHA = 0xC021;
 //    private static final int TLS_SRP_SHA_DSS_WITH_AES_256_CBC_SHA = 0xC022;
 
-    protected static void writeCipherSuites(OutputStream os) throws IOException
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 15 July 2007
+     *
+     * Added ability to set which ciphers to report during tls negotiation.
+     */
+    protected static void writeCipherSuites( OutputStream os, int cipherMask ) throws IOException
     {
-        int[] suites = new int[]
+        int numberOfCiphers = 0;
+
+        // calculate number of ciphers that we are writing out
+        numberOfCiphers += ( cipherMask & TLS_RSA_WITH_3DES_EDE_CBC_SHA_MASK ) != 0 ? 1 : 0;
+        numberOfCiphers += ( cipherMask & TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA_MASK ) != 0 ? 1 : 0;
+        numberOfCiphers += ( cipherMask & TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA_MASK ) != 0 ? 1 : 0;
+        numberOfCiphers += ( cipherMask & TLS_RSA_WITH_AES_128_CBC_SHA_MASK ) != 0 ? 1 : 0;
+        numberOfCiphers += ( cipherMask & TLS_DHE_DSS_WITH_AES_128_CBC_SHA_MASK ) != 0 ? 1 : 0;
+        numberOfCiphers += ( cipherMask & TLS_DHE_RSA_WITH_AES_128_CBC_SHA_MASK ) != 0 ? 1 : 0;
+        numberOfCiphers += ( cipherMask & TLS_RSA_WITH_AES_256_CBC_SHA_MASK ) != 0 ? 1 : 0;       
+        numberOfCiphers += ( cipherMask & TLS_DHE_DSS_WITH_AES_256_CBC_SHA_MASK ) != 0 ? 1 : 0;
+        numberOfCiphers += ( cipherMask & TLS_DHE_RSA_WITH_AES_256_CBC_SHA_MASK ) != 0 ? 1 : 0;
+
+        TlsUtils.writeUint16( 2 * numberOfCiphers, os );
+
+        if( ( cipherMask & TLS_RSA_WITH_3DES_EDE_CBC_SHA_MASK ) != 0 )
         {
-            TLS_DHE_RSA_WITH_AES_256_CBC_SHA,
-            TLS_DHE_DSS_WITH_AES_256_CBC_SHA,
-            TLS_DHE_RSA_WITH_AES_128_CBC_SHA,
-            TLS_DHE_DSS_WITH_AES_128_CBC_SHA,
-            TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA,
-            TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA,
-            TLS_RSA_WITH_AES_256_CBC_SHA,
-            TLS_RSA_WITH_AES_128_CBC_SHA,
-            TLS_RSA_WITH_3DES_EDE_CBC_SHA,
+            TlsUtils.writeUint16( TLS_RSA_WITH_3DES_EDE_CBC_SHA, os );
+        }       
+        
+        if( ( cipherMask & TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA_MASK ) != 0 )
+        {
+            TlsUtils.writeUint16( TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA, os );
+        }
+        
+        if( ( cipherMask & TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA_MASK ) != 0 )
+        {
+            TlsUtils.writeUint16( TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA, os );
+        }
 
-//            TLS_SRP_SHA_DSS_WITH_AES_256_CBC_SHA,
-//            TLS_SRP_SHA_DSS_WITH_AES_128_CBC_SHA,
-//            TLS_SRP_SHA_DSS_WITH_3DES_EDE_CBC_SHA,
-//            TLS_SRP_SHA_RSA_WITH_AES_256_CBC_SHA,
-//            TLS_SRP_SHA_RSA_WITH_AES_128_CBC_SHA,
-//            TLS_SRP_SHA_RSA_WITH_3DES_EDE_CBC_SHA,
-//            TLS_SRP_SHA_WITH_AES_256_CBC_SHA,
-//            TLS_SRP_SHA_WITH_AES_128_CBC_SHA,
-//            TLS_SRP_SHA_WITH_3DES_EDE_CBC_SHA,
-        };
-
-       TlsUtils.writeUint16(2 * suites.length, os);
-       for (int i = 0; i < suites.length; ++i)
-       {
-           TlsUtils.writeUint16(suites[i], os);
-       }
+        if( ( cipherMask & TLS_RSA_WITH_AES_128_CBC_SHA_MASK ) != 0 )
+        {
+            TlsUtils.writeUint16( TLS_RSA_WITH_AES_128_CBC_SHA, os );
+        }
+                      
+        if( ( cipherMask & TLS_DHE_DSS_WITH_AES_128_CBC_SHA_MASK ) != 0 )
+        {
+            TlsUtils.writeUint16( TLS_DHE_DSS_WITH_AES_128_CBC_SHA, os );
+        }
+        
+        if( ( cipherMask & TLS_DHE_RSA_WITH_AES_128_CBC_SHA_MASK ) != 0 )
+        {
+            TlsUtils.writeUint16( TLS_DHE_RSA_WITH_AES_128_CBC_SHA, os );
+        }
+        
+        if( ( cipherMask & TLS_RSA_WITH_AES_256_CBC_SHA_MASK ) != 0 )
+        {
+            TlsUtils.writeUint16( TLS_RSA_WITH_AES_256_CBC_SHA, os );
+        }
+                               
+        if( ( cipherMask & TLS_DHE_DSS_WITH_AES_256_CBC_SHA_MASK ) != 0 )
+        {
+            TlsUtils.writeUint16( TLS_DHE_DSS_WITH_AES_256_CBC_SHA, os );
+        }
+        
+        if( ( cipherMask & TLS_DHE_RSA_WITH_AES_256_CBC_SHA_MASK ) != 0 )
+        {
+            TlsUtils.writeUint16( TLS_DHE_RSA_WITH_AES_256_CBC_SHA, os );
+        }
+        
     }
 
     protected static TlsCipherSuite getCipherSuite(int number, TlsProtocolHandler handler) throws IOException
@@ -70,30 +121,39 @@ public class TlsCipherSuiteManager
         switch (number)
         {
             case TLS_RSA_WITH_3DES_EDE_CBC_SHA:
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (" + number + ")." );
                 return createDESedeCipherSuite(24, TlsCipherSuite.KE_RSA);
 
             case TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA:
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA (" + number + ")." );
                 return createDESedeCipherSuite(24, TlsCipherSuite.KE_DHE_DSS);
 
             case TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA:
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_RSA_WITH_3DES_EDE_CBC_SHA (" + number + ")." );
                 return createDESedeCipherSuite(24, TlsCipherSuite.KE_DHE_RSA);
 
             case TLS_RSA_WITH_AES_128_CBC_SHA:
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (" + number + ")." );
                 return createAESCipherSuite(16, TlsCipherSuite.KE_RSA);
 
             case TLS_DHE_DSS_WITH_AES_128_CBC_SHA:
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA (" + number + ")." );
                 return createAESCipherSuite(16, TlsCipherSuite.KE_DHE_DSS);
 
             case TLS_DHE_RSA_WITH_AES_128_CBC_SHA:
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA (" + number + ")." );
                 return createAESCipherSuite(16, TlsCipherSuite.KE_DHE_RSA);
 
             case TLS_RSA_WITH_AES_256_CBC_SHA:
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (" + number + ")." );
                 return createAESCipherSuite(32, TlsCipherSuite.KE_RSA);
 
             case TLS_DHE_DSS_WITH_AES_256_CBC_SHA:
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA (" + number + ")." );
                 return createAESCipherSuite(32, TlsCipherSuite.KE_DHE_DSS);
 
             case TLS_DHE_RSA_WITH_AES_256_CBC_SHA:
+                bwmorg.LOG.debug( "TlsCipherSuite: getCipherSuite() - Selected cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA (" + number + ")." );
                 return createAESCipherSuite(32, TlsCipherSuite.KE_DHE_RSA);
 
 //            case TLS_SRP_SHA_WITH_3DES_EDE_CBC_SHA:
