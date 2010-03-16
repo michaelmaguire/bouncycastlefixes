@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="bwmorg/bouncycastle/crypto/examples/" kind="src" path="src"/>
+	<classpathentry excluding="bigjava/math/test/|bwmorg/bouncycastle/asn1/test/|bwmorg/bouncycastle/crypto/examples/|bwmorg/bouncycastle/crypto/test/|bwmorg/bouncycastle/util/test/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/BlueWhaleSystems/junit4.1/junit-4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
