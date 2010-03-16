@@ -1,9 +1,9 @@
 package bwmorg.bouncycastle.crypto.tls;
 
 import java.io.*;
-import java.math.BigInteger;
 import java.util.*;
 
+import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 import bwmorg.bouncycastle.asn1.DERBitString;
 import bwmorg.bouncycastle.asn1.x509.*;
@@ -25,6 +25,15 @@ import bwmorg.bouncycastle.util.BigIntegers;
  */
 public class TlsProtocolHandler
 {
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 24 Jul 2007
+     *
+     * Fake random 20-byte array for testing.
+     */
+    public static final byte[]          CACHED_RANDOM_SEED                    = { -120, -56, 79, 27, -83, 78, -34, 114, 4, -106, 40, -68, 80, -24, 120, 12, -96, 52, -56, 92 };
+    public static final int             CACHED_RANDOM_INT                     = 1185486809;
+   
+    
     private static final BigInteger ONE = BigInteger.valueOf(1);
     private static final BigInteger TWO = BigInteger.valueOf(2);
 
@@ -1537,7 +1546,7 @@ public class TlsProtocolHandler
       */
       public void connect(CertificateVerifyer verifyer) throws IOException {
           // use all the ciphers available
-          connect(verifyer, 0xFFFFFF);
+          connect(verifyer, 0xFFFFFF, (int) (System.currentTimeMillis()/1000));
       }
     
     /**
@@ -1547,8 +1556,13 @@ public class TlsProtocolHandler
      *                 that this certificate is accepted by the client.
      * @throws IOException If handshake was not successful.
      */
-      public void connect(CertificateVerifyer verifyer, int cipherMask) throws IOException
-     {
+      /**
+      * BlueWhaleSystems fix: Tatiana Rybak - 24 Jul 2007
+      *
+      * Pass int t as a parameter. This is used for cached data testing.
+      */
+      public void connect(CertificateVerifyer verifyer, int cipherMask, int t) throws IOException
+      {
         /**
          * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
          *
@@ -1565,8 +1579,13 @@ public class TlsProtocolHandler
         */
         this.clientRandom = new byte[32];
         random.nextBytes(this.clientRandom);
-
-        int t = (int)(System.currentTimeMillis() / 1000);
+        
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 24 Jul 2007
+         *
+         * t parameter is now passed in as an argument.
+         */
+        //int t = (int)(System.currentTimeMillis() / 1000);
         this.clientRandom[0] = (byte)(t >> 24);
         this.clientRandom[1] = (byte)(t >> 16);
         this.clientRandom[2] = (byte)(t >> 8);
@@ -1747,6 +1766,69 @@ public class TlsProtocolHandler
         return len;
     }
 
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 02 Mar 2007
+     * 
+     * Added a method to return available bytes in the data stream.
+     */
+    protected int availableData() throws IOException
+    {
+
+        // the data can be either read and queued in the applicationDataQueue or
+        // it can be available to read in the record store
+        int appDataSize = applicationDataQueue.size();
+        if( appDataSize > 0 )
+        {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 19 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            ////bwmorg.LOG.trace( "TlsProtocolHandler: <-- done availableData(): returning appDataSize: " + appDataSize );
+            return appDataSize;
+        }
+
+        if( this.failedWithError )
+        {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            bwmorg.LOG.info( "TlsProtocolHandler: availableData() - Exception occured, no data available" );
+
+            /*
+             * Something went terribly wrong, we should throw an IOException
+             */
+            throw new IOException( "TLS availableData: Exception occured, no data available" );
+        }
+
+        if( this.closed )
+        {
+            /*
+             * Connection has been closed, there is no more data to read.
+             */
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 19 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            bwmorg.LOG.debug( "TlsProtocolHandler: availableData() - Connection closed, no data available" );
+            return -1;
+        }
+
+        // return the amount of data avialable in the underlying saw socket    
+        int available = rs.available();
+
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 19 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        ////bwmorg.LOG.trace( "TlsProtocolHandler: <-- done availableData(): underlying raw socket available(): " + available );
+        return available;
+    }
+    
     /**
      * Send some application data to the remote system.
      * <p/>
