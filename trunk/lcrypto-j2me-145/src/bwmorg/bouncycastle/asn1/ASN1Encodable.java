@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.asn1;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Base class for objects which can be written directly to ASN.1 output streams.

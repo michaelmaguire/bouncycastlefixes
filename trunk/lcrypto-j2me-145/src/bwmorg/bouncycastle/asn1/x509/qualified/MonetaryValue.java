@@ -1,8 +1,8 @@
 package bwmorg.bouncycastle.asn1.x509.qualified;
 
-import java.math.BigInteger;
 import java.util.Enumeration;
 
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 
 

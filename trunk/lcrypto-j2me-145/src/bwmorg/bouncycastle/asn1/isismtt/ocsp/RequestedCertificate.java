@@ -1,10 +1,9 @@
 package bwmorg.bouncycastle.asn1.isismtt.ocsp;
 
+import java.io.IOException;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x509.X509CertificateStructure;
-
-
-import java.io.IOException;
 
 /**
  * ISIS-MTT-Optional: The certificate requested by the client by inserting the

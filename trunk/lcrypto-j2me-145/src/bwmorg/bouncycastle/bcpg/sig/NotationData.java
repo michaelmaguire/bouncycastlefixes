@@ -1,10 +1,10 @@
 package bwmorg.bouncycastle.bcpg.sig;
 
 
+import java.io.ByteArrayOutputStream;
+
 import bwmorg.bouncycastle.bcpg.*;
 import bwmorg.bouncycastle.util.Strings;
-
-import java.io.ByteArrayOutputStream;
 
 /**
  * Class provided a NotationData object according to

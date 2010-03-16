@@ -1,10 +1,9 @@
 package bwmorg.bouncycastle.asn1.crmf;
 
+import java.util.Enumeration;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x509.Time;
-
-
-import java.util.Enumeration;
 
 public class OptionalValidity
     extends ASN1Encodable

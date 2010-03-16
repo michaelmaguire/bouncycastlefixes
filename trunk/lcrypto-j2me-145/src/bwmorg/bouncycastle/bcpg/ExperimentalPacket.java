@@ -2,8 +2,6 @@ package bwmorg.bouncycastle.bcpg;
 
 import java.io.*;
 
-import bigjava.io.*;
-
 /**
  * basic packet for an experimental packet.
  */

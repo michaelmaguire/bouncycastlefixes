@@ -1,7 +1,8 @@
 package bwmorg.bouncycastle.crypto.params;
 
-import java.math.BigInteger;
 import java.util.Vector;
+
+import bigjava.math.BigInteger;
 
 /**
  * Private key parameters for NaccacheStern cipher. For details on this cipher,

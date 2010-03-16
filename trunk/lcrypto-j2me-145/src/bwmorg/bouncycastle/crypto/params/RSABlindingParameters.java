@@ -1,8 +1,7 @@
 package bwmorg.bouncycastle.crypto.params;
 
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.crypto.CipherParameters;
-
-import java.math.BigInteger;
 
 public class RSABlindingParameters
     implements CipherParameters

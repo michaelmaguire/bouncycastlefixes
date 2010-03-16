@@ -1,9 +1,8 @@
 package bwmorg.bouncycastle.asn1;
 
-import bwmorg.bouncycastle.util.Arrays;
+import java.io.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import bwmorg.bouncycastle.util.Arrays;
 
 public class DERBitString
     extends ASN1Object

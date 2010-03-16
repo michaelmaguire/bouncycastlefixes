@@ -3,8 +3,6 @@ package bwmorg.bouncycastle.bcpg;
 import java.io.*;
 import java.util.Vector;
 
-import bigjava.io.*;
-
 /**
  * reader for Base64 armored objects - read the headers and then start returning
  * bytes when the data is reached. An IOException is thrown if the CRC check

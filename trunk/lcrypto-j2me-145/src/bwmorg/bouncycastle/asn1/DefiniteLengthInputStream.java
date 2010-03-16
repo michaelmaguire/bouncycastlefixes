@@ -1,8 +1,6 @@
 package bwmorg.bouncycastle.asn1;
 
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 import bwmorg.bouncycastle.util.io.Streams;
 

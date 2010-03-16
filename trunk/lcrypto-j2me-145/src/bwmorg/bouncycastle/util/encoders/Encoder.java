@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.util.encoders;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 /**
  * Encode and decode byte arrays (typically from binary to 7-bit ASCII 

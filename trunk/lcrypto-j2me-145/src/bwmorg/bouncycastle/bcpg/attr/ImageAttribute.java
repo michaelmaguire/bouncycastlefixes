@@ -1,9 +1,8 @@
 package bwmorg.bouncycastle.bcpg.attr;
 
-import bwmorg.bouncycastle.bcpg.*;
+import java.io.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import bwmorg.bouncycastle.bcpg.*;
 
 /**
  * Basic type for a image attribute packet.

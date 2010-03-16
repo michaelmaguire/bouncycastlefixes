@@ -1,8 +1,7 @@
 package bwmorg.bouncycastle.math.ec;
 
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.util.Arrays;
-
-import java.math.BigInteger;
 
 class IntArray
 {

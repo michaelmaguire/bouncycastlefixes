@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.asn1.smime;
 
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
 
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.cms.Attribute;

@@ -1,8 +1,8 @@
 package bwmorg.bouncycastle.asn1;
 
 import java.io.IOException;
-import java.math.BigInteger;
 
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.util.Arrays;
 
 public class DERInteger

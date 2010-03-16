@@ -1,12 +1,12 @@
 package bwmorg.bouncycastle.asn1.x509;
 
 
+import java.util.Enumeration;
+
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.crypto.Digest;
 import bwmorg.bouncycastle.crypto.digests.SHA1Digest;
-
-import java.math.BigInteger;
-import java.util.Enumeration;
 
 
 /**

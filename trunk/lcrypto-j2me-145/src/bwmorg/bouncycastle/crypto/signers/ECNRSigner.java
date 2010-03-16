@@ -1,13 +1,12 @@
 package bwmorg.bouncycastle.crypto.signers;
 
 
+import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.generators.ECKeyPairGenerator;
 import bwmorg.bouncycastle.crypto.params.*;
 import bwmorg.bouncycastle.math.ec.*;
-
-import java.math.BigInteger;
 
 /**
  * EC-NR as described in IEEE 1363-2000

@@ -1,11 +1,10 @@
 package bwmorg.bouncycastle.asn1.x509;
 
 
+import java.io.IOException;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.util.Strings;
-
-
-import java.io.IOException;
 
 /**
  * It turns out that the number of standard ways the fields in a DN should be 

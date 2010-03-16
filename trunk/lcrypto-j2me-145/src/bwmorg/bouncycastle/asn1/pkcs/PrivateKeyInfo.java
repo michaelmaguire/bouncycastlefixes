@@ -1,12 +1,11 @@
 package bwmorg.bouncycastle.asn1.pkcs;
 
+import java.io.IOException;
+import java.util.Enumeration;
+
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
-
-import java.io.IOException;
-import java.math.BigInteger;
-import java.util.Enumeration;
 
 public class PrivateKeyInfo
     extends ASN1Encodable

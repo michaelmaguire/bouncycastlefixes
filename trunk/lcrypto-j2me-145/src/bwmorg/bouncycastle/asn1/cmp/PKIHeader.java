@@ -1,10 +1,9 @@
 package bwmorg.bouncycastle.asn1.cmp;
 
+import java.util.Enumeration;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x509.*;
-
-
-import java.util.Enumeration;
 
 public class PKIHeader
     extends ASN1Encodable

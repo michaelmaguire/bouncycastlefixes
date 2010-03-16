@@ -1,10 +1,9 @@
 package bwmorg.bouncycastle.asn1.isismtt.x509;
 
+import java.util.Enumeration;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x500.DirectoryString;
-
-
-import java.util.Enumeration;
 
 /**
  * Professions, specializations, disciplines, fields of activity, etc.

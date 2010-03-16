@@ -1,9 +1,8 @@
 package bwmorg.bouncycastle.bcpg;
 
-import bwmorg.bouncycastle.util.Arrays;
+import java.io.*;
 
-import java.io.IOException;
-import java.io.OutputStream;
+import bwmorg.bouncycastle.util.Arrays;
 
 /**
  * Basic type for a user attribute sub-packet.

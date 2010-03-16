@@ -1,8 +1,8 @@
 package bwmorg.bouncycastle.asn1;
 
-import bwmorg.bouncycastle.util.Strings;
-
 import java.io.IOException;
+
+import bwmorg.bouncycastle.util.Strings;
 
 /**
  * DER UTF8String object.

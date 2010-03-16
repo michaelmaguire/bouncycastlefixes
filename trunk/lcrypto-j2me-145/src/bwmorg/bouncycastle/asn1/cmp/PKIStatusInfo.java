@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.asn1.cmp;
 
-import java.math.BigInteger;
-
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 
 

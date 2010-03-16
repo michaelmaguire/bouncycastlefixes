@@ -2,8 +2,6 @@ package bwmorg.bouncycastle.bcpg;
 
 import java.io.IOException;
 
-import bigjava.io.*;
-
 /**
  * generic compressed data object.
  */

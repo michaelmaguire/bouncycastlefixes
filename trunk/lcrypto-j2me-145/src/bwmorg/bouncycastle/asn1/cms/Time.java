@@ -1,7 +1,5 @@
 package bwmorg.bouncycastle.asn1.cms;
 
-import java.util.Date;
-
 import bwmorg.bouncycastle.asn1.*;
 
 

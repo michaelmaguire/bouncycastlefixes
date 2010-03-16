@@ -1,9 +1,8 @@
 package bwmorg.bouncycastle.crypto.engines;
 
-import java.math.BigInteger;
 import java.util.Vector;
 
-
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.params.*;
 import bwmorg.bouncycastle.util.Arrays;

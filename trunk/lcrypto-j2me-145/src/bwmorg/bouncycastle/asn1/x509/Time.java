@@ -1,7 +1,5 @@
 package bwmorg.bouncycastle.asn1.x509;
 
-import java.util.Date;
-
 import bwmorg.bouncycastle.asn1.*;
 
 

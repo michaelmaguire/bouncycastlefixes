@@ -1,11 +1,10 @@
 package bwmorg.bouncycastle.crypto.signers;
 
 
+import bigjava.math.BigInteger;
 import bigjava.security.SecureRandom;
 import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.params.*;
-
-import java.math.BigInteger;
 
 /**
  * The Digital Signature Algorithm - as described in "Handbook of Applied

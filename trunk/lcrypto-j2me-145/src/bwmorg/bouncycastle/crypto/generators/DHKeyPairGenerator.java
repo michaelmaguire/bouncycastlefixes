@@ -1,7 +1,6 @@
 package bwmorg.bouncycastle.crypto.generators;
 
-import java.math.BigInteger;
-
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.params.*;
 

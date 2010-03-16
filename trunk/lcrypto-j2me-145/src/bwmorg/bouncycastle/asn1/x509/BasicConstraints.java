@@ -1,8 +1,7 @@
 package bwmorg.bouncycastle.asn1.x509;
 
 
-import java.math.BigInteger;
-
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 
 public class BasicConstraints

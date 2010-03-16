@@ -1,10 +1,8 @@
 package bwmorg.bouncycastle.crypto.signers;
 
 import java.io.IOException;
-import java.math.BigInteger;
 
-
-
+import bigjava.math.BigInteger;
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.params.*;

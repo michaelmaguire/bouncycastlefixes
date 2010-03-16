@@ -1,7 +1,6 @@
 package bigjava.util;
 
-import java.util.Enumeration;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 public class StringTokenizer
     implements Enumeration

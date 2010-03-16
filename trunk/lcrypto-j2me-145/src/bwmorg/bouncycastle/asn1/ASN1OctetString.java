@@ -1,13 +1,10 @@
 package bwmorg.bouncycastle.asn1;
 
+import java.io.*;
+import java.util.*;
+
 import bwmorg.bouncycastle.util.Arrays;
 import bwmorg.bouncycastle.util.encoders.Hex;
-
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Enumeration;
-import java.util.Vector;
 
 public abstract class ASN1OctetString
     extends ASN1Object

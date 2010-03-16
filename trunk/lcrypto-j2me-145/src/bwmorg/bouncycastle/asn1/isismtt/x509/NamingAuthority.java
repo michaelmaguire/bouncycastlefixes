@@ -1,11 +1,10 @@
 package bwmorg.bouncycastle.asn1.isismtt.x509;
 
+import java.util.Enumeration;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.isismtt.ISISMTTObjectIdentifiers;
 import bwmorg.bouncycastle.asn1.x500.DirectoryString;
-
-
-import java.util.Enumeration;
 
 /**
  * Names of authorities which are responsible for the administration of title

@@ -3,7 +3,6 @@ package bwmorg.bouncycastle.asn1.util;
 import java.io.IOException;
 import java.util.Enumeration;
 
-
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.util.encoders.Hex;
 

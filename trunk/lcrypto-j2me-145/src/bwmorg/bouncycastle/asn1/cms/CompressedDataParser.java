@@ -1,10 +1,9 @@
 package bwmorg.bouncycastle.asn1.cms;
 
+import java.io.IOException;
+
 import bwmorg.bouncycastle.asn1.*;
 import bwmorg.bouncycastle.asn1.x509.AlgorithmIdentifier;
-
-
-import java.io.IOException;
 
 /**
  * RFC 3274 - CMS Compressed Data.

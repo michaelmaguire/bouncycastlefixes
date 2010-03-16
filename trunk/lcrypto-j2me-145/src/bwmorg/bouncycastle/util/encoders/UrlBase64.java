@@ -1,8 +1,6 @@
 package bwmorg.bouncycastle.util.encoders;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 /**
  * Convert binary data to and from UrlBase64 encoding.  This is identical to

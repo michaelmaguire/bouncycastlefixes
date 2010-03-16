@@ -1,12 +1,10 @@
 package bwmorg.bouncycastle.bcpg;
 
 
+import java.io.*;
+
 import bwmorg.bouncycastle.bcpg.sig.*;
 import bwmorg.bouncycastle.util.io.Streams;
-
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * reader for signature sub-packets

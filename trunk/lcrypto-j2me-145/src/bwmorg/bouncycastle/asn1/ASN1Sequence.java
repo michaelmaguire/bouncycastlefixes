@@ -1,8 +1,7 @@
 package bwmorg.bouncycastle.asn1;
 
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Vector;
+import java.util.*;
 
 public abstract class ASN1Sequence
     extends ASN1Object

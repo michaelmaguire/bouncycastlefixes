@@ -2,7 +2,6 @@ package bwmorg.bouncycastle.crypto.modes;
 
 import java.io.ByteArrayOutputStream;
 
-
 import bwmorg.bouncycastle.crypto.*;
 import bwmorg.bouncycastle.crypto.macs.CBCBlockCipherMac;
 import bwmorg.bouncycastle.crypto.params.*;

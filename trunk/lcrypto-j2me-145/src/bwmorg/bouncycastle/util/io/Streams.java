@@ -1,9 +1,6 @@
 package bwmorg.bouncycastle.util.io;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 
 public final class Streams
 {
