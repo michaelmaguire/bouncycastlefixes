@@ -16,6 +16,13 @@ public class ThreadedSeedGenerator
 
         public void run()
         {
+            /**
+             * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+             *
+             * LOG thread startup.
+             */
+             bwmorg.LOG.debug( "ThreadedSeedGenerator.run NEW THREAD" );
+            
             while (!this.stop)
             {
                 this.counter++;
