@@ -192,6 +192,13 @@ public class TlsUtils
     {
         int read = 0;
         int i = 0;
+        
+        // if the buffer is of size 0 there is nothing we should be reading.
+        if( buf.length == 0 )
+        {
+            return;
+        }
+        
         while (read != buf.length)
         {
             i = is.read(buf, read, (buf.length - read));
