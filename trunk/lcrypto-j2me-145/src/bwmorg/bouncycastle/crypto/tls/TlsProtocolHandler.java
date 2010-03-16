@@ -1060,14 +1060,24 @@ public class TlsProtocolHandler
     }
 
     /**
+      * BlueWhaleSystems fix: Tatiana Rybak - 15 July 2007
+      *
+      * Added ability to set which ciphers to report during tls negotiation.
+      */
+      public void connect(CertificateVerifyer verifyer) throws IOException {
+          // use all the ciphers available
+          connect(verifyer, 0xFFFFFF);
+      }
+    
+    /**
      * Connects to the remote system.
      *
      * @param verifyer Will be used when a certificate is received to verify
      *                 that this certificate is accepted by the client.
      * @throws IOException If handshake was not successful.
      */
-    public void connect(CertificateVerifyer verifyer) throws IOException
-    {
+      public void connect(CertificateVerifyer verifyer, int cipherMask) throws IOException
+     {
         this.verifyer = verifyer;
 
         /*
@@ -1096,7 +1106,11 @@ public class TlsProtocolHandler
         /*
         * Cipher suites
         */
-        TlsCipherSuiteManager.writeCipherSuites(os);
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 15 July 2007
+         * Added ability to set which ciphers to report during tls negotiation.
+         */
+         TlsCipherSuiteManager.writeCipherSuites(os, cipherMask);
 
         /*
         * Compression methods, just the null method.
