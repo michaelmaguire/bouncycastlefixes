@@ -2,6 +2,8 @@ package bwmorg.bouncycastle.crypto.tls;
 
 import java.io.*;
 
+import bwmorg.LOG;
+
 /**
  * An implementation of the TLS 1.0 record layer.
  */
@@ -35,11 +37,12 @@ public class RecordStream
          *
          * Added debug statements for BouncyCastle.
          */
-        bwmorg.LOG.trace( "Tls RecordStream --> readData()." );
+        //bwmorg.LOG.trace( "Tls RecordStream --> readData()." );
         
         short type = TlsUtils.readUint8(is);
         TlsUtils.checkVersion(is, handler);
         int size = TlsUtils.readUint16(is);
+               
         byte[] buf = decodeAndVerify(type, is, size);
         handler.processData(type, buf, 0, buf.length);
 
@@ -48,7 +51,7 @@ public class RecordStream
          *
          * Added debug statements for BouncyCastle.
          */
-        bwmorg.LOG.trace( "Tls RecordStream <-- done readData()" );
+        //bwmorg.LOG.trace( "Tls RecordStream <-- done readData()" );
     }
 
     protected byte[] decodeAndVerify(short type, InputStream is, int len) throws IOException
@@ -66,7 +69,7 @@ public class RecordStream
          *
          * Added debug statements for BouncyCastle.
          */
-        bwmorg.LOG.trace( "Tls RecordStream --> writeMessage()." );
+        //bwmorg.LOG.trace( "Tls RecordStream --> writeMessage()." );
         
         if (type == 22) // TlsProtocolHandler.RL_HANDSHAKE
         {
@@ -88,7 +91,7 @@ public class RecordStream
          *
          * Added debug statements for BouncyCastle.
          */
-        bwmorg.LOG.trace( "Tls RecordStream <-- done writeMessage()." );
+        //bwmorg.LOG.trace( "Tls RecordStream <-- done writeMessage()." );
     }
 
     protected void close() throws IOException
@@ -121,4 +124,12 @@ public class RecordStream
         os.flush();
     }
 
+    /**
+     * BlueWhaleSystems fix: Tatiana Rybak - 02 Mar 2007
+     * 
+     * Added a method to return available bytes in the data stream.
+     */
+    protected int available() throws IOException {
+        return is.available();
+    }
 }
