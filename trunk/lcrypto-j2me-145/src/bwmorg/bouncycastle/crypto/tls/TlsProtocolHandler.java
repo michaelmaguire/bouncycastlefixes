@@ -178,6 +178,12 @@ public class TlsProtocolHandler
          * seed. If the user has a better random seed, he should use
          * the constructor with a SecureRandom.
          */
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.trace( "TlsProtocolHandler: Instantiating..." );
         ThreadedSeedGenerator tsg = new ThreadedSeedGenerator();
         this.random = new SecureRandom();
         /*
@@ -186,6 +192,13 @@ public class TlsProtocolHandler
         this.random.setSeed(tsg.generateSeed(20, true));
 
         this.rs = new RecordStream(this, is, os);
+        
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.trace( "TlsProtocolHandler: Created." );
     }
 
     public TlsProtocolHandler(InputStream is, OutputStream os, SecureRandom sr)
@@ -205,26 +218,72 @@ public class TlsProtocolHandler
         switch (protocol)
         {
             case RL_CHANGE_CIPHER_SPEC:
+                
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                bwmorg.LOG.debug( "TlsProtocolHandler: processData() - CHANGE_CIPHER_SPEC data" );
+                
                 changeCipherSpecQueue.addData(buf, offset, len);
                 processChangeCipherSpec();
                 break;
             case RL_ALERT:
+                
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                bwmorg.LOG.debug( "TlsProtocolHandler: processData() - ALERT data" );
+                
                 alertQueue.addData(buf, offset, len);
                 processAlert();
                 break;
             case RL_HANDSHAKE:
+                
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                bwmorg.LOG.debug( "TlsProtocolHandler: processData() - HANDSHAKE data" );
+                
                 handshakeQueue.addData(buf, offset, len);
                 processHandshake();
                 break;
             case RL_APPLICATION_DATA:
+                
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                bwmorg.LOG.debug( "TlsProtocolHandler: processData() - APPLICATION_DATA data" );
+                
                 if (!appDataReady)
                 {
+                    /**
+                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                     *
+                     * Added debug statements for BouncyCastle.
+                     */
+                    bwmorg.LOG.info( "TlsProtocolHandler: processData() - ERROR: application data is not ready" );
+                    
                     this.failWithError(AL_fatal, AP_unexpected_message);
                 }
                 applicationDataQueue.addData(buf, offset, len);
                 processApplicationData();
                 break;
             default:
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                bwmorg.LOG.info( "TlsProtocolHandler: processData() - ERROR: Unknown data" );
+            
                 /*
                 * Uh, we don't know this protocol.
                 *
@@ -236,6 +295,13 @@ public class TlsProtocolHandler
 
     private void processHandshake() throws IOException
     {
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.debug( "TlsProtocolHandler: in processHandshake()" );
+        
         boolean read;
         do
         {
@@ -253,6 +319,14 @@ public class TlsProtocolHandler
                 short type = TlsUtils.readUint8(bis);
                 int len = TlsUtils.readUint24(bis);
 
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                bwmorg.LOG.trace( "TlsProtocolHandler: processHandshake() - type: " + type + ", len: " + len );
+
+                
                 /*
                 * Check if we have enough bytes in the buffer to read
                 * the full message.
@@ -283,6 +357,13 @@ public class TlsProtocolHandler
                     */
                     ByteArrayInputStream is = new ByteArrayInputStream(buf);
 
+                    /**
+                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                     *
+                     * Added debug statements for BouncyCastle.
+                     */
+                    bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing handshake message. Type: " + type );
+                    
                     /*
                     * Check the type.
                     */
@@ -290,6 +371,13 @@ public class TlsProtocolHandler
                     {
                         case HP_CERTIFICATE:
                         {
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_CERTIFICATE" );
+                            
                             switch (connection_state)
                             {
                                 case CS_SERVER_HELLO_RECEIVED:
@@ -309,12 +397,26 @@ public class TlsProtocolHandler
                                     }
                                     catch (RuntimeException e)
                                     {
+                                        /**
+                                         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                         *
+                                         * Added debug statements for BouncyCastle.
+                                         */
+                                        bwmorg.LOG.info( "TlsProtocolHandler: Error: processHandshake() - unsupported certificate." );
+                                        
                                         this.failWithError(AL_fatal, AP_unsupported_certificate);
                                     }
 
                                     // Sanity check the PublicKeyFactory
                                     if (this.serverPublicKey.isPrivate())
                                     {
+                                        /**
+                                         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                         *
+                                         * Added debug statements for BouncyCastle.
+                                         */
+                                        bwmorg.LOG.info( "TlsProtocolHandler: Error: processHandshake() - certificate private." );
+                                        
                                         this.failWithError(AL_fatal, AP_internal_error);
                                     }
 
@@ -328,6 +430,13 @@ public class TlsProtocolHandler
                                         case TlsCipherSuite.KE_RSA:
                                             if (!(this.serverPublicKey instanceof RSAKeyParameters))
                                             {
+                                                /**
+                                                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                                 *
+                                                 * Added debug statements for BouncyCastle.
+                                                 */
+                                                bwmorg.LOG.info( "TlsProtocolHandler: Error: processHandshake() - certificate unknown." );
+                                                
                                                 this.failWithError(AL_fatal, AP_certificate_unknown);
                                             }
                                             validateKeyUsage(x509Cert, KeyUsage.keyEncipherment);
@@ -336,6 +445,14 @@ public class TlsProtocolHandler
                                         case TlsCipherSuite.KE_SRP_RSA:
                                             if (!(this.serverPublicKey instanceof RSAKeyParameters))
                                             {
+                                                /**
+                                                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                                 *
+                                                 * Added debug statements for BouncyCastle.
+                                                 */
+                                                bwmorg.LOG.info( "TlsProtocolHandler: Error: processHandshake() - certificate unknown." );
+
+                                                
                                                 this.failWithError(AL_fatal, AP_certificate_unknown);
                                             }
                                             validateKeyUsage(x509Cert, KeyUsage.digitalSignature);
@@ -344,10 +461,26 @@ public class TlsProtocolHandler
                                         case TlsCipherSuite.KE_SRP_DSS:
                                             if (!(this.serverPublicKey instanceof DSAPublicKeyParameters))
                                             {
+                                                /**
+                                                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                                 *
+                                                 * Added debug statements for BouncyCastle.
+                                                 */
+                                                bwmorg.LOG.info( "TlsProtocolHandler: Error: processHandshake() - certificate unknown." );
+
+                                                
                                                 this.failWithError(AL_fatal, AP_certificate_unknown);
                                             }
                                             break;
                                         default:
+                                            /**
+                                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                             *
+                                             * Added debug statements for BouncyCastle.
+                                             */
+                                            bwmorg.LOG.info( "TlsProtocolHandler: Error: processHandshake() - certificate unsupported." );
+
+                                        
                                             this.failWithError(AL_fatal, AP_unsupported_certificate);
                                     }
 
@@ -356,20 +489,51 @@ public class TlsProtocolHandler
                                      */
                                     if (!this.verifyer.isValid(cert.getCerts()))
                                     {
+                                        /**
+                                         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                         *
+                                         * Added debug statements for BouncyCastle.
+                                         */
+                                        bwmorg.LOG.info( "TlsProtocolHandler: Error: processHandshake() - invalid certificates." );
+                                        
                                         this.failWithError(AL_fatal, AP_user_canceled);
                                     }
 
                                     break;
                                 }
                                 default:
+                                    /**
+                                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                     *
+                                     * Added debug statements for BouncyCastle.
+                                     */
+                                    bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CERTIFICATE received during wrong connection state." );
+
+                                
                                     this.failWithError(AL_fatal, AP_unexpected_message);
                             }
 
                             connection_state = CS_SERVER_CERTIFICATE_RECEIVED;
                             read = true;
+                            
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_CERTIFICATE" );
+                            
                             break;
                         }
                         case HP_FINISHED:
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_FINISHED" );
+
+                            
                             switch (connection_state)
                             {
                                 case CS_SERVER_CHANGE_CIPHER_SPEC_RECEIVED:
@@ -396,6 +560,13 @@ public class TlsProtocolHandler
                                     {
                                         if (receivedChecksum[i] != checksum[i])
                                         {
+                                            /**
+                                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                             *
+                                             * Added debug statements for BouncyCastle.
+                                             */
+                                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: wrong checksum." );
+                                           
                                             /*
                                             * Wrong checksum in the finished message.
                                             */
@@ -412,10 +583,32 @@ public class TlsProtocolHandler
                                     read = true;
                                     break;
                                 default:
+                                    /**
+                                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                     *
+                                     * Added debug statements for BouncyCastle.
+                                     */
+                                    bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_FINISHED received during wrong connection state." );
+
                                     this.failWithError(AL_fatal, AP_unexpected_message);
                             }
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_FINISHED" );
+
                             break;
                         case HP_SERVER_HELLO:
+
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_SERVER_HELLO" );
+                            
                             switch (connection_state)
                             {
                                 case CS_CLIENT_HELLO_SEND:
@@ -450,6 +643,13 @@ public class TlsProtocolHandler
                                     short compressionMethod = TlsUtils.readUint8(is);
                                     if (compressionMethod != 0)
                                     {
+                                        /**
+                                         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                         *
+                                         * Added debug statements for BouncyCastle.
+                                         */
+                                        bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Compression not supported." );
+
                                         this.failWithError(TlsProtocolHandler.AL_fatal, TlsProtocolHandler.AP_illegal_parameter);
                                     }
 
@@ -487,10 +687,34 @@ public class TlsProtocolHandler
                                     read = true;
                                     break;
                                 default:
+
+                                    /**
+                                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                     *
+                                     * Added debug statements for BouncyCastle.
+                                     */
+                                    bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unexpected message." );
+
                                     this.failWithError(AL_fatal, AP_unexpected_message);
                             }
+                            
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_SERVER_HELLO" );
+
                             break;
                         case HP_SERVER_HELLO_DONE:
+                            
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_SERVER_HELLO_DONE" );
+                            
                             switch (connection_state)
                             {
 
@@ -501,6 +725,13 @@ public class TlsProtocolHandler
                                     */
                                     if (this.chosenCipherSuite.getKeyExchangeAlgorithm() != TlsCipherSuite.KE_RSA)
                                     {
+                                        /**
+                                         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                         *
+                                         * Added debug statements for BouncyCastle.
+                                         */
+                                        bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Chosen key exhange algorithm is not RSA." );
+
                                         this.failWithError(AL_fatal, AP_unexpected_message);
                                     }
 
@@ -557,6 +788,13 @@ public class TlsProtocolHandler
                                             }
                                             catch (InvalidCipherTextException e)
                                             {
+                                                /**
+                                                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                                 *
+                                                 * Added debug statements for BouncyCastle.
+                                                 */
+                                                bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: InvalidCipherTextException thrown." );
+
                                                 /*
                                                 * This should never happen, only during decryption.
                                                 */
@@ -597,6 +835,13 @@ public class TlsProtocolHandler
                                             break;
                                         }
                                         default:
+                                            /**
+                                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                             *
+                                             * Added debug statements for BouncyCastle.
+                                             */
+                                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Unknown key exhange method." );
+
                                             /*
                                             * Problem during handshake, we don't know
                                             * how to handle this key exchange method.
@@ -651,11 +896,32 @@ public class TlsProtocolHandler
                                     read = true;
                                     break;
                                 default:
+                                    /**
+                                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                     *
+                                     * Added debug statements for BouncyCastle.
+                                     */
+                                    bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unexpected message." );
+
                                     this.failWithError(AL_fatal, AP_handshake_failure);
                             }
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_SERVER_HELLO_DONE" );
+                            
                             break;
                         case HP_SERVER_KEY_EXCHANGE:
                         {
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_SERVER_KEY_EXCHANGE" );
+
                             switch (connection_state)
                             {
                                 case CS_SERVER_HELLO_RECEIVED:
@@ -664,6 +930,13 @@ public class TlsProtocolHandler
                                      */
                                     if (this.chosenCipherSuite.getKeyExchangeAlgorithm() != TlsCipherSuite.KE_SRP)
                                     {
+                                        /**
+                                         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                         *
+                                         * Added debug statements for BouncyCastle.
+                                         */
+                                        bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Chosen key exchange is not KE_SRP." );
+
                                         this.failWithError(AL_fatal, AP_unexpected_message);
                                     }
 
@@ -702,20 +975,50 @@ public class TlsProtocolHandler
                                             break;
                                         }
                                         default:
+                                            /**
+                                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                             *
+                                             * Added debug statements for BouncyCastle.
+                                             */
+                                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: Unknown key exchange." );
+
                                             this.failWithError(AL_fatal, AP_unexpected_message);
                                     }
                                     break;
                                 }
                                 default:
+                                    /**
+                                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                     *
+                                     * Added debug statements for BouncyCastle.
+                                     */
+                                    bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unexpected message." );
+
                                     this.failWithError(AL_fatal, AP_unexpected_message);
                             }
 
                             this.connection_state = CS_SERVER_KEY_EXCHANGE_RECEIVED;
+
                             read = true;
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_SERVER_KEY_EXCHANGE" );
+
                             break;
+                            
                         }
                         case HP_CERTIFICATE_REQUEST:
                         {
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - processing HP_CERTIFICATE_REQUEST" );
+
                             switch (connection_state)
                             {
                                 case CS_SERVER_CERTIFICATE_RECEIVED:
@@ -725,6 +1028,13 @@ public class TlsProtocolHandler
                                     */
                                     if (this.chosenCipherSuite.getKeyExchangeAlgorithm() != TlsCipherSuite.KE_RSA)
                                     {
+                                        /**
+                                         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                         *
+                                         * Added debug statements for BouncyCastle.
+                                         */
+                                        bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - key exchange is not KE_RSA" );
+                                        
                                         this.failWithError(AL_fatal, AP_unexpected_message);
                                     }
 
@@ -743,19 +1053,77 @@ public class TlsProtocolHandler
                                     break;
                                 }
                                 default:
+                                    /**
+                                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                                     *
+                                     * Added debug statements for BouncyCastle.
+                                     */
+                                    bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - AP_unexpected_message" );
+
                                     this.failWithError(AL_fatal, AP_unexpected_message);
                             }
 
                             this.connection_state = CS_CERTIFICATE_REQUEST_RECEIVED;
                             read = true;
+                            
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.debug( "TlsProtocolHandler: processHandshake() - done processing HP_CERTIFICATE_REQUEST" );
+                            
                             break;
                         }
                         case HP_HELLO_REQUEST:
+                            
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_HELLO_REQUEST not supported." );
+                            this.failWithError( AL_fatal, AP_unexpected_message );
+                            break;
                         case HP_CLIENT_KEY_EXCHANGE:
+                            
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CLIENT_KEY_EXCHANGE not supported." );
+                            this.failWithError( AL_fatal, AP_unexpected_message );
+                            break;
                         case HP_CERTIFICATE_VERIFY:
+
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CERTIFICATE_VERIFY not supported." );
+                            this.failWithError( AL_fatal, AP_unexpected_message );
+                            break;
                         case HP_CLIENT_HELLO:
+                            
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: HP_CLIENT_HELLO not supported." );
+                            this.failWithError( AL_fatal, AP_unexpected_message );
+                            break;
                         default:
                             // We do not support this!
+                            /**
+                             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                             *
+                             * Added debug statements for BouncyCastle.
+                             */
+                            bwmorg.LOG.info( "TlsProtocolHandler: processHandshake() - Error: unknown unsupported type." );
+              
                             this.failWithError(AL_fatal, AP_unexpected_message);
                             break;
                     }
@@ -763,6 +1131,13 @@ public class TlsProtocolHandler
             }
         }
         while (read);
+        
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.debug( "TlsProtocolHandler: done processHandshake() " );
 
     }
 
@@ -778,6 +1153,13 @@ public class TlsProtocolHandler
 
     private void processAlert() throws IOException
     {
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.debug( "TlsProtocolHandler: in processAlert() " );
+        
         while (alertQueue.size() >= 2)
         {
             /*
@@ -804,7 +1186,12 @@ public class TlsProtocolHandler
                 }
                 catch (Exception e)
                 {
-
+                    /**
+                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                     *
+                     * Added debug statements for BouncyCastle.
+                     */
+                    bwmorg.LOG.info( "TlsProtocolHandler: Error: exception thrown in rs.close()" );
                 }
                 //throw new IOException(TLS_ERROR_MESSAGE);
                 throw new IOException("TLS processAlert");
@@ -826,6 +1213,13 @@ public class TlsProtocolHandler
                  */
             }
         }
+        
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.debug( "TlsProtocolHandler: done processAlert() " );
     }
 
     /**
@@ -836,6 +1230,13 @@ public class TlsProtocolHandler
      */
     private void processChangeCipherSpec() throws IOException
     {
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.debug( "TlsProtocolHandler: in processChangeCipherSpec() " );
+        
         while (changeCipherSpecQueue.size() > 0)
         {
             /*
@@ -846,6 +1247,13 @@ public class TlsProtocolHandler
             changeCipherSpecQueue.removeData(1);
             if (b[0] != 1)
             {
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                bwmorg.LOG.info( "TlsProtocolHandler: processChangeCipherSpec() - Error: unexpected message." );
+
                 /*
                  * This should never happen.
                  */
@@ -864,6 +1272,13 @@ public class TlsProtocolHandler
                 }
                 else
                 {
+                    /**
+                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                     *
+                     * Added debug statements for BouncyCastle.
+                     */
+                    bwmorg.LOG.info( "TlsProtocolHandler: processChangeCipherSpec() - Error: Not in the correct connection state." );
+
                     /*
                      * We are not in the correct connection state.
                      */
@@ -872,6 +1287,13 @@ public class TlsProtocolHandler
 
             }
         }
+        
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.debug( "TlsProtocolHandler: done processChangeCipherSpec() " );
     }
 
     private void processDHEKeyExchange(ByteArrayInputStream is, Signer signer)
@@ -903,6 +1325,13 @@ public class TlsProtocolHandler
               */
              if (!signer.verifySignature(sigByte))
              {
+                 /**
+                  * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                  *
+                  * Added debug statements for BouncyCastle.
+                  */
+                 bwmorg.LOG.debug( "TlsProtocolHandler: processDHEKeyExchange() - Error: Bad certificate." );
+
                  this.failWithError(AL_fatal, AP_bad_certificate);
              }
          }
@@ -921,15 +1350,36 @@ public class TlsProtocolHandler
           */
          if (!p.isProbablePrime(10))
          {
+             /**
+              * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+              *
+              * Added debug statements for BouncyCastle.
+              */
+             bwmorg.LOG.debug( "TlsProtocolHandler: processDHEKeyExchange() - Error: Illegal parameter." );
+
              this.failWithError(AL_fatal, AP_illegal_parameter);
          }
          if (g.compareTo(TWO) < 0 || g.compareTo(p.subtract(TWO)) > 0)
          {
+             /**
+              * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+              *
+              * Added debug statements for BouncyCastle.
+              */
+             bwmorg.LOG.debug( "TlsProtocolHandler: processDHEKeyExchange() - Error: Illegal parameter." );
+
              this.failWithError(AL_fatal, AP_illegal_parameter);
          }
          // TODO For static DH public values, see additional checks in RFC 2631 2.1.5 
          if (Ys.compareTo(TWO) < 0 || Ys.compareTo(p.subtract(ONE)) > 0)
          {
+             /**
+              * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+              *
+              * Added debug statements for BouncyCastle.
+              */
+             bwmorg.LOG.debug( "TlsProtocolHandler: processDHEKeyExchange() - Error: Illegal parameter." );
+
              this.failWithError(AL_fatal, AP_illegal_parameter);
          }
 
@@ -986,6 +1436,13 @@ public class TlsProtocolHandler
              */
             if (!signer.verifySignature(sigByte))
             {
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                bwmorg.LOG.debug( "TlsProtocolHandler: processSRPKeyExchange() - Error: Bad certificate." );
+
                 this.failWithError(AL_fatal, AP_bad_certificate);
             }
         }
@@ -1010,6 +1467,13 @@ public class TlsProtocolHandler
         }
         catch (CryptoException e)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            bwmorg.LOG.debug( "TlsProtocolHandler: processSRPKeyExchange() - Error: illegal parameter." );
+            
             this.failWithError(AL_fatal, AP_illegal_parameter);
         }
     }
@@ -1027,6 +1491,13 @@ public class TlsProtocolHandler
                 int bits = ku.getBytes()[0] & 0xff;
                 if ((bits & keyUsageBits) != keyUsageBits)
                 {
+                    /**
+                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                     *
+                     * Added debug statements for BouncyCastle.
+                     */
+                    bwmorg.LOG.debug( "TlsProtocolHandler: validateKeyUsage() - Error: certificate unknown." );
+                    
                     this.failWithError(AL_fatal, AP_certificate_unknown);
                 }
             }
@@ -1078,6 +1549,13 @@ public class TlsProtocolHandler
      */
       public void connect(CertificateVerifyer verifyer, int cipherMask) throws IOException
      {
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+          bwmorg.LOG.debug( "TlsProtocolHandler: --> in connect()" );
+          
         this.verifyer = verifyer;
 
         /*
@@ -1161,6 +1639,13 @@ public class TlsProtocolHandler
         rs.writeMessage(RL_HANDSHAKE, message, 0, message.length);
         connection_state = CS_CLIENT_HELLO_SEND;
 
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.trace( "TlsProtocolHandler: connect() - Client HELLO sent." );
+        
         /*
         * We will now read data, until we have completed the handshake.
         */
@@ -1171,6 +1656,13 @@ public class TlsProtocolHandler
 
         this.tlsInputStream = new TlsInputStream(this);
         this.tlsOutputStream = new TlsOuputStream(this);
+        
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.debug( "TlsProtocolHandler: <-- done connect()" );
     }
 
     /**
@@ -1193,6 +1685,13 @@ public class TlsProtocolHandler
              */
             if (this.failedWithError)
             {
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 19 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                bwmorg.LOG.info( "TlsProtocolHandler: readApplicationData() - Unable to read data due to previous error." );
+                
                 /*
                  * Something went terribly wrong, we should throw an IOException
                  */
@@ -1215,6 +1714,13 @@ public class TlsProtocolHandler
             {
                 if (!this.closed)
                 {
+                    /**
+                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                     *
+                     * Added debug statements for BouncyCastle.
+                     */
+                    bwmorg.LOG.info( "TlsProtocolHandler: readApplicationData() - Error: IOException thrown during writeMessage." );
+                    
                     this.failWithError(AL_fatal, AP_internal_error);
                 }
                 throw e;
@@ -1223,6 +1729,13 @@ public class TlsProtocolHandler
             {
                 if (!this.closed)
                 {
+                    /**
+                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                     *
+                     * Added debug statements for BouncyCastle.
+                     */
+                    bwmorg.LOG.info( "TlsProtocolHandler: readApplicationData() - Error: Runtime Exception thrown during writeMessage." );
+
                     this.failWithError(AL_fatal, AP_internal_error);
                 }
                 throw e;
@@ -1246,13 +1759,34 @@ public class TlsProtocolHandler
      */
     protected void writeData(byte[] buf, int offset, int len) throws IOException
     {
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.debug( "TlsProtocolHandler: --> in writeData(), writing: " + ( len - offset ) + " bytes." );
+
         if (this.failedWithError)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            bwmorg.LOG.info( "TlsProtocolHandler: writeData() - Error: Cannot write data due to an earlier failure." );
+
             //throw new IOException(TLS_ERROR_MESSAGE);
             throw new IOException("TLS writeData");
         }
         if (this.closed)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            bwmorg.LOG.info( "TlsProtocolHandler: writeData() - Error: Cannot write data the connection was closed." );
+            
             throw new IOException("Sorry, connection has been closed, you cannot write more data");
         }
 
@@ -1279,6 +1813,13 @@ public class TlsProtocolHandler
             {
                 if (!closed)
                 {
+                    /**
+                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                     *
+                     * Added debug statements for BouncyCastle.
+                     */
+                    bwmorg.LOG.info( "TlsProtocolHandler: writeData() - Error: IO Exception thrown during writeMessage." );
+                    
                     this.failWithError(AL_fatal, AP_internal_error);
                 }
                 throw e;
@@ -1287,6 +1828,13 @@ public class TlsProtocolHandler
             {
                 if (!closed)
                 {
+                    /**
+                     * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                     *
+                     * Added debug statements for BouncyCastle.
+                     */
+                    bwmorg.LOG.info( "TlsProtocolHandler: writeData() - Error: Runtime Exception thrown during writeMessage." );
+
                     this.failWithError(AL_fatal, AP_internal_error);
                 }
                 throw e;
@@ -1297,6 +1845,14 @@ public class TlsProtocolHandler
             len -= toWrite;
         }
         while (len > 0);
+
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.debug( "TlsProtocolHandler: <-- done writeData()" );
+
 
     }
 
@@ -1339,6 +1895,13 @@ public class TlsProtocolHandler
      */
     protected void failWithError(short alertLevel, short alertDescription) throws IOException
     {
+        /**
+         * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+         *
+         * Added debug statements for BouncyCastle.
+         */
+        bwmorg.LOG.info( "TlsProtocolHandler: --> in failWithError() -  alertLevel: " + alertLevel + ", AlertDescription: " + alertDescription );
+
         /*
          * Check if the connection is still open.
          */
@@ -1363,12 +1926,26 @@ public class TlsProtocolHandler
             rs.close();
             if (alertLevel == AL_fatal)
             {
+                /**
+                 * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+                 *
+                 * Added debug statements for BouncyCastle.
+                 */
+                bwmorg.LOG.info( "TlsProtocolHandler: failWithError() - fatal error, throwing exception" );
+
                 //throw new IOException(TLS_ERROR_MESSAGE);
                 throw new IOException("TLS failWithError");
             }
         }
         else
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            bwmorg.LOG.info( "TlsProtocolHandler: failWithError() - stream closed; fatal error, throwing exception" );
+            
             //throw new IOException(TLS_ERROR_MESSAGE);
             throw new IOException("TLS failWithError");
         }
@@ -1383,6 +1960,13 @@ public class TlsProtocolHandler
     {
         if (!closed)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            bwmorg.LOG.info( "TlsProtocolHandler.close() - calling failWithError(1,0) for normal termination" );
+
             this.failWithError((short)1, (short)0);
         }
     }
@@ -1397,6 +1981,13 @@ public class TlsProtocolHandler
     {
         if (is.available() > 0)
         {
+            /**
+             * BlueWhaleSystems fix: Tatiana Rybak - 18 Jul 2007
+             *
+             * Added debug statements for BouncyCastle.
+             */
+            bwmorg.LOG.info( "TlsProtocolHandler: assertEmpty() - Error: input stream is not empty." );
+
             this.failWithError(AL_fatal, AP_decode_error);
         }
     }
