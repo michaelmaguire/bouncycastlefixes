@@ -1,5 +1,7 @@
 package bwmorg.bouncycastle.crypto.prng;
 
+import bwmorg.LOG;
+
 /**
  * A thread based seed generator - one source of randomness.
  * <p>
@@ -17,15 +19,33 @@ public class ThreadedSeedGenerator
         public void run()
         {
             /**
-             * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
-             *
-             * LOG thread startup.
+             * BlueWhaleSystems fix: Michael Maguire - 30 Apr 2009
+             * 
+             * Make sure in all run() methods we have an outermost catch(Throwable)
+             * so we catch all possible exceptions in Runnables to avoid app exits.
              */
-             bwmorg.LOG.debug( "ThreadedSeedGenerator.run NEW THREAD" );
-            
-            while (!this.stop)
+            try
             {
-                this.counter++;
+                /**
+                 * BlueWhaleSystems fix: Michael Maguire - 10 Aug 2007
+                 * 
+                 * LOG thread startup.
+                 */
+                LOG.debug( "ThreadedSeedGenerator.run NEW THREAD" );
+
+                while( !this.stop )
+                {
+                    this.counter++;
+                }
+            }
+            catch( Throwable t )
+            {
+                /**
+                 * BlueWhaleSystems fix: Michael Maguire - 30 Apr 2009
+                 * 
+                 * Make sure in all run() methods we have an outermost catch(Throwable)
+                 * so we catch all possible exceptions in Runnables to avoid app exits.
+                 */
             }
 
         }
