@@ -1,14 +1,8 @@
 package bwmorg.bouncycastle.crypto.tls;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.math.BigInteger;
-import java.util.Enumeration;
-import java.util.Hashtable;
-
+import java.util.*;
 
 import bigjava.security.SecureRandom;
 import bwmorg.bouncycastle.asn1.DERBitString;
@@ -128,7 +122,7 @@ public class TlsProtocolHandler
 
     private static final byte[] emptybuf = new byte[0];
 
-    private static final String TLS_ERROR_MESSAGE = "Internal TLS error, this could be an attack";
+    //private static final String TLS_ERROR_MESSAGE = "Internal TLS error, this could be an attack";
 
     /*
     * Queues for data from some protocols.
@@ -812,7 +806,8 @@ public class TlsProtocolHandler
                 {
 
                 }
-                throw new IOException(TLS_ERROR_MESSAGE);
+                //throw new IOException(TLS_ERROR_MESSAGE);
+                throw new IOException("TLS processAlert");
             }
             else
             {
@@ -1187,7 +1182,8 @@ public class TlsProtocolHandler
                 /*
                  * Something went terribly wrong, we should throw an IOException
                  */
-                throw new IOException(TLS_ERROR_MESSAGE);
+                //throw new IOException(TLS_ERROR_MESSAGE);
+                throw new IOException("TLS readApplicationData");
             }
             if (this.closed)
             {
@@ -1238,7 +1234,8 @@ public class TlsProtocolHandler
     {
         if (this.failedWithError)
         {
-            throw new IOException(TLS_ERROR_MESSAGE);
+            //throw new IOException(TLS_ERROR_MESSAGE);
+            throw new IOException("TLS writeData");
         }
         if (this.closed)
         {
@@ -1352,12 +1349,14 @@ public class TlsProtocolHandler
             rs.close();
             if (alertLevel == AL_fatal)
             {
-                throw new IOException(TLS_ERROR_MESSAGE);
+                //throw new IOException(TLS_ERROR_MESSAGE);
+                throw new IOException("TLS failWithError");
             }
         }
         else
         {
-            throw new IOException(TLS_ERROR_MESSAGE);
+            //throw new IOException(TLS_ERROR_MESSAGE);
+            throw new IOException("TLS failWithError");
         }
     }
 
